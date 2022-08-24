@@ -3,13 +3,16 @@ import styled from 'styled-components';
 
 interface Props {
   children: React.ReactNode;
+  onClick?: () => void;
   color?: string;
 }
 
-const DefaultButton = ({ children, color }: Props) => {
+const DefaultButton = ({ children, color, onClick, ...rest }: Props) => {
   return (
     <Wrapper>
-      <StyledButton color={color}>{children}</StyledButton>
+      <StyledButton onClick={onClick} color={color} {...rest}>
+        {children}
+      </StyledButton>
     </Wrapper>
   );
 };
