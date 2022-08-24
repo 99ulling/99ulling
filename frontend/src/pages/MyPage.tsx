@@ -47,8 +47,8 @@ const MyPage = () => {
 export default MyPage;
 
 const MyPageTop = styled.div`
-  background-color: #f2f2f2;
-  padding: 3rem 0;
+  background-color: #fff9f1;
+  padding: 3rem 42px;
   font-size: 1.4rem;
 `;
 
