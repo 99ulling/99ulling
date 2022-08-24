@@ -1,5 +1,7 @@
-import { Button, Input } from '@goorm-dev/gds-goormthon';
+import { Input } from '@goorm-dev/gds-goormthon';
 import styled from 'styled-components';
+
+import { DefaultButton } from '@/components';
 
 const Login = () => {
   return (
@@ -24,9 +26,11 @@ const Login = () => {
           fill="#B3B3B4"
         />
       </svg>
-      <Input />
-      <Button>로그인</Button>
-      <Button>회원가입</Button>
+      <div style={{ width: '100%', padding: '2rem 0' }}>
+        <Input placeholder="닉네임" />
+      </div>
+      <DefaultButton color="#000">로그인</DefaultButton>
+      <DefaultButton>회원가입</DefaultButton>
     </Wrapper>
   );
 };
