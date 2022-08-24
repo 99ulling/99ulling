@@ -4,13 +4,26 @@ import styled from 'styled-components';
 interface Props {
   children: React.ReactNode;
   onClick?: () => void;
+  backgroundColor?: string;
   color?: string;
+  padding?: string;
 }
 
-const DefaultButton = ({ children, color, onClick, ...rest }: Props) => {
+const DefaultButton = ({
+  children,
+  backgroundColor,
+  color,
+  onClick,
+  padding,
+}: Props) => {
   return (
     <Wrapper>
-      <StyledButton onClick={onClick} color={color} {...rest}>
+      <StyledButton
+        onClick={onClick}
+        backgroundColor={backgroundColor}
+        color={color}
+        padding={padding}
+      >
         {children}
       </StyledButton>
     </Wrapper>
@@ -24,7 +37,14 @@ const Wrapper = styled.div`
   padding: 9px 0;
 `;
 
-const StyledButton = styled(Button)<{ color: string }>`
+const StyledButton = styled(Button)<{
+  color: string;
+  backgroundColor: string;
+  padding: string;
+}>`
   width: 100%;
-  background-color: ${(props) => props.color};
+  height: none;
+  background-color: ${(props) => props.backgroundColor};
+  color: ${(props) => props.color};
+  padding: ${(props) => props.padding};
 `;

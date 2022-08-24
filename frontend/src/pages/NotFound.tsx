@@ -1163,12 +1163,16 @@ const NotFound = () => {
           />
         </g>
       </svg>
-
       <Title>404</Title>
       <Wrapper>
         <StyledText>요청하신 페이지를 찾을 수 없어요.</StyledText>
-        <StyledText>올바른 주소로 접속하셨나요?</StyledText>
-        <DefaultButton onClick={() => navigate('/')}>
+        <StyledText id="last">올바른 주소로 접속하셨나요?</StyledText>
+        <DefaultButton
+          onClick={() => navigate('/')}
+          backgroundColor="#F57D14"
+          color="#fff"
+          padding="1rem 0"
+        >
           홈으로 돌아가기
         </DefaultButton>
       </Wrapper>
@@ -1194,4 +1198,8 @@ const Title = styled.div`
 
 const StyledText = styled.div`
   padding-top: 6px;
+
+  &#last {
+    padding-bottom: 2rem;
+  }
 `;
