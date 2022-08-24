@@ -26,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
   }
   #root>div{
     min-height: 100vh;
-    padding: 0 42px;
   }
 `;
 
