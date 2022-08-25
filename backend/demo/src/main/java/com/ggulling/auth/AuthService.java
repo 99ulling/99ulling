@@ -27,7 +27,7 @@ public class AuthService {
         if (user.isPresent() || farm.isPresent()) throw new UserAlreadyExistsException();
 
         if (UserType.FARMER == request.getUserType()) {
-            final Farm newFarm = Farm.newInstance(request.getNickname(), "default.png", request.getLatitude(), request.getLongitude(), request.getAddress());
+            final Farm newFarm = Farm.newInstance(request.getNickname(), request.getLatitude(), request.getLongitude(), request.getAddress());
             farmRepository.save(newFarm);
             return SignInResponse.of(newFarm.getId(), newFarm.getFarmName(), request.getUserType());
         }

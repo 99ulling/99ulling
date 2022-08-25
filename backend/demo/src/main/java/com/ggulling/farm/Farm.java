@@ -36,7 +36,7 @@ public class Farm extends BaseEntity {
     }
 
     public void changeTime(String availableTime) {
-        String[] times = availableTime.replace(" ","")
+        String[] times = availableTime.replace(" ", "")
                 .split("~");
         LocalTime startTime = LocalTime.parse(times[0], DateTimeFormatter.ISO_LOCAL_TIME);
         LocalTime endTime = LocalTime.parse(times[1], DateTimeFormatter.ISO_LOCAL_TIME);
@@ -49,9 +49,9 @@ public class Farm extends BaseEntity {
         this.sharingGgulCount = sharingGgulCount;
     }
 
-    private Farm(final String farmName, final String farmImage, final double latitude, final double longitude, final String address, final boolean share, final LocalTime availableStartTime, final LocalTime availableEndTime, final int sharingGgulCount) {
+    private Farm(final String farmName, final double latitude, final double longitude, final String address, final boolean share, final LocalTime availableStartTime, final LocalTime availableEndTime, final int sharingGgulCount) {
         this.farmName = farmName;
-        this.farmImage = farmImage;
+        this.farmImage = "https://bbang-map-test.s3.ap-northeast-2.amazonaws.com/images/user/ggul.png";
         this.latitude = latitude;
         this.longitude = longitude;
         this.address = address;
@@ -61,7 +61,7 @@ public class Farm extends BaseEntity {
         this.sharingGgulCount = sharingGgulCount;
     }
 
-    public static Farm newInstance(final String farmName, final String farmImage, final double latitude, final double longitude, final String address) {
-        return new Farm(farmName, farmImage, latitude, longitude, address, false, LocalTime.of(10, 00), LocalTime.of(18, 00), 100);
+    public static Farm newInstance(final String farmName, final double latitude, final double longitude, final String address) {
+        return new Farm(farmName, latitude, longitude, address, false, LocalTime.of(10, 00), LocalTime.of(18, 00), 100);
     }
 }
