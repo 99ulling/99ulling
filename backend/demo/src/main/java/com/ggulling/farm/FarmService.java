@@ -27,7 +27,7 @@ public class FarmService {
 
         final Farm targetFarm = farmList.get(0);
 
-        final History history = historyRepository.findFirstByFarmIdAndCreatedAtDesc(targetFarm.getId())
+        final History history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(targetFarm.getId())
                 .orElse(
                         History.newInstance(0, targetFarm.getSharingGgulCount(), null, targetFarm)
                 );
