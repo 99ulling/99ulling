@@ -4,14 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-import { loginNickNameState } from '@/atom/atom';
+import { loginNickNameState, loginUserAddressState } from '@/atom/atom';
 import { Back } from '@/components';
 
 const UserNameSetting = () => {
   const [nickName, setNickName] = useState('');
+  const [userAddress, setUserAddress] = useState('');
   const [danger, setDanger] = useState(false);
   const navigate = useNavigate();
   const setAtomNickName = useSetRecoilState(loginNickNameState);
+  const setAtomAddressName = useSetRecoilState(loginUserAddressState);
 
   const onChangeNickName = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,9 +24,19 @@ const UserNameSetting = () => {
     []
   );
 
+  const onChangeUserAddress = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const userAddressCurrent = e.target.value;
+
+      setUserAddress(userAddressCurrent);
+    },
+    [setUserAddress]
+  );
+
   const handleSubmit = () => {
-    if (nickName) {
+    if (nickName && userAddress) {
       setAtomNickName(nickName);
+      setAtomAddressName(userAddress);
       navigate('/locationlevel');
     } else {
       setDanger(true);
@@ -39,7 +51,27 @@ const UserNameSetting = () => {
         <span style={{ fontWeight: 'bold' }}>이용할 닉네임</span>을 알려주세요
       </Text>
       <div style={{ width: '80%', padding: '2rem 0' }}>
-        <InputSetting onChange={onChangeNickName} />
+        <InputSetting
+          onChange={onChangeNickName}
+          style={{ textAlign: 'center' }}
+          placeholder="닉네임 입력하기"
+        />
+      </div>
+      <div style={{ width: '80%' }}>
+        <InputSetting
+          style={{
+            position: 'relative',
+            top: '40px',
+            left: '20px',
+            width: '26px',
+            height: '26px',
+          }}
+        />
+        <InputSetting
+          onChange={onChangeUserAddress}
+          style={{ textAlign: 'center' }}
+          placeholder="현재 위치 입력"
+        />
       </div>
       <button
         onClick={() => handleSubmit()}
