@@ -17,22 +17,22 @@ public class HistoryService {
     final private HistoryRepository historyRepository;
 
     @Transactional(readOnly = true)
-    public getSharingHistoryListResponse getSharingHistory(Long farmId) {
+    public SharingHistoryListResponse getSharingHistory(Long farmId) {
         List<History> historyList = historyRepository.findAllByFarmIdOrderByCreatedAtDesc(farmId);
         //해당 날의 가장 첫번째 : 총 수량
         //해당 날의 가장 마지막 번째 : 마지막 수량
-        List<getSharingHistoryResponse> sharingList = getDistinctDayHistory(historyList);
+        List<SharingHistoryResponse> sharingList = getDistinctDayHistory(historyList);
 
-        return getSharingHistoryListResponse.of(sharingList);
+        return SharingHistoryListResponse.of(sharingList);
     }
 
     @Transactional(readOnly = true)
-    public getSharingHistoryResponse getSharingTodayHistory(Long farmId) {
+    public SharingHistoryResponse getSharingTodayHistory(Long farmId) {
         List<History> historyList = historyRepository.findAllByFarmIdOrderByCreatedAtDesc(farmId);
 
         List<History> todayHistoryList = getTodayHistories(historyList);
 
-        return getSharingHistoryResponse.of(LocalDate.now(), todayHistoryList);
+        return SharingHistoryResponse.of(LocalDate.now(), todayHistoryList);
     }
 
     private List<History> getTodayHistories(List<History> historyList) {
@@ -42,18 +42,18 @@ public class HistoryService {
         return todayHistoryList;
     }
 
-    private List<getSharingHistoryResponse> getDistinctDayHistory(List<History> historyList) {
+    private List<SharingHistoryResponse> getDistinctDayHistory(List<History> historyList) {
         Set<LocalDate> dateSet = historyList.stream()
                 .map(history -> history.getCreatedAt().toLocalDate())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
 
-        List<getSharingHistoryResponse> sharingList = dateSet.stream()
+        List<SharingHistoryResponse> sharingList = dateSet.stream()
                 .map(date -> {
                     List<History> data = historyList.stream()
                             .filter(history -> history.getCreatedAt().equals(date))
                             .collect(Collectors.toList());
 
-                    return getSharingHistoryResponse.of(date, data);
+                    return SharingHistoryResponse.of(date, data);
                 }).collect(Collectors.toList());
         return sharingList;
     }

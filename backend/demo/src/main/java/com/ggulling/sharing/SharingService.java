@@ -2,6 +2,9 @@ package com.ggulling.sharing;
 
 import com.ggulling.farm.Farm;
 import com.ggulling.farm.FarmRepository;
+import com.ggulling.farm.NoFarmAvailableException;
+import com.ggulling.farm.SearchFarmRequest;
+import com.ggulling.farm.SearchFarmResponse;
 import com.ggulling.history.History;
 import com.ggulling.history.HistoryRepository;
 import com.ggulling.user.User;
@@ -11,7 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -38,16 +44,38 @@ public class SharingService {
         final User user = userRepository.findById(request.getUserId())
                 .orElseThrow(NotExistsFarmException::new);
 
-        final History history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(request.getFarmId())
-                .orElse(
-                        History.newInstance(0, farm.getSharingGgulCount(), user, farm)
-                );
+        final Optional<History> history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(request.getFarmId());
+        final int remains = getRemains(farm, history);
+        if (request.getGgulCount() > remains) throw new InvalidGgulCountException();
 
-        if (request.getGgulCount() > history.getRemainGgulCount()) throw new InvalidGgulCountException();
-        final History newHistory = History.newInstance(request.getGgulCount(), history.getRemainGgulCount() - request.getGgulCount(), user, farm);
-
+        final History newHistory = History.newInstance(request.getGgulCount(), remains - request.getGgulCount(), user, farm);
         historyRepository.save(newHistory);
 
         return new ReserveSharingResponse(newHistory.getId());
+    }
+
+    @Transactional(readOnly = true)
+    public SearchFarmResponse searchFarm(SearchFarmRequest request) {
+
+        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude(), request.getTransportation().getKm());
+        if (farmList.isEmpty()) throw new NoFarmAvailableException();
+
+        Collections.shuffle(farmList);
+
+        final Farm targetFarm = farmList.get(0);
+
+        final History history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(targetFarm.getId())
+                .orElse(
+                        History.newInstance(0, targetFarm.getSharingGgulCount(), null, targetFarm)
+                );
+
+        return SearchFarmResponse.of(targetFarm, history.getRemainGgulCount());
+    }
+
+    private int getRemains(Farm farm, Optional<History> history) {
+        if (history.isEmpty()) {
+            return farm.getSharingGgulCount();
+        }
+        return history.get().getRemainGgulCount();
     }
 }
