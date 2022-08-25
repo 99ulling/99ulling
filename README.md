@@ -23,8 +23,7 @@
 
 귤을 나눔받을 사용자의 위치 기반으로 원하는 반경 내의 귤을 나눔받을 농가를 랜덤으로 추천해 드립니다.
 
-<img src="https://user-images.githubusercontent.com/82494506/186592721-7c37e730-0c17-43a4-ac89-4de47c10b4e2.png" height="450px" margin_right="10px">
-<img src="https://user-images.githubusercontent.com/82494506/186590123-52c1a9d7-bd81-45e0-acf4-2afdb07c28d6.png" height="450px">
+<img src="https://user-images.githubusercontent.com/82494506/186592721-7c37e730-0c17-43a4-ac89-4de47c10b4e2.png" height="450px" margin_right="10px"><img src="https://user-images.githubusercontent.com/82494506/186590123-52c1a9d7-bd81-45e0-acf4-2afdb07c28d6.png" height="450px">
 
 <br>
 
@@ -33,9 +32,7 @@
 농부는 귤을 나눔 할 개수와 나눔이 가능한 시간을 설정하고 나눔을 시작할 수 있습니다.  
 나눔을 시작하면 현재 진행중인 나눔과 과거 나눔 기록을 확인할 수 있습니다.
 
-<img src="https://user-images.githubusercontent.com/82494506/186593323-50613315-4c9d-4a75-9fc8-2b2e48a4c291.png" height="450px">
-<img src="https://user-images.githubusercontent.com/82494506/186590146-b425da1a-be70-4ae0-8278-8e1f5cac9bd2.png" height="450px">
-<img src="https://user-images.githubusercontent.com/82494506/186593341-904616d3-d0c1-4b85-a5e2-5e946022caef.png" height="450px">
+<img src="https://user-images.githubusercontent.com/82494506/186593323-50613315-4c9d-4a75-9fc8-2b2e48a4c291.png" height="450px"><img src="https://user-images.githubusercontent.com/82494506/186590146-b425da1a-be70-4ae0-8278-8e1f5cac9bd2.png" height="450px"><img src="https://user-images.githubusercontent.com/82494506/186593341-904616d3-d0c1-4b85-a5e2-5e946022caef.png" height="450px">
 
 # Architecture
 
