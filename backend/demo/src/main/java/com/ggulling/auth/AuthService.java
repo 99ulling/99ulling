@@ -24,7 +24,7 @@ public class AuthService {
         Optional<User> user = userRepository.findByNickname(request.getNickname());
         Optional<Farm> farm = farmRepository.findByFarmName(request.getNickname());
 
-        if (user.isPresent() || farm.isPresent()) throw new UserExistsException();
+        if (user.isPresent() || farm.isPresent()) throw new UserAlreadyExistsException();
 
         if (UserType.FARMER == request.getUserType()) {
             final Farm newFarm = Farm.newInstance(request.getNickname(), "default.png", request.getLatitude(), request.getLongitude(), request.getAddress());
@@ -41,7 +41,7 @@ public class AuthService {
         Optional<User> user = userRepository.findByNickname(request.getNickname());
         Optional<Farm> farm = farmRepository.findByFarmName(request.getNickname());
 
-        if (user.isEmpty() && farm.isEmpty()) throw new NoExistsUserException();
+        if (user.isEmpty() && farm.isEmpty()) throw new NotExistsUserException();
 
         return user.map(value -> SignInResponse.of(value.getId(), value.getNickname(), UserType.USER))
                 .orElseGet(() -> SignInResponse.of(farm.get().getId(), farm.get().getFarmName(), UserType.FARMER));

@@ -30,9 +30,9 @@ import static springfox.documentation.builders.RequestHandlerSelectors.withClass
 @Configuration
 @Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
-    private static final String API_NAME = "Demo Project API";
+    private static final String API_NAME = "99ulling Project API";
     private static final String API_VERSION = "0.0.1";
-    private static final String API_DESCRIPTION = "demo project";
+    private static final String API_DESCRIPTION = "99ulling project";
 
     @Bean
     public UiConfiguration uiConfig() {
