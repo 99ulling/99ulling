@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface FarmRepository extends JpaRepository<Farm, Long> {
     Optional<Farm> findByFarmName(String nickname);
 
-    Optional<Farm> findByIdAndIsActiveTrue(Long id);
+    Optional<Farm> findByIdAndShareTrue(Long id);
 
     @Query(value = "SELECT *, (6371 * acos(cos(radians(37.4685225))*cos(radians(P_LAT))*cos(radians(P_LON)-radians(126,8943311)+sin(radians(37.4685225))*sin(radians(P_LAT)))) AS distance " +
             "FROM FARM " +

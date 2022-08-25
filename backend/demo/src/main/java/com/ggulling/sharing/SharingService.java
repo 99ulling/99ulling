@@ -32,13 +32,13 @@ public class SharingService {
     }
 
     public ReserveSharingResponse reserveSharing(ReserveSharingRequest request) {
-        final Farm farm = farmRepository.findByIdAndIsActiveTrue(request.getFarmId())
+        final Farm farm = farmRepository.findByIdAndShareTrue(request.getFarmId())
                 .orElseThrow(NotExistsFarmException::new);
 
         final User user = userRepository.findById(request.getUserId())
                 .orElseThrow(NotExistsFarmException::new);
 
-        final History history = historyRepository.findFirstByFarmIdAndCreatedAtDesc(request.getFarmId())
+        final History history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(request.getFarmId())
                 .orElse(
                         History.newInstance(0, farm.getSharingGgulCount(), user, farm)
                 );
