@@ -8,6 +8,7 @@ import com.ggulling.farm.SearchFarmRequest;
 import com.ggulling.farm.SearchFarmResponse;
 import com.ggulling.history.History;
 import com.ggulling.history.HistoryRepository;
+import com.ggulling.history.SharingHistoryResponse;
 import com.ggulling.user.User;
 import com.ggulling.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +16,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -31,9 +34,11 @@ public class SharingService {
     public CreateSharingResponse createSharing(CreateSharingRequest request) {
         Farm farm = farmRepository.findById(request.getFarmId())
                 .orElseThrow(NotExistsFarmException::new);
-        // 마지막 수정일 != 오늘
-        if (!Objects.equals(LocalDate.from(farm.getUpdateAt()), LocalDate.now())) {
+
+        if (!Objects.equals(farm.getUpdateAt().toLocalDate(), LocalDate.now())) {
             farm.activeShare();
+            farm.changeTime(request.getAvailableTime());
+            farm.changeSharingCount(request.getSharingCount());
         }
         return CreateSharingResponse.of(farm.getId(), farm.getFarmImage(), farm.getSharingGgulCount(), farm.getAvailableStartTime(), farm.getAvailableEndTime());
     }
@@ -56,21 +61,18 @@ public class SharingService {
     }
 
     @Transactional(readOnly = true)
-    public SearchFarmResponse searchFarm(SearchFarmRequest request) {
+    public SharingReservationResponse getSharingReservation(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(NotExistsUserException::new);
 
-        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude(), request.getTransportation().getKm());
-        if (farmList.isEmpty()) throw new NoFarmAvailableException();
+        List<History> histories = historyRepository.findAllByUserId(userId)
+                .stream()
+                .filter(history -> history.getCreatedAt().toLocalDate().equals(LocalDate.now()))
+                .collect(Collectors.toList());
 
-        Collections.shuffle(farmList);
+        if (histories.isEmpty()) throw new NotExistsReservationException();
 
-        final Farm targetFarm = farmList.get(0);
-
-        final History history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(targetFarm.getId())
-                .orElse(
-                        History.newInstance(0, targetFarm.getSharingGgulCount(), null, targetFarm)
-                );
-
-        return SearchFarmResponse.of(targetFarm, history.getRemainGgulCount());
+        return SharingReservationResponse.of(histories.get(0));
     }
 
     private int getRemains(Farm farm, Optional<History> history) {
