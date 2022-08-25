@@ -1,4 +1,4 @@
-import { Input } from '@goorm-dev/gds-goormthon';
+import { Alert, Input } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
@@ -10,6 +10,7 @@ import { DefaultButton } from '@/components';
 const Login = () => {
   const navigate = useNavigate();
   const [nickName, setNickName] = useState('');
+  const [danger, setDanger] = useState(false);
   const setAtomNickName = useSetRecoilState(loginNickNameState);
 
   const onChangeNickName = useCallback(
@@ -25,6 +26,8 @@ const Login = () => {
     if (nickName) {
       setAtomNickName(nickName);
       navigate('/locationlevel');
+    } else {
+      setDanger(true);
     }
   };
   return (
@@ -95,6 +98,14 @@ const Login = () => {
             placeholder="닉네임"
           />
         </div>
+        {danger ? (
+          <Alert color="danger" icon-left="danger">
+            닉네임을 입력해주세요
+          </Alert>
+        ) : (
+          <></>
+        )}
+
         <DefaultButton
           color="#F57D14"
           backgroundColor="#ffffff"
