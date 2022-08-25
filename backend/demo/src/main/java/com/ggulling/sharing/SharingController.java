@@ -2,6 +2,8 @@ package com.ggulling.sharing;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +27,10 @@ public class SharingController {
     @PostMapping("/reservation")
     public ReserveSharingResponse reserveSharing(@Valid @RequestBody ReserveSharingRequest request) {
         return sharingService.reserveSharing(request);
+    }
+    @ApiOperation("귤줍이 나눔을 확인합니다.")
+    @GetMapping("/reservation/{userId}")
+    public SharingReservationResponse getSharingReservation(@PathVariable Long userId){
+        return sharingService.getSharingReservation(userId);
     }
 }
