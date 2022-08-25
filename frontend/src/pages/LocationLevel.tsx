@@ -1,7 +1,11 @@
 import { ChevronDownIcon } from '@goorm-dev/gds-goormthon';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { loginNickNameState } from '@/atom/atom';
+
 const LocationLevel = () => {
+  const nickName = useRecoilValue(loginNickNameState);
   return (
     <Wrapper>
       <Location>
@@ -10,7 +14,7 @@ const LocationLevel = () => {
       </Location>
       <SearchText>
         <SearchTextTop>
-          <span style={{ fontWeight: 'bold' }}>귤러가요</span>님을 위한
+          <span style={{ fontWeight: 'bold' }}>{nickName}</span>님을 위한
         </SearchTextTop>
         주변 귤 농가를 찾아볼게요
       </SearchText>
