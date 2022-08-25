@@ -31,9 +31,11 @@ public class SharingService {
     public CreateSharingResponse createSharing(CreateSharingRequest request) {
         Farm farm = farmRepository.findById(request.getFarmId())
                 .orElseThrow(NotExistsFarmException::new);
-        // 마지막 수정일 != 오늘
-        if (!Objects.equals(LocalDate.from(farm.getUpdateAt()), LocalDate.now())) {
+
+        if (!Objects.equals(farm.getUpdateAt().toLocalDate(), LocalDate.now())) {
             farm.activeShare();
+            farm.changeTime(request.getAvailableTime());
+            farm.changeSharingCount(request.getSharingCount());
         }
         return CreateSharingResponse.of(farm.getId(), farm.getFarmImage(), farm.getSharingGgulCount(), farm.getAvailableStartTime(), farm.getAvailableEndTime());
     }
