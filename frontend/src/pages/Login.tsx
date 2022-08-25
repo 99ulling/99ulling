@@ -38,8 +38,8 @@ const Login = () => {
   return (
     <Wrapper>
       <svg
-        width="116"
-        height="159"
+        width="91"
+        height="125"
         viewBox="0 0 116 159"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,6 @@ const Login = () => {
         ) : (
           <></>
         )}
-
         <DefaultButton
           color="#F57D14"
           backgroundColor="#ffffff"
@@ -144,6 +143,24 @@ const Login = () => {
           >
             회원가입
           </DefaultButton>
+        </div>
+        <div
+          style={{
+            position: 'fixed',
+            width: '100%',
+            height: '100%',
+            right: 0,
+            top: '80%',
+            color: '#C5C5C5',
+            fontSize: '12px',
+            textAlign: 'center',
+            lineHeight: '1rem',
+            paddingTop: '50px',
+          }}
+        >
+          귤러가요에서 나눔하는 비상품 귤 기준은
+          <br />
+          사이즈 48mm 이하, 71mm 이상 귤입니다.
         </div>
       </div>
     </Wrapper>
