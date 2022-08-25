@@ -1,11 +1,45 @@
 import { Input, SearchIcon } from '@goorm-dev/gds-goormthon';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { loginFamerAddressState, loginFamerNameState } from '@/atom/atom';
 import { Back } from '@/components';
 
 const FamerNameSetting = () => {
+  const [famerName, setFamerName] = useState('');
+  const [famerAddress, setFamerAddress] = useState('');
   const navigate = useNavigate();
+  const setAtomFamerName = useSetRecoilState(loginFamerNameState);
+  const setAtomAddressName = useSetRecoilState(loginFamerAddressState);
+
+  const onChangeFamerName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const famerNameCurrent = e.target.value;
+
+      setFamerName(famerNameCurrent);
+    },
+    [setFamerName]
+  );
+
+  const onChangeFamerAddress = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const famerAddressCurrent = e.target.value;
+
+      setFamerAddress(famerAddressCurrent);
+    },
+    [setFamerAddress]
+  );
+
+  const handleSubmit = () => {
+    if (famerName && famerAddress) {
+      setAtomFamerName(famerName);
+      setAtomAddressName(famerAddress);
+      navigate('/famersharing');
+    }
+  };
+
   return (
     <Wrapper>
       <Back />
@@ -14,6 +48,7 @@ const FamerNameSetting = () => {
       </Text>
       <div style={{ width: '80%', padding: '2rem 0', paddingBottom: '0px' }}>
         <InputSetting
+          onChange={onChangeFamerName}
           style={{ textAlign: 'center' }}
           placeholder="농장 이름 입력하기"
         />
@@ -29,12 +64,13 @@ const FamerNameSetting = () => {
           }}
         />
         <InputSetting
+          onChange={onChangeFamerAddress}
           style={{ textAlign: 'center' }}
           placeholder="농장 주소 검색"
         />
       </div>
       <button
-        onClick={() => navigate('/famersharing')}
+        onClick={() => handleSubmit()}
         style={{ position: 'absolute', bottom: '60px', right: '42px' }}
       >
         <svg
