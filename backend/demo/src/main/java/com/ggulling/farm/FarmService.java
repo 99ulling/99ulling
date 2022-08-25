@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,11 +28,17 @@ public class FarmService {
 
         final Farm targetFarm = farmList.get(0);
 
-        final History history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(targetFarm.getId())
-                .orElse(
-                        History.newInstance(0, targetFarm.getSharingGgulCount(), null, targetFarm)
-                );
+        final Optional<History> history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(targetFarm.getId());
 
-        return SearchFarmResponse.of(targetFarm, history.getRemainGgulCount());
+        final int remains = getRemains(targetFarm, history);
+
+        return SearchFarmResponse.of(targetFarm, remains);
+    }
+
+    private int getRemains(Farm targetFarm, Optional<History> history) {
+        if (history.isEmpty()) {
+            return targetFarm.getSharingGgulCount();
+        }
+        return history.get().getRemainGgulCount();
     }
 }
