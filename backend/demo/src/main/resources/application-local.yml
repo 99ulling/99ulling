@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/demo?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&serverTimezone=Asia/Seoul
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      #   spring.jpa.hibernate.ddl-auto의 옵션
+      #      update: 기존의 스키마를 유지하며 JPA에 의해 변경된 부분만 추가한다.
+      #      validate: 엔티티와 테이블이 정상적으로 매핑되어있는지만 검증한다.
+      #      create: 기존에 존재하는 스키마를 삭제하고 새로 생성한다.
+      #      create-drop: 스키마를 생성하고 애플리케이션이 종료될 때 삭제한다.
+      #      none: 초기화 동작을 하지 않는다.
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        default_batch_fetch_size: 1000

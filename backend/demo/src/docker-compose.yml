@@ -1,0 +1,10 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8-oracle
+    container_name: demo_db_container
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo
