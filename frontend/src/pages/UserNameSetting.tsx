@@ -82,6 +82,7 @@ const Text = styled.div`
 
 const InputSetting = styled(Input)`
   padding: 1.6rem 0;
+  padding-left: 20px;
   border-color: none;
   text-align: 'center';
 `;
