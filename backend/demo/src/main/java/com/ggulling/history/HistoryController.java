@@ -14,6 +14,7 @@ public class HistoryController {
 
     @GetMapping("/past")
     public getSharingHistoryListResponse getSharingHistory(@PathVariable Long farmId) {
-        historyService.getSharingHistory(farmId);
+        return historyService.getSharingHistory(farmId);
+
     }
 }
