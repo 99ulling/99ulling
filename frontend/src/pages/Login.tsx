@@ -77,15 +77,24 @@ const Login = () => {
           />
         </g>
       </svg>
-
-      <div style={{ width: '100%', padding: '2rem 0' }}>
-        <Input onChange={onChangeEmail} placeholder="닉네임" />
+      <div style={{ width: '60%' }}>
+        <div style={{ width: '100%', padding: '2rem 0' }}>
+          <Input
+            style={{ textAlign: 'center', padding: '1.6rem 0' }}
+            onChange={onChangeEmail}
+            placeholder="닉네임"
+          />
+        </div>
+        <DefaultButton borderColor="#F57D14" color="#000">
+          로그인
+        </DefaultButton>
+        <DefaultButton
+          backgroundColor="#F57D14"
+          onClick={() => navigate('/usertypechoice')}
+        >
+          회원가입
+        </DefaultButton>
       </div>
-      {nickName}
-      <DefaultButton color="#000">로그인</DefaultButton>
-      <DefaultButton onClick={() => navigate('/usertypechoice')}>
-        회원가입
-      </DefaultButton>
     </Wrapper>
   );
 };
