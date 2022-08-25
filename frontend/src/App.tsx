@@ -4,6 +4,7 @@ import {
   AppCompleted,
   FamerNameSetting,
   FamerSharing,
+  FamerUpload,
   LocationLevel,
   Login,
   MyPage,
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/famersharing" element={<FamerSharing />} />
         <Route path="/sharingrequest" element={<SharingRequest />} />
         <Route path="/appcompleted" element={<AppCompleted />} />
+        <Route path="/famerupload" element={<FamerUpload />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="/*" element={<Navigate replace to="/404" />} />
       </Routes>
