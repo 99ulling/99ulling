@@ -15,4 +15,5 @@ public class SignUpRequest {
     private String address;
     private double latitude;
     private double longitude;
+
 }

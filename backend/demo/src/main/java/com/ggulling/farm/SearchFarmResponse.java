@@ -2,11 +2,13 @@ package com.ggulling.farm;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 
 import java.time.format.DateTimeFormatter;
 
 @ToString
+@Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class SearchFarmResponse {
     private Long id;

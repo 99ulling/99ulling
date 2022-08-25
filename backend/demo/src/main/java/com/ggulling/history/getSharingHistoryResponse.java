@@ -2,6 +2,7 @@ package com.ggulling.history;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -10,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @ToString
+@Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class getSharingHistoryResponse {
     private Long id;
