@@ -201,7 +201,7 @@ const UserTypeChoice = () => {
       </SVGWrapper>
       <button
         onClick={() =>
-          flag ? navigate('/usernamesetting') : navigate('/usernamesetting')
+          flag ? navigate('/famernamesetting') : navigate('/usernamesetting')
         }
         style={{ position: 'absolute', bottom: '60px', right: '42px' }}
       >

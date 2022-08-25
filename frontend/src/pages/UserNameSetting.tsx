@@ -7,7 +7,7 @@ const UserNameSetting = () => {
   return (
     <Wrapper>
       <Text>
-        <span style={{ fontWeight: 'bold' }}>이용할 닉네임</span>을 적어주세요
+        <span style={{ fontWeight: 'bold' }}>이용할 닉네임</span>을 알려주세요
       </Text>
       <div style={{ width: '80%', padding: '2rem 0' }}>
         <InputSetting />
