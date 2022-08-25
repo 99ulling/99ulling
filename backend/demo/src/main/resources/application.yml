@@ -26,3 +26,7 @@ spring:
         code: 401
         msg: '농가가 존재하지 않습니다. '
         type: com.ggulling.sharing.NotExistsFarmException
+      reservationNotExistsException:
+        code: 401
+        msg: '예약이 존재하지 않습니다. '
+        type: com.ggulling.sharing.NotExistsReservationException
