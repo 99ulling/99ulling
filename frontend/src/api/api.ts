@@ -1,19 +1,38 @@
 import axios from 'axios';
+
+import { Search, SignUp } from '@/interface';
 axios.defaults.baseURL = import.meta.env.VITE_REACT_APP_URL;
 
-// const instance = axios.create({
-//   baseURL: import.meta.env.VITE_REACT_APP_URL,
-// });
+const instance = axios.create({
+  baseURL: import.meta.env.VITE_REACT_APP_URL,
+  headers: {
+    'Content-Type': 'application/json',
+    accept: '*/*',
+  },
+});
 
-// const signUp = (nickname: string) => {
-//   return instance({
-//     url: `/api/v1/auth/signup`,
-//   });
-// };
+export const signUp = (data: SignUp) => {
+  return instance({
+    url: `/api/v1/auth/signup`,
+    data,
+    method: 'POST',
+  });
+};
 
-// const login = () => {
-//   return instance({
-//     url: '/api/v1/auth/signin',
-//     // data: nickname,
-//   });
-// };
+export const signIn = (nickname: string) => {
+  return instance({
+    url: '/api/v1/auth/signIn',
+    data: {
+      nickname,
+    },
+    method: 'POST',
+  });
+};
+
+export const search = (data: Search) => {
+  return instance({
+    url: '/api/v1/auth/signin',
+    data,
+    method: 'POST',
+  });
+};
