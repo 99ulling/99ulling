@@ -1,5 +1,6 @@
 package com.ggulling.sharing;
 
+import com.ggulling.auth.NotExistsUserException;
 import com.ggulling.farm.Farm;
 import com.ggulling.farm.FarmRepository;
 import com.ggulling.farm.NoFarmAvailableException;
@@ -42,7 +43,7 @@ public class SharingService {
                 .orElseThrow(NotExistsFarmException::new);
 
         final User user = userRepository.findById(request.getUserId())
-                .orElseThrow(NotExistsFarmException::new);
+                .orElseThrow(NotExistsUserException::new);
 
         final Optional<History> history = historyRepository.findFirstByFarmIdOrderByCreatedAtDesc(request.getFarmId());
         final int remains = getRemains(farm, history);

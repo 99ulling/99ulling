@@ -3,30 +3,26 @@ server:
 spring:
   response:
     success:
-      code : 200
-      msg : SUCCESS
+      code: 200
+      msg: SUCCESS
     exceptions:
-      postNotExists:
-        code: 401
-        msg: '글이 존재하지 않습니다. '
-        type : com.ggulling.post.NotExistsPostException
       userNotException:
         code: 401
         msg: '사용자 존재하지 않습니다. '
-        type : com.ggulling.auth.NotExistsUserException
+        type: com.ggulling.auth.NotExistsUserException
       userAlreadyExists:
         code: 409
         msg: '사용자가 이미 존재합니다. '
-        type : com.ggulling.auth.UserAlreadyExistsException
+        type: com.ggulling.auth.UserAlreadyExistsException
       FarmUnAvailableException:
         code: 401
         msg: '유효하지 않은 농장입니다. '
-        type : com.ggulling.farm.NoFarmAvailableException
+        type: com.ggulling.farm.NoFarmAvailableException
       InvalidGgulCountException:
         code: 401
         msg: '현재 보유량보다 많아 유효하지 않습니다. '
-        type : com.ggulling.sharing.InvalidGgulCountException
+        type: com.ggulling.sharing.InvalidGgulCountException
       farmNotExistsException:
         code: 401
         msg: '농가가 존재하지 않습니다. '
-        type : com.ggulling.sharing.NotExistsFarmException
+        type: com.ggulling.sharing.NotExistsFarmException

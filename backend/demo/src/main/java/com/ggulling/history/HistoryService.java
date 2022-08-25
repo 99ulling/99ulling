@@ -18,10 +18,8 @@ public class HistoryService {
 
     @Transactional(readOnly = true)
     public SharingHistoryListResponse getSharingHistory(Long farmId) {
-        List<History> historyList = historyRepository.findAllByFarmIdOrderByCreatedAtDesc(farmId);
-        //해당 날의 가장 첫번째 : 총 수량
-        //해당 날의 가장 마지막 번째 : 마지막 수량
-        List<SharingHistoryResponse> sharingList = getDistinctDayHistory(historyList);
+        final List<History> historyList = historyRepository.findAllByFarmIdOrderByCreatedAtDesc(farmId);
+        final List<SharingHistoryResponse> sharingList = getDistinctDayHistory(historyList);
 
         return SharingHistoryListResponse.of(sharingList);
     }
@@ -36,10 +34,9 @@ public class HistoryService {
     }
 
     private List<History> getTodayHistories(List<History> historyList) {
-        List<History> todayHistoryList = historyList.stream()
+        return historyList.stream()
                 .filter(history -> history.getCreatedAt().toLocalDate().equals(LocalDate.now()))
                 .collect(Collectors.toList());
-        return todayHistoryList;
     }
 
     private List<SharingHistoryResponse> getDistinctDayHistory(List<History> historyList) {
@@ -47,7 +44,7 @@ public class HistoryService {
                 .map(history -> history.getCreatedAt().toLocalDate())
                 .collect(Collectors.toCollection(LinkedHashSet::new));
 
-        List<SharingHistoryResponse> sharingList = dateSet.stream()
+        return dateSet.stream()
                 .map(date -> {
                     List<History> data = historyList.stream()
                             .filter(history -> history.getCreatedAt().equals(date))
@@ -55,7 +52,6 @@ public class HistoryService {
 
                     return SharingHistoryResponse.of(date, data);
                 }).collect(Collectors.toList());
-        return sharingList;
     }
 
 }
