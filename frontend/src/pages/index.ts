@@ -1,3 +1,4 @@
+export { default as AppCompleted } from './AppCompleted';
 export { default as FamerNameSetting } from './FamerNameSetting';
 export { default as FamerSharing } from './FamerSharing';
 export { default as LocationLevel } from './LocationLevel';

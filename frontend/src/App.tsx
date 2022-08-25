@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import {
+  AppCompleted,
   FamerNameSetting,
   FamerSharing,
   LocationLevel,
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/famernamesetting" element={<FamerNameSetting />} />
         <Route path="/famersharing" element={<FamerSharing />} />
         <Route path="/sharingrequest" element={<SharingRequest />} />
+        <Route path="/appcompleted" element={<AppCompleted />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="/*" element={<Navigate replace to="/404" />} />
       </Routes>
