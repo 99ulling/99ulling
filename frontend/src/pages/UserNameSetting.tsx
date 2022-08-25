@@ -34,6 +34,7 @@ const UserNameSetting = () => {
   return (
     <Wrapper>
       <Back />
+      {danger}
       <Text>
         <span style={{ fontWeight: 'bold' }}>이용할 닉네임</span>을 알려주세요
       </Text>
