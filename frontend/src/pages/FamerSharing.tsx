@@ -32,7 +32,6 @@ const FamerSharing = () => {
       >
         <div style={{ width: '49%' }}>
           <DefaultButton
-            border="828282"
             backgroundColor="828282"
             color="828282"
             padding="1rem 0"
@@ -41,11 +40,7 @@ const FamerSharing = () => {
           </DefaultButton>
         </div>
         <div style={{ width: '49%' }}>
-          <DefaultButton
-            border="none"
-            backgroundColor="D9D9D9"
-            padding="1rem 0"
-          >
+          <DefaultButton backgroundColor="D9D9D9" padding="1rem 0">
             예
           </DefaultButton>
         </div>
