@@ -1,10 +1,11 @@
 import { Input } from '@goorm-dev/gds-goormthon';
 
-import { DefaultButton } from '@/components';
+import { Back, DefaultButton } from '@/components';
 
 const Sharing = () => {
   return (
     <div>
+      <Back />
       <div style={{ width: '100%', padding: '2rem 0' }}>
         <Input placeholder="닉네임" />
       </div>

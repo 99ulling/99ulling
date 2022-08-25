@@ -3,11 +3,13 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
 import { loginNickNameState } from '@/atom/atom';
+import { Back } from '@/components';
 
 const LocationLevel = () => {
   const nickName = useRecoilValue(loginNickNameState);
   return (
     <Wrapper>
+      <Back />
       <Location>
         현위치 제주도 첨단로 242
         <ChevronDownIcon />

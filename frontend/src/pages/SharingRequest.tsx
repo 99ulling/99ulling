@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { DefaultButton } from '@/components';
+import { Back, DefaultButton } from '@/components';
 
 const SharingRequest = () => {
   const navigate = useNavigate();
   return (
     <div>
+      <Back />
       <img width="100%" src="/sharing99.png" alt="sharing99.png" />
       <Wrapper>
         <FamerName>귤마마씨</FamerName>
@@ -18,7 +19,7 @@ const SharingRequest = () => {
           <br /> 자라나 맛 좋고 싱싱한 감귤 농장입니다.
         </Introduction>
 
-        <div style={{ paddingTop: '1.2rem' }}>
+        <div style={{ width: '100%', padding: '1.2rem 42px 0 42px' }}>
           <DefaultButton
             backgroundColor="#F57D14"
             onClick={() => navigate('/usertypechoice')}

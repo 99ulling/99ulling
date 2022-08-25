@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-import { BeforeShare } from '@/components';
+import { Back, BeforeShare } from '@/components';
 
 const MyPage = () => {
   return (
     <div>
+      <Back />
       <MyPageTop>
         <b>농장 이름</b>님 안녕하세요!
         <br />

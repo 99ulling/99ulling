@@ -5,7 +5,7 @@ import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { loginNickNameState } from '@/atom/atom';
-import { DefaultButton } from '@/components';
+import { Back, DefaultButton } from '@/components';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,6 +32,7 @@ const Login = () => {
   };
   return (
     <Wrapper>
+      <Back />
       <svg
         width="110"
         height="110"

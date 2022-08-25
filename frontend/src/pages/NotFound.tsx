@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { DefaultButton } from '@/components';
+import { Back, DefaultButton } from '@/components';
 
 const NotFound = () => {
   const navigate = useNavigate();
   return (
     <Wrapper>
+      <Back />
       <svg
         width="100%"
         height="300"
