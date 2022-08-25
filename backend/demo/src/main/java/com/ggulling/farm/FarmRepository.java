@@ -16,9 +16,9 @@ public interface FarmRepository extends JpaRepository<Farm, Long> {
 
     @Query(value = "SELECT *, (6371 * acos(cos(radians(37.4685225))*cos(radians(P_LAT))*cos(radians(P_LON)-radians(126,8943311)+sin(radians(37.4685225))*sin(radians(P_LAT)))) AS distance " +
             "FROM FARM " +
-            "WHERE share = 'TRUE'"+
+            "WHERE share = 'TRUE'" +
             "HAVING distance <= 0.3 " +
             "ORDER BY distance "
             , nativeQuery = true)
-    List<Farm> findFarmByRadius(double latitude, double longitude); // 37 -> lat, 126 -> lon
+    List<Farm> findFarmByRadius(double latitude, double longitude, int km);
 }

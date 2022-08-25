@@ -13,16 +13,16 @@ import java.util.List;
 @Transactional
 @RequiredArgsConstructor
 public class FarmService {
+    public static final int RADIUS = 1;
     final private FarmRepository farmRepository;
     final private HistoryRepository historyRepository;
 
     @Transactional(readOnly = true)
     public SearchFarmResponse searchFarm(SearchFarmRequest request) {
-        // 해당 반경 내의 귤 농장 가져옴
-        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude());
 
+        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude(), request.getTransportation().getKm());
         if (farmList.isEmpty()) throw new NoFarmAvailableException();
-        // 그 중에 랜덤 하나
+
         Collections.shuffle(farmList);
 
         final Farm targetFarm = farmList.get(0);

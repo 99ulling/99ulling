@@ -8,5 +8,4 @@ public class SearchFarmRequest {
     private Long longitude;
     private String address;
     private Transportation transportation;
-    private String arrivalTime;
 }
