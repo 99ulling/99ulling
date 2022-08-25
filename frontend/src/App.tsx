@@ -7,6 +7,7 @@ import {
   Login,
   MyPage,
   NotFound,
+  SharingRequest,
   UserNameSetting,
   UserTypeChoice,
 } from '@/pages';
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/usernamesetting" element={<UserNameSetting />} />
         <Route path="/famernamesetting" element={<FamerNameSetting />} />
         <Route path="/famersharing" element={<FamerSharing />} />
+        <Route path="/sharingrequest" element={<SharingRequest />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="/*" element={<Navigate replace to="/404" />} />
       </Routes>
