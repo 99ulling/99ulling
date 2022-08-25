@@ -1,15 +1,18 @@
 import { Input } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { loginNickNameState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
 
 const Login = () => {
   const navigate = useNavigate();
   const [nickName, setNickName] = useState('');
+  const setAtomNickName = useSetRecoilState(loginNickNameState);
 
-  const onChangeEmail = useCallback(
+  const onChangeNickName = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const nickNameCurrent = e.target.value;
 
@@ -17,6 +20,13 @@ const Login = () => {
     },
     []
   );
+
+  const handleLogin = () => {
+    if (nickName) {
+      setAtomNickName(nickName);
+      navigate('/locationlevel');
+    }
+  };
   return (
     <Wrapper>
       <svg
@@ -78,22 +88,30 @@ const Login = () => {
         </g>
       </svg>
       <div style={{ width: '60%' }}>
-        <div style={{ width: '100%', padding: '2rem 0' }}>
+        <div style={{ width: '100%', paddingTop: '2rem' }}>
           <Input
             style={{ textAlign: 'center', padding: '1.6rem 0' }}
-            onChange={onChangeEmail}
+            onChange={onChangeNickName}
             placeholder="닉네임"
           />
         </div>
-        <DefaultButton borderColor="#F57D14" color="#000">
+        <DefaultButton
+          color="#F57D14"
+          backgroundColor="#ffffff"
+          padding="0.8rem 0"
+          onClick={() => handleLogin()}
+        >
           로그인
         </DefaultButton>
-        <DefaultButton
-          backgroundColor="#F57D14"
-          onClick={() => navigate('/usertypechoice')}
-        >
-          회원가입
-        </DefaultButton>
+        <div style={{ paddingTop: '1.2rem' }}>
+          <DefaultButton
+            backgroundColor="#F57D14"
+            onClick={() => navigate('/usertypechoice')}
+            padding="0.8rem 0"
+          >
+            회원가입
+          </DefaultButton>
+        </div>
       </div>
     </Wrapper>
   );
