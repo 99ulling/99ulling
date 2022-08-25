@@ -1,6 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import {
+  FamerNameSetting,
+  FamerSharing,
   LocationLevel,
   Login,
   MyPage,
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/locationlevel" element={<LocationLevel />} />
         <Route path="/usernamesetting" element={<UserNameSetting />} />
+        <Route path="/famernamesetting" element={<FamerNameSetting />} />
+        <Route path="/famersharing" element={<FamerSharing />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="/*" element={<Navigate replace to="/404" />} />
       </Routes>
