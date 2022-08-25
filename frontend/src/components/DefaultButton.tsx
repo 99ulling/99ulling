@@ -45,7 +45,7 @@ const StyledButton = styled(Button)<{
   width: 100%;
   height: auto;
   background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.color ?? '#F57D14'};
+  color: ${(props) => props.color ?? '#ffaa01'};
   padding: ${(props) => props.padding};
-  border: 1px solid #f57d14;
+  border: 1px solid #ffaa01;
 `;

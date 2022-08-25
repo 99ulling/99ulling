@@ -6,11 +6,7 @@ import { Back, DefaultButton } from '@/components';
 import Lottie from '@/components/Lottie';
 
 const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
-  <Lottie
-    {...props}
-    data-testid="completeLottie"
-    src="https://static.toss.im/lotties/general/check.json"
-  />
+  <Lottie {...props} data-testid="completeLottie" src="/public/check.json" />
 );
 
 const AppCompleted = () => {

@@ -1,23 +1,50 @@
 import { ChevronDownIcon } from '@goorm-dev/gds-goormthon';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
-import { Back } from '@/components';
+import { loginFamerAddressState, loginFamerNameState } from '@/atom/atom';
+import { Back, DefaultButton } from '@/components';
 
 const FamerSharing = () => {
+  const famerName = useRecoilValue(loginFamerNameState);
+  const famerAddress = useRecoilValue(loginFamerAddressState);
   return (
     <Wrapper>
       <Back />
       <Location>
-        현위치 제주도 첨단로 242
+        농장 위치 {famerAddress}
         <ChevronDownIcon />
       </Location>
       <SearchText>
         <SearchTextTop>
-          <span style={{ fontWeight: 'bold' }}>귤러가요</span>님
+          <span style={{ fontWeight: 'bold' }}>{famerName}</span>님
         </SearchTextTop>
         오늘 나눔 하실건가요?
       </SearchText>
-      <ChoiceText>이동수단을 선택해주세요</ChoiceText>
+      <div
+        style={{
+          width: '100%',
+          padding: '0 42px',
+          paddingTop: '1.2rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div style={{ width: '49%' }}>
+          <DefaultButton
+            backgroundColor="828282"
+            color="828282"
+            padding="1rem 0"
+          >
+            아니요
+          </DefaultButton>
+        </div>
+        <div style={{ width: '49%' }}>
+          <DefaultButton backgroundColor="D9D9D9" padding="1rem 0">
+            예
+          </DefaultButton>
+        </div>
+      </div>
     </Wrapper>
   );
 };
