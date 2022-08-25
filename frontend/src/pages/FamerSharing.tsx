@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from '@goorm-dev/gds-goormthon';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
@@ -6,15 +6,13 @@ import { loginFamerAddressState, loginFamerNameState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
 const FamerSharing = () => {
+  const navigate = useNavigate();
   const famerName = useRecoilValue(loginFamerNameState);
   const famerAddress = useRecoilValue(loginFamerAddressState);
   return (
     <Wrapper>
       <Back />
-      <Location>
-        농장 위치 {famerAddress}
-        <ChevronDownIcon />
-      </Location>
+      <Location>농장 위치 {famerAddress}</Location>
       <SearchText>
         <SearchTextTop>
           <span style={{ fontWeight: 'bold' }}>{famerName}</span>님
@@ -40,7 +38,11 @@ const FamerSharing = () => {
           </DefaultButton>
         </div>
         <div style={{ width: '49%' }}>
-          <DefaultButton backgroundColor="D9D9D9" padding="1rem 0">
+          <DefaultButton
+            onClick={() => navigate}
+            backgroundColor="D9D9D9"
+            padding="1rem 0"
+          >
             예
           </DefaultButton>
         </div>
@@ -71,9 +73,4 @@ const SearchText = styled.div`
 const SearchTextTop = styled.div`
   text-align: center;
   padding-bottom: 10px;
-`;
-
-const ChoiceText = styled.div`
-  padding: 1rem 0;
-  font-weight: bold;
 `;
