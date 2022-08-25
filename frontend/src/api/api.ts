@@ -14,6 +14,6 @@ const signUp = (nickname: string) => {
 const login = () => {
   return instance({
     url: '/api/v1/auth/signin',
-    data: nickname,
+    // data: nickname,
   });
 };

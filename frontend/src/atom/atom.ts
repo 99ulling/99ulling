@@ -2,5 +2,5 @@ import { atom } from 'recoil';
 
 export const loginNickNameState = atom({
   key: 'loginNickNameState',
-  default: '뀰줍',
+  default: '사용자',
 });

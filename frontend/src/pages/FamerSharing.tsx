@@ -1,9 +1,12 @@
 import { ChevronDownIcon } from '@goorm-dev/gds-goormthon';
 import styled from 'styled-components';
 
+import { Back } from '@/components';
+
 const FamerSharing = () => {
   return (
     <Wrapper>
+      <Back />
       <Location>
         현위치 제주도 첨단로 242
         <ChevronDownIcon />

@@ -2,10 +2,13 @@ import { Input, SearchIcon } from '@goorm-dev/gds-goormthon';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { Back } from '@/components';
+
 const FamerNameSetting = () => {
   const navigate = useNavigate();
   return (
     <Wrapper>
+      <Back />
       <Text>
         <span style={{ fontWeight: 'bold' }}>농장 정보</span>를 알려주세요
       </Text>

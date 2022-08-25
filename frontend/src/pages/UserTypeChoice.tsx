@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { Back } from '@/components';
+
 interface Props {
   id: string;
 }
@@ -178,6 +180,7 @@ const UserTypeChoice = () => {
   const [flag, setFlag] = useState(true);
   return (
     <Wrapper>
+      <Back />
       <Text>
         <span style={{ fontWeight: 'bold' }}>사용자 유형</span>을 선택해주세요
       </Text>
