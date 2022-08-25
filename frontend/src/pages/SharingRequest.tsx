@@ -13,7 +13,7 @@ const SharingRequest = () => {
         <FamerName>귤마마씨</FamerName>
         <FamerAddress>제주시 서귀포시 농장로 342길 2</FamerAddress>
         <Time>이용 시간 13:00 - 19:00</Time>
-        <Bar>Bar</Bar>
+        <Bar>잔여 개수 33/100</Bar>
         <Introduction>
           제주의 뜨거운 태양과 맑은 물을 먹고
           <br /> 자라나 맛 좋고 싱싱한 감귤 농장입니다.
@@ -43,7 +43,7 @@ const FamerName = styled.div`
 
 const FamerAddress = styled.div`
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 18px;
   padding-top: 1rem;
 `;
 
@@ -56,7 +56,8 @@ const Wrapper = styled.div`
 
 const Time = styled.div`
   color: #727272;
-  padding: 4px 0;
+  padding-top: 1rem;
+  font-size: 1rem;
 `;
 
 const Bar = styled.div`
@@ -66,5 +67,6 @@ const Bar = styled.div`
 const Introduction = styled.div`
   color: #727272;
   text-align: center;
-  line-height: 1.4rem;
+  font-size: 14px;
+  line-height: 1.2rem;
 `;
