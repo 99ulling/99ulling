@@ -22,7 +22,7 @@ const SharingRequest = () => {
         <div style={{ width: '100%', padding: '1.2rem 42px 0 42px' }}>
           <DefaultButton
             backgroundColor="#F57D14"
-            onClick={() => navigate('/usertypechoice')}
+            onClick={() => navigate('/appcompleted')}
             padding="0.8rem 0"
           >
             신청하기
