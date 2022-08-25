@@ -21,7 +21,7 @@
 
 사용자의 위치 기반으로 원하는 반경 내의 귤을 나눔하는 농가를 랜덤으로 추천해 드립니다.
 
-<img src="https://user-images.githubusercontent.com/82494506/186592721-7c37e730-0c17-43a4-ac89-4de47c10b4e2.png" height="450px" margin_right="10px"><img src="https://user-images.githubusercontent.com/82494506/186590123-52c1a9d7-bd81-45e0-acf4-2afdb07c28d6.png" height="450px">
+<p align="center"><img src="https://user-images.githubusercontent.com/82494506/186592721-7c37e730-0c17-43a4-ac89-4de47c10b4e2.png" height="450px" margin_right="10px"><img src="https://user-images.githubusercontent.com/82494506/186590123-52c1a9d7-bd81-45e0-acf4-2afdb07c28d6.png" height="450px"></p>
 
 ## 쉬운 상품 관리
 
