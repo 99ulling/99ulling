@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
 const SharingRequest = () => {
   const [loading, setLoading] = useState(false);
+  const femarData = useRecoilValue(searchState);
 
   const Loading = () => {
     return (
@@ -32,15 +35,17 @@ const SharingRequest = () => {
         <img
           width="100%"
           height={320}
-          src="/sharing99.png"
-          alt="sharing99.png"
+          src={femarData.farmImage}
+          alt={femarData.farmImage}
         />
       </ImgWrapper>
       <Wrapper>
-        <FamerName>귤마마씨</FamerName>
-        <FamerAddress>제주시 서귀포시 농장로 342길 2</FamerAddress>
-        <Time>이용 시간 13:00 - 19:00</Time>
-        <Bar>잔여 개수 33/100</Bar>
+        <FamerName>{femarData.name}</FamerName>
+        <FamerAddress>{femarData.address}</FamerAddress>
+        <Time>이용 시간 {femarData.availableTime}</Time>
+        <Bar>
+          잔여 개수 {femarData.remainCount}/{femarData.totalCount}
+        </Bar>
         <Introduction>
           제주의 뜨거운 태양과 맑은 물을 먹고
           <br /> 자라나 맛 좋고 싱싱한 감귤 농장입니다.

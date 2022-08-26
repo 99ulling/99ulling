@@ -1,7 +1,9 @@
 import { ComponentProps } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 import Lottie from '@/components/Lottie';
 
@@ -10,6 +12,7 @@ const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
 );
 
 const AppCompleted = () => {
+  const femarData = useRecoilValue(searchState);
   const navigate = useNavigate();
   return (
     <Wrapper>
@@ -70,15 +73,15 @@ const AppCompleted = () => {
       </DataLine>
       <DataLine>
         <div>농가 이름</div>
-        <div>귤마마씨</div>
+        <div>{femarData.name}</div>
       </DataLine>
       <DataLine>
         <div>나눔 위치</div>
-        <div>제주시 서귀포시 농장로 342길 2</div>
+        <div>{femarData.address}</div>
       </DataLine>
       <DataLine id="bottom">
         <div>이용 시간</div>
-        <div>13:00 ~ 19:00</div>
+        <div>{femarData.availableTime}</div>
       </DataLine>
       <div style={{ width: '100%', paddingTop: '1.2rem' }}>
         <DefaultButton

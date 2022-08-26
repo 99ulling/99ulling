@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { search } from '@/api/api';
-import { loginNickNameState, loginUserAddressState } from '@/atom/atom';
+import {
+  loginNickNameState,
+  loginUserAddressState,
+  searchState,
+} from '@/atom/atom';
 import { Back } from '@/components';
 
 interface Props {
@@ -263,6 +267,7 @@ const LocationLevel = () => {
   const [loading, setLoading] = useState(false);
   const nickName = useRecoilValue(loginNickNameState);
   const userAddress = useRecoilValue(loginUserAddressState);
+  const femarData = useSetRecoilState(searchState);
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -274,17 +279,15 @@ const LocationLevel = () => {
         longitude: 33.273398,
         transportation: 'BIKE',
       })
-        .then((data) => data)
         .then((data) => {
-          console.log(data);
+          console.log(data.data.data);
+          femarData(data.data.data);
+          navigate('/sharingrequest');
         })
         .catch(() => {
           alert('주변에 농장이 없어요. 다른 위치에서 다시 시도해 주세요.');
           setLoading(false);
         });
-      // setTimeout(() => {
-      //   navigate('/sharingrequest');
-      // }, 1000);
     }
   };
 
