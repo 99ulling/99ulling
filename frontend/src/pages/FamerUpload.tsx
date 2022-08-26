@@ -1,16 +1,23 @@
 import { Input } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
-import { shareState } from '@/atom/atom';
+import { signUp } from '@/api/api';
+import {
+  loginFamerAddressState,
+  loginFamerNameState,
+  shareState,
+} from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
 const FamerUpload = () => {
   const [ggul, setGgul] = useState(0);
   const navigate = useNavigate();
   const setShareState = useSetRecoilState(shareState);
+  const famerName = useRecoilValue(loginFamerNameState);
+  const famerAddressState = useRecoilValue(loginFamerAddressState);
 
   const onChangeGgul = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const ggulCurrent = e.target.value;
@@ -20,9 +27,17 @@ const FamerUpload = () => {
 
   const handleSubmit = () => {
     if (ggul) {
-      alert('성공적으로 등록했어요.');
-      setShareState(ggul);
-      navigate('/famerappcompleted');
+      signUp({
+        address: famerAddressState,
+        latitude: 126.616186,
+        longitude: 33.273398,
+        nickname: famerName,
+        userType: 'FAMER',
+      }).then(() => {
+        alert('성공적으로 등록했어요.');
+        navigate('/famerappcompleted');
+        setShareState(ggul);
+      });
     }
   };
 
