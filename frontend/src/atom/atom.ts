@@ -32,3 +32,8 @@ export const searchState = atom({
     totalCount: 100,
   },
 });
+
+export const shareState = atom({
+  key: 'shareState',
+  default: 100,
+});

@@ -1,31 +1,35 @@
 import { Input } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { shareState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
 const FamerUpload = () => {
-  const [ggul, setGgul] = useState('0');
+  const [ggul, setGgul] = useState(0);
   const navigate = useNavigate();
+  const setShareState = useSetRecoilState(shareState);
 
   const onChangeGgul = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const ggulCurrent = e.target.value;
 
-    setGgul(ggulCurrent);
+    setGgul(parseInt(ggulCurrent));
   }, []);
 
   const handleSubmit = () => {
-    if (ggul !== '0') {
+    if (ggul) {
       alert('성공적으로 등록했어요.');
-      navigate('/mypage');
+      setShareState(ggul);
+      navigate('/famerappcompleted');
     }
   };
 
   return (
     <div>
       <Back />
-      <img width="100%" src="/sharing99-ex.png" alt="sharing99.png" />
+      <img width="100%" src="/sharing99.png" alt="sharing99.png" />
       <Wrapper>
         <FamerName>귤마마씨</FamerName>
         <FamerAddress>제주시 서귀포시 농장로 342길 2</FamerAddress>
