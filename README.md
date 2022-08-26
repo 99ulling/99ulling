@@ -34,6 +34,15 @@
 <img src="https://user-images.githubusercontent.com/82494506/186593323-50613315-4c9d-4a75-9fc8-2b2e48a4c291.png" height="450px">  <img src="https://user-images.githubusercontent.com/82494506/186590146-b425da1a-be70-4ae0-8278-8e1f5cac9bd2.png" height="450px"> <img src="https://user-images.githubusercontent.com/82494506/186593341-904616d3-d0c1-4b85-a5e2-5e946022caef.png" height="450px">
 </p>
 
+# Link
+### Frontend Domain
+`https://g9ulling.run.goorm.io/`
+
+### Backend API Docs 
+`http://52.78.123.77/swagger-ui/index.html#`
+
+
+
 # Members
 
 
