@@ -27,7 +27,7 @@ public class SearchFarmResponse {
                 farm.getFarmName(),
                 farm.getFarmImage(),
                 farm.getAddress(),
-                farm.getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " : " + farm.getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")),
+                farm.getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + farm.getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")),
                 farm.getSharingGgulCount(),
                 remainCount,
                 farm.getSentence()

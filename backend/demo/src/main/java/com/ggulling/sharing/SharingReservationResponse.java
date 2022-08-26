@@ -23,7 +23,7 @@ public class SharingReservationResponse {
                 history.getId(),
                 history.getReservationGGulCount(),
                 history.getFarm().getFarmName(),
-                history.getFarm().getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " : " + history.getFarm().getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm"))
+                history.getFarm().getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + history.getFarm().getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm"))
         );
     }
 }
