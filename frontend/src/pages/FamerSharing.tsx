@@ -33,6 +33,7 @@ const FamerSharing = () => {
             backgroundColor="828282"
             color="828282"
             padding="1rem 0"
+            onClick={() => navigate('/')}
           >
             아니요
           </DefaultButton>
