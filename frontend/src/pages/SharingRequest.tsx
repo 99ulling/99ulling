@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
 const SharingRequest = () => {
   const [loading, setLoading] = useState(false);
+  const femarData = useRecoilValue(searchState);
 
   const Loading = () => {
     return (
@@ -32,21 +35,26 @@ const SharingRequest = () => {
         <img
           width="100%"
           height={320}
-          src="/sharing99.png"
-          alt="sharing99.png"
+          src={femarData.farmImage}
+          alt={femarData.farmImage}
         />
       </ImgWrapper>
       <Wrapper>
-        <FamerName>귤마마씨</FamerName>
-        <FamerAddress>제주시 서귀포시 농장로 342길 2</FamerAddress>
-        <Time>이용 시간 13:00 - 19:00</Time>
-        <Bar>잔여 개수 33/100</Bar>
+        <FamerName>{femarData.name}</FamerName>
+        <FamerAddress>{femarData.address}</FamerAddress>
+        <Time>이용 시간 {femarData.availableTime}</Time>
+        <Bar>
+          잔여 개수
+          <Count>
+            {femarData.remainCount}/{femarData.totalCount}
+          </Count>
+        </Bar>
         <Introduction>
           제주의 뜨거운 태양과 맑은 물을 먹고
           <br /> 자라나 맛 좋고 싱싱한 감귤 농장입니다.
         </Introduction>
 
-        <div style={{ width: '100%', padding: '1.2rem 42px 0 42px' }}>
+        <ButtonPosition>
           <DefaultButton
             backgroundColor="#F57D14"
             onClick={() => {
@@ -59,7 +67,7 @@ const SharingRequest = () => {
           >
             신청하기
           </DefaultButton>
-        </div>
+        </ButtonPosition>
       </Wrapper>
     </div>
   );
@@ -94,6 +102,10 @@ const Time = styled.div`
 
 const Bar = styled.div`
   padding: 2rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #f57d14;
+  text-align: center;
 `;
 
 const Introduction = styled.div`
@@ -120,4 +132,16 @@ const LoadingWrapper = styled.div<{ loading: boolean }>`
 const ImgWrapper = styled.div`
   height: 320px;
   background-color: #777777;
+`;
+
+const Count = styled.div`
+  font-size: 3.2rem;
+  padding-top: 10px;
+`;
+
+const ButtonPosition = styled.div`
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  padding: 1.2rem 42px 0 42px;
 `;

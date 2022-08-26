@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
-import { searchState } from '@/atom/atom';
+import { searchState, shareState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 import Lottie from '@/components/Lottie';
 
@@ -11,8 +11,9 @@ const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
   <Lottie {...props} data-testid="completeLottie" src="/public/check.json" />
 );
 
-const AppCompleted = () => {
+const FamerAppCompleted = () => {
   const femarData = useRecoilValue(searchState);
+  const shareGgul = useRecoilValue(shareState);
   const navigate = useNavigate();
   return (
     <Wrapper>
@@ -28,10 +29,10 @@ const AppCompleted = () => {
               fontSize: '1.6rem',
             }}
           >
-            신청완료
+            나눔이 오픈되었어요
           </span>
         </SearchTextTop>
-        농가에 도착하면 나눔받기가 켜져요.
+        자정이 지나면 나눔이 자동으로 종료됩니다.
       </SearchText>
       <DataLine id="top">
         <div>
@@ -67,9 +68,9 @@ const AppCompleted = () => {
               fill="#598C45"
             />
           </svg>
-          신청한 귤 개수
+          나눔한 귤 개수
         </div>
-        <div>15개</div>
+        <div>{shareGgul}개</div>
       </DataLine>
       <DataLine>
         <div>농가 이름</div>
@@ -96,7 +97,7 @@ const AppCompleted = () => {
   );
 };
 
-export default AppCompleted;
+export default FamerAppCompleted;
 
 const Wrapper = styled.div`
   display: flex;

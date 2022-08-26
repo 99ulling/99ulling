@@ -27,9 +27,14 @@ const Login = () => {
     if (nickName) {
       setAtomNickName(nickName);
       signIn(nickName)
-        .then((value) => console.log(value))
+        .then((data) => {
+          return data.data.data;
+        })
+        .then((data) => {
+          if (data.userType === 'USER') navigate('/locationlevel');
+          else navigate('/famersharing');
+        })
         .catch(() => alert('닉네임을 확인해주세요.'));
-      navigate('/locationlevel');
     } else {
       setDanger(true);
     }
