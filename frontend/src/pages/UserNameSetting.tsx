@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 
+import { signUp } from '@/api/api';
 import { loginNickNameState, loginUserAddressState } from '@/atom/atom';
 import { Back } from '@/components';
 
@@ -37,7 +38,20 @@ const UserNameSetting = () => {
     if (nickName && userAddress) {
       setAtomNickName(nickName);
       setAtomAddressName(userAddress);
-      navigate('/locationlevel');
+      signUp({
+        address: userAddress,
+        latitude: 126.616186,
+        longitude: 33.273398,
+        nickname: nickName,
+        userType: 'USER',
+      })
+        .then(() => {
+          alert('가입을 성공했어요.\n바로 나눔 도와드릴게요.');
+          navigate('/locationlevel');
+        })
+        .catch(() => {
+          alert('올바른 입력인지 확인해주세요.');
+        });
     } else {
       setDanger(true);
     }
