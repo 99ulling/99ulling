@@ -1,5 +1,3 @@
-# Project Overview
-
 # 귤러가요 🍊➰
 
 <p align="center"><img src="https://user-images.githubusercontent.com/82494506/186589874-366f3328-f3cb-4357-b57b-8b85f623976b.png" width="500px"></p>
