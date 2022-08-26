@@ -21,7 +21,9 @@ public class FarmService {
     @Transactional(readOnly = true)
     public SearchFarmResponse searchFarm(SearchFarmRequest request) {
 
-        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude(), request.getTransportation().getKm());
+//        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude(), request.getTransportation().getKm());
+        final List<Farm> farmList = farmRepository.findAll();
+
         if (farmList.isEmpty()) throw new NoFarmAvailableException();
 
         Collections.shuffle(farmList);

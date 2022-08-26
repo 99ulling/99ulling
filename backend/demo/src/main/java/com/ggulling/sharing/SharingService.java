@@ -39,6 +39,7 @@ public class SharingService {
             farm.activeShare();
             farm.changeTime(request.getAvailableTime());
             farm.changeSharingCount(request.getSharingCount());
+            farm.changeSentence(request.getSentence());
         }
         return CreateSharingResponse.of(farm.getId(), farm.getFarmImage(), farm.getSharingGgulCount(), farm.getAvailableStartTime(), farm.getAvailableEndTime());
     }

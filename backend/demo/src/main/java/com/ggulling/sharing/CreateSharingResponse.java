@@ -18,6 +18,6 @@ public class CreateSharingResponse {
     private String availableTime;
 
     public static CreateSharingResponse of(Long id, String farmImage, int ggulSharingCount, LocalTime startTime, LocalTime endTime) {
-        return new CreateSharingResponse(id, farmImage, ggulSharingCount, startTime.format(DateTimeFormatter.ofPattern("HH:mm")) + " - " + endTime.format(DateTimeFormatter.ofPattern("HH:mm")));
+        return new CreateSharingResponse(id, farmImage, ggulSharingCount, startTime.format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + endTime.format(DateTimeFormatter.ofPattern("HH:mm")));
     }
 }
