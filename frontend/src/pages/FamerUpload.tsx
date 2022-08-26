@@ -15,6 +15,13 @@ const FamerUpload = () => {
     setGgul(ggulCurrent);
   }, []);
 
+  const handleSubmit = () => {
+    if (ggul !== '0') {
+      alert('성공적으로 등록했어요.');
+      navigate('/mypage');
+    }
+  };
+
   return (
     <div>
       <Back />
@@ -33,10 +40,10 @@ const FamerUpload = () => {
         <div style={{ width: '100%', padding: '1.2rem 42px 0 42px' }}>
           <DefaultButton
             backgroundColor="#F57D14"
-            onClick={() => navigate('/appcompleted')}
+            onClick={() => handleSubmit()}
             padding="0.8rem 0"
           >
-            신청하기
+            확인하기
           </DefaultButton>
         </div>
       </Wrapper>
@@ -70,18 +77,16 @@ const Time = styled.div`
   padding: 4px 0;
 `;
 
-const Bar = styled.div`
-  padding: 2rem 0;
-`;
-
 const Introduction = styled.div`
   color: #727272;
   text-align: center;
-  line-height: 1.4rem;
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
 `;
 
 const InputSetting = styled(Input)`
   padding: 1.6rem 0;
+  padding-left: 20px;
   border-color: none;
   text-align: 'center';
 `;
