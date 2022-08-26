@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
@@ -29,12 +30,12 @@ public class AuthService {
         if (UserType.FARMER == request.getUserType()) {
             final Farm newFarm = Farm.newInstance(request.getNickname(), request.getLatitude(), request.getLongitude(), request.getAddress());
             farmRepository.save(newFarm);
-            return SignInResponse.of(newFarm.getId(), newFarm.getFarmName(), request.getUserType());
+            return SignInResponse.of(newFarm.getId(), newFarm.getFarmName(), request.getUserType(), newFarm.getFarmImage(), newFarm.getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + newFarm.getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")), newFarm.getAddress(), newFarm.getSentence());
         }
 
         final User newUser = User.newInstance(request.getNickname());
         userRepository.save(newUser);
-        return SignInResponse.of(newUser.getId(), newUser.getNickname(), request.getUserType());
+        return SignInResponse.of(newUser.getId(), newUser.getNickname(), request.getUserType(), "", "", "", "");
     }
 
     public SignInResponse signIn(final SignInRequest request) {
@@ -43,7 +44,7 @@ public class AuthService {
 
         if (user.isEmpty() && farm.isEmpty()) throw new NotExistsUserException();
 
-        return user.map(value -> SignInResponse.of(value.getId(), value.getNickname(), UserType.USER))
-                .orElseGet(() -> SignInResponse.of(farm.get().getId(), farm.get().getFarmName(), UserType.FARMER));
+        return user.map(value -> SignInResponse.of(value.getId(), value.getNickname(), UserType.USER, "", "", "", ""))
+                .orElseGet(() -> SignInResponse.of(farm.get().getId(), farm.get().getFarmName(), UserType.FARMER, farm.get().getFarmImage(), farm.get().getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + farm.get().getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")), farm.get().getAddress(), farm.get().getSentence()));
     }
 }
