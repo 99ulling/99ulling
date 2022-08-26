@@ -29,10 +29,32 @@ const FamerUpload = () => {
       <Wrapper>
         <FamerName>귤마마씨</FamerName>
         <FamerAddress>제주시 서귀포시 농장로 342길 2</FamerAddress>
-        <Time>이용 시간을 알려주세요</Time>
+        <Time>
+          이용 시간을 알려주세요.
+          <svg
+            style={{ marginLeft: '6px' }}
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M9.32131 4.32512L2.00031 11.6461V14.2551H4.60931L11.9293 6.93312L9.32131 4.32512ZM10.0563 3.59012L11.9013 1.74512L14.5093 4.35312L12.6653 6.19812L10.0563 3.59012Z"
+              fill="#727272"
+            />
+          </svg>
+        </Time>
         <div style={{ width: '80%', padding: '2rem 0' }}>
-          <InputSetting onChange={onChangeGgul} />
+          <InputSetting
+            style={{ textAlign: 'center', padding: '1.6rem 0' }}
+            placeholder="귤 나눔 개수를 알려주세요."
+            onChange={onChangeGgul}
+          />
         </div>
+
         <Introduction>
           제주의 뜨거운 태양과 맑은 물을 먹고
           <br /> 자라나 맛 좋고 싱싱한 감귤 농장입니다.
@@ -61,7 +83,7 @@ const FamerName = styled.div`
 
 const FamerAddress = styled.div`
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 18px;
   padding-top: 1rem;
 `;
 
@@ -74,14 +96,20 @@ const Wrapper = styled.div`
 
 const Time = styled.div`
   color: #727272;
-  padding: 4px 0;
+  padding-top: 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Introduction = styled.div`
   color: #727272;
   text-align: center;
-  font-size: 1.4rem;
-  padding-bottom: 1rem;
+  font-size: 14px;
+  line-height: 1.2rem;
 `;
 
 const InputSetting = styled(Input)`
