@@ -83,15 +83,15 @@ const AppCompleted = () => {
         <div>이용 시간</div>
         <div>{femarData.availableTime}</div>
       </DataLine>
-      <div style={{ width: '100%', paddingTop: '1.2rem' }}>
+      <ButtonPosition>
         <DefaultButton
           backgroundColor="#F57D14"
-          onClick={() => navigate('/usertypechoice')}
+          onClick={() => navigate('/')}
           padding="0.8rem 0"
         >
-          신청하기
+          확인
         </DefaultButton>
-      </div>
+      </ButtonPosition>
     </Wrapper>
   );
 };
@@ -133,4 +133,11 @@ const DataLine = styled.div`
   &#bottom {
     border-bottom: 1px solid #d9d9d9;
   }
+`;
+
+const ButtonPosition = styled.div`
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  padding: 1.2rem 42px 0 42px;
 `;
