@@ -49,11 +49,7 @@ const SharingRequest = () => {
             {femarData.remainCount}/{femarData.totalCount}
           </Count>
         </Bar>
-        <Introduction>
-          제주의 뜨거운 태양과 맑은 물을 먹고
-          <br /> 자라나 맛 좋고 싱싱한 감귤 농장입니다.
-        </Introduction>
-
+        <Introduction>{femarData.femarData}</Introduction>
         <ButtonPosition>
           <DefaultButton
             backgroundColor="#F57D14"

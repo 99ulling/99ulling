@@ -66,7 +66,7 @@ const FamerNameSetting = () => {
         <InputSetting
           onChange={onChangeFamerAddress}
           style={{ textAlign: 'center' }}
-          placeholder="농장 주소 검색"
+          placeholder="농장 주소 입력"
         />
       </div>
       <button
