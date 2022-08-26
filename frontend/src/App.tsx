@@ -17,8 +17,6 @@ import {
 
 const App = () => {
   useEffect(() => {
-    const img = new Image();
-    img.src = '/sharing99.png';
     const img2 = new Image();
     img2.src = '/sharing99-ex.png';
 
