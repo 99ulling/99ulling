@@ -30,6 +30,7 @@ public class Farm extends BaseEntity {
     private LocalTime availableStartTime;
     private LocalTime availableEndTime;
     private int sharingGgulCount;
+    private String sentence;
 
     public void activeShare() {
         share = false;
@@ -49,7 +50,11 @@ public class Farm extends BaseEntity {
         this.sharingGgulCount = sharingGgulCount;
     }
 
-    private Farm(final String farmName, final double latitude, final double longitude, final String address, final boolean share, final LocalTime availableStartTime, final LocalTime availableEndTime, final int sharingGgulCount) {
+    public void changeSentence(String sentence) {
+        this.sentence = sentence;
+    }
+
+    private Farm(final String farmName, final double latitude, final double longitude, final String address, final boolean share, final LocalTime availableStartTime, final LocalTime availableEndTime, final int sharingGgulCount, final String sentence) {
         this.farmName = farmName;
         this.farmImage = "https://bbang-map-test.s3.ap-northeast-2.amazonaws.com/images/user/ggul.png";
         this.latitude = latitude;
@@ -59,9 +64,10 @@ public class Farm extends BaseEntity {
         this.availableStartTime = availableStartTime;
         this.availableEndTime = availableEndTime;
         this.sharingGgulCount = sharingGgulCount;
+        this.sentence = sentence;
     }
 
     public static Farm newInstance(final String farmName, final double latitude, final double longitude, final String address) {
-        return new Farm(farmName, latitude, longitude, address, false, LocalTime.of(10, 00), LocalTime.of(18, 00), 100);
+        return new Farm(farmName, latitude, longitude, address, false, LocalTime.of(10, 00), LocalTime.of(18, 00), 100, "안녕하세요" + farmName + "입니다.");
     }
 }

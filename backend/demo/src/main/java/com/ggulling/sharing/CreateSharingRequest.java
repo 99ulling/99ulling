@@ -10,4 +10,5 @@ public class CreateSharingRequest {
     private Long farmId;
     private String availableTime;
     private int sharingCount;
+    private String sentence;
 }
