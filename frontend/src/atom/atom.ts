@@ -19,3 +19,16 @@ export const loginFamerAddressState = atom({
   key: 'loginFamerAddressState',
   default: '제주시 첨단로 242',
 });
+
+export const searchState = atom({
+  key: 'searchState',
+  default: {
+    address: '제주시 첨단로 242',
+    availableTime: '09:00 : 13:00',
+    farmImage: '/sharing99.png',
+    id: 3,
+    name: '알찬귤 농장',
+    remainCount: 70,
+    totalCount: 100,
+  },
+});
