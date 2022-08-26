@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
+import { search } from '@/api/api';
 import { loginNickNameState, loginUserAddressState } from '@/atom/atom';
 import { Back } from '@/components';
 
@@ -267,9 +268,23 @@ const LocationLevel = () => {
   const handleSubmit = () => {
     if (walk || bike || car) {
       setLoading(true);
-      setTimeout(() => {
-        navigate('/sharingrequest');
-      }, 1000);
+      search({
+        address: userAddress,
+        latitude: 126.616186,
+        longitude: 33.273398,
+        transportation: 'BIKE',
+      })
+        .then((data) => data)
+        .then((data) => {
+          console.log(data);
+        })
+        .catch(() => {
+          alert('주변에 농장이 없어요. 다른 위치에서 다시 시도해 주세요.');
+          setLoading(false);
+        });
+      // setTimeout(() => {
+      //   navigate('/sharingrequest');
+      // }, 1000);
     }
   };
 
