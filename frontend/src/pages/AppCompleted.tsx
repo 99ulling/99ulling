@@ -14,10 +14,17 @@ const AppCompleted = () => {
   return (
     <Wrapper>
       <Back />
-      <CompleteLottie loop={false} />
+      <div style={{ width: '35%', height: '110px' }}>
+        <CompleteLottie loop={false} />
+      </div>
       <SearchText>
         <SearchTextTop>
-          <span style={{ fontWeight: 'bold', fontSize: '1.6rem' }}>
+          <span
+            style={{
+              fontWeight: 'bold',
+              fontSize: '1.6rem',
+            }}
+          >
             신청완료
           </span>
         </SearchTextTop>
@@ -73,7 +80,7 @@ const AppCompleted = () => {
         <div>이용 시간</div>
         <div>13:00 ~ 19:00</div>
       </DataLine>
-      <div style={{ width: '100%', padding: '1.2rem 42px 0 42px' }}>
+      <div style={{ width: '100%', paddingTop: '1.2rem' }}>
         <DefaultButton
           backgroundColor="#F57D14"
           onClick={() => navigate('/usertypechoice')}
@@ -104,7 +111,8 @@ const SearchText = styled.div`
 
 const SearchTextTop = styled.div`
   text-align: center;
-  padding-bottom: 10px;
+  color: '#727272';
+  padding-bottom: 20px;
 `;
 
 const DataLine = styled.div`

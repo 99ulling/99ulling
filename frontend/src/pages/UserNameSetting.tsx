@@ -59,15 +59,6 @@ const UserNameSetting = () => {
       </div>
       <div style={{ width: '80%' }}>
         <InputSetting
-          style={{
-            position: 'relative',
-            top: '40px',
-            left: '20px',
-            width: '26px',
-            height: '26px',
-          }}
-        />
-        <InputSetting
           onChange={onChangeUserAddress}
           style={{ textAlign: 'center' }}
           placeholder="현재 위치 입력"

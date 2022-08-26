@@ -1,14 +1,41 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Back, DefaultButton } from '@/components';
 
 const SharingRequest = () => {
+  const [loading, setLoading] = useState(false);
+
+  const Loading = () => {
+    return (
+      <LoadingWrapper loading={loading} className="overlay">
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%',
+          }}
+        >
+          <img width={300} src="loading.gif" alt="loading.gif" />
+        </div>
+      </LoadingWrapper>
+    );
+  };
   const navigate = useNavigate();
   return (
     <div>
+      <Loading />
       <Back />
-      <img width="100%" src="/sharing99.png" alt="sharing99.png" />
+      <ImgWrapper>
+        <img
+          width="100%"
+          height={320}
+          src="/sharing99.png"
+          alt="sharing99.png"
+        />
+      </ImgWrapper>
       <Wrapper>
         <FamerName>귤마마씨</FamerName>
         <FamerAddress>제주시 서귀포시 농장로 342길 2</FamerAddress>
@@ -22,7 +49,12 @@ const SharingRequest = () => {
         <div style={{ width: '100%', padding: '1.2rem 42px 0 42px' }}>
           <DefaultButton
             backgroundColor="#F57D14"
-            onClick={() => navigate('/appcompleted')}
+            onClick={() => {
+              setLoading(true);
+              setTimeout(() => {
+                navigate('/appcompleted');
+              }, 300);
+            }}
             padding="0.8rem 0"
           >
             신청하기
@@ -69,4 +101,23 @@ const Introduction = styled.div`
   text-align: center;
   font-size: 14px;
   line-height: 1.2rem;
+`;
+
+const LoadingWrapper = styled.div<{ loading: boolean }>`
+  &.overlay {
+    display: ${(props) => (props.loading ? 'block' : 'none')};
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    overflow-x: hidden;
+  }
+`;
+
+const ImgWrapper = styled.div`
+  height: 320px;
+  background-color: #777777;
 `;

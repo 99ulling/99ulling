@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import {
@@ -15,6 +16,12 @@ import {
 } from '@/pages';
 
 const App = () => {
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/sharing99.png';
+
+    fetch('/check.json').then((response) => response.json);
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
