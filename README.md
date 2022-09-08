@@ -41,7 +41,7 @@
 
 # 📎 Link
 ### Frontend Domain
-업데이트 중
+`업데이트 예정`
 
 ### Backend API Docs 
 `http://52.78.123.77/swagger-ui/index.html#`
