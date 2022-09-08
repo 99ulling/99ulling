@@ -46,6 +46,9 @@
 ### Backend API Docs 
 `http://52.78.123.77/swagger-ui/index.html#`
 
+### Youtube (시연)
+`https://youtu.be/zlroW6naiLE`
+
 
 
 # 🏠 Members
