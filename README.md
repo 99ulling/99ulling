@@ -7,11 +7,11 @@
 <br>
 
 
-# 서비스 바로가기
-<p align="center"><img src="https://user-images.githubusercontent.com/77133565/186829279-3ad06058-f634-4c25-8bd4-f001f8571417.png" width="300px"></p>
+## 서비스 바로가기
+<p align="center"><img src="https://user-images.githubusercontent.com/77133565/186829279-3ad06058-f634-4c25-8bd4-f001f8571417.png" width="200px"></p>
 
 
-# 프로젝트 개요
+## 프로젝트 개요
 
 
 > 귤러가요에서 나눔하는 비상품 귤이란?  
@@ -39,20 +39,20 @@
 <img src="https://user-images.githubusercontent.com/82494506/186593323-50613315-4c9d-4a75-9fc8-2b2e48a4c291.png" height="450px">  <img src="https://user-images.githubusercontent.com/82494506/186590146-b425da1a-be70-4ae0-8278-8e1f5cac9bd2.png" height="450px"> <img src="https://user-images.githubusercontent.com/82494506/186593341-904616d3-d0c1-4b85-a5e2-5e946022caef.png" height="450px">
 </p>
 
-# Link
+# 📎 Link
 ### Frontend Domain
-`https://g9ulling.run.goorm.io/`
+업데이트 중
 
 ### Backend API Docs 
 `http://52.78.123.77/swagger-ui/index.html#`
 
 
 
-# Members
+# 🏠 Members
 
 
 ### 제 1회 kakao x goorm 9oormthon, 4567조
 
 |                      기획                       |                프론트                |                백                |                디자이너                |
 | :---------------------------------------------: | :----------------------------------: | :------------------------------: | :------------------------------------: |
-| [leeyejin1231](https://github.com/leeyejin1231) | [tooooo1](http://github.com/tooooo1) | [soleu](http://github.com/soleu) | [chemin72](http://github.com/chemin72) |
+|<img src="https://avatars.githubusercontent.com/u/82494506?v=4" alt="leeyejin1231" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/77133565?v=4" alt="tooooo1" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/76844556?v=4" alt="soleu" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/111728743?v=4" alt="chemin72" width="100" height="100">| [leeyejin1231](https://github.com/leeyejin1231) | [tooooo1](http://github.com/tooooo1) | [soleu](http://github.com/soleu) | [chemin72](http://github.com/chemin72) |
