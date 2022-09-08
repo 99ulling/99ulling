@@ -7,10 +7,6 @@
 <br>
 
 
-## 서비스 바로가기
-<p align="center"><img src="https://user-images.githubusercontent.com/77133565/186829279-3ad06058-f634-4c25-8bd4-f001f8571417.png" width="200px"></p>
-
-
 ## 프로젝트 개요
 
 
