@@ -1,5 +1,3 @@
-import '../public/goormstrap.v4.min.css';
-
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
