@@ -1,4 +1,3 @@
-import { Input, SearchIcon } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
@@ -54,15 +53,6 @@ const FamerNameSetting = () => {
         />
       </div>
       <div style={{ width: '80%' }}>
-        <SearchIcon
-          style={{
-            position: 'relative',
-            top: '40px',
-            left: '20px',
-            width: '26px',
-            height: '26px',
-          }}
-        />
         <InputSetting
           onChange={onChangeFamerAddress}
           style={{ textAlign: 'center' }}
@@ -108,7 +98,7 @@ const Text = styled.div`
   padding-bottom: 1rem;
 `;
 
-const InputSetting = styled(Input)`
+const InputSetting = styled.input`
   padding: 1.6rem 0;
   border-color: none;
 `;

@@ -1,4 +1,3 @@
-import { Alert, Input } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
@@ -34,7 +33,10 @@ const Login = () => {
           if (data.userType === 'USER') navigate('/locationlevel');
           else navigate('/famersharing');
         })
-        .catch(() => alert('닉네임을 확인해주세요.'));
+        .catch((e) => {
+          alert('닉네임을 확인해주세요.');
+          console.log(e);
+        });
     } else {
       setDanger(true);
     }
@@ -119,19 +121,13 @@ const Login = () => {
 
       <div style={{ width: '60%' }}>
         <div style={{ width: '100%', paddingTop: '2rem' }}>
-          <Input
+          <input
             style={{ textAlign: 'center', padding: '1.6rem 0' }}
             onChange={onChangeNickName}
             placeholder="닉네임"
           />
         </div>
-        {danger ? (
-          <Alert color="danger" icon-left="danger">
-            닉네임을 입력해주세요
-          </Alert>
-        ) : (
-          <></>
-        )}
+        {danger ? <div>닉네임을 입력해주세요</div> : <></>}
         <DefaultButton
           color="#F57D14"
           backgroundColor="#ffffff"

@@ -1,5 +1,3 @@
-import { Input } from '@goorm-dev/gds-goormthon';
-
 import { Back, DefaultButton } from '@/components';
 
 const Sharing = () => {
@@ -7,7 +5,7 @@ const Sharing = () => {
     <div>
       <Back />
       <div style={{ width: '100%', padding: '2rem 0' }}>
-        <Input placeholder="닉네임" />
+        <input placeholder="닉네임" />
       </div>
       <DefaultButton color="#000">로그인</DefaultButton>
       <DefaultButton>회원가입</DefaultButton>
