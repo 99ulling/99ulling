@@ -1,4 +1,3 @@
-import { Button } from '@goorm-dev/gds-goormthon';
 import styled from 'styled-components';
 
 interface Props {
@@ -21,7 +20,7 @@ const DefaultButton = ({
       <StyledButton
         onClick={onClick}
         backgroundColor={backgroundColor}
-        color={color}
+        color={color ?? '#ffaa01'}
         padding={padding}
       >
         {children}
@@ -37,15 +36,15 @@ const Wrapper = styled.div`
   padding: 9px 0;
 `;
 
-const StyledButton = styled(Button)<{
+const StyledButton = styled.button<{
   color: string;
-  backgroundColor: string;
-  padding: string;
+  backgroundColor?: string;
+  padding?: string;
 }>`
   width: 100%;
   height: auto;
   background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.color ?? '#ffaa01'};
+  color: ${(props) => props.color};
   padding: ${(props) => props.padding};
   border: 1px solid #ffaa01;
 `;

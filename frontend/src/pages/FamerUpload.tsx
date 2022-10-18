@@ -1,4 +1,3 @@
-import { Input } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
@@ -106,14 +105,7 @@ const Time = styled.div`
   }
 `;
 
-const Introduction = styled.div`
-  color: #727272;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.2rem;
-`;
-
-const InputSetting = styled(Input)`
+const InputSetting = styled.input`
   padding: 1.6rem 0;
   padding-left: 20px;
   border-color: none;

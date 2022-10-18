@@ -1,4 +1,3 @@
-import { Input } from '@goorm-dev/gds-goormthon';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
@@ -117,7 +116,7 @@ const Text = styled.div`
   padding-bottom: 1rem;
 `;
 
-const InputSetting = styled(Input)`
+const InputSetting = styled.input`
   padding: 1.6rem 0;
   padding-left: 20px;
   border-color: none;
