@@ -8,4 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CreateSharingRequest {
     private Long farmId;
+    private String availableTime;
+    private int sharingCount;
+    private String sentence;
 }

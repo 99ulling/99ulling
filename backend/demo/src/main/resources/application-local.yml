@@ -12,7 +12,7 @@ spring:
       #      create: 기존에 존재하는 스키마를 삭제하고 새로 생성한다.
       #      create-drop: 스키마를 생성하고 애플리케이션이 종료될 때 삭제한다.
       #      none: 초기화 동작을 하지 않는다.
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true

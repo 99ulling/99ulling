@@ -2,11 +2,14 @@ package com.ggulling.farm;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
+import lombok.val;
 
 import java.time.format.DateTimeFormatter;
 
 @ToString
+@Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class SearchFarmResponse {
     private Long id;
@@ -16,6 +19,7 @@ public class SearchFarmResponse {
     private String availableTime;
     private int totalCount;
     private int remainCount;
+    private String sentence;
 
     public static SearchFarmResponse of(Farm farm, int remainCount) {
         return new SearchFarmResponse(
@@ -23,9 +27,10 @@ public class SearchFarmResponse {
                 farm.getFarmName(),
                 farm.getFarmImage(),
                 farm.getAddress(),
-                farm.getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " : " + farm.getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")),
+                farm.getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + farm.getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")),
                 farm.getSharingGgulCount(),
-                remainCount
+                remainCount,
+                farm.getSentence()
         );
     }
 }

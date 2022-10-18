@@ -2,12 +2,14 @@ package com.ggulling.sharing;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @ToString
+@Getter
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class CreateSharingResponse {
     private Long id;
@@ -16,6 +18,6 @@ public class CreateSharingResponse {
     private String availableTime;
 
     public static CreateSharingResponse of(Long id, String farmImage, int ggulSharingCount, LocalTime startTime, LocalTime endTime) {
-        return new CreateSharingResponse(id, farmImage, ggulSharingCount, startTime.format(DateTimeFormatter.ofPattern("HH:mm")) + " - " + endTime.format(DateTimeFormatter.ofPattern("HH:mm")));
+        return new CreateSharingResponse(id, farmImage, ggulSharingCount, startTime.format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + endTime.format(DateTimeFormatter.ofPattern("HH:mm")));
     }
 }

@@ -13,11 +13,13 @@ public interface FarmRepository extends JpaRepository<Farm, Long> {
 
     Optional<Farm> findByIdAndShareTrue(Long id);
 
-    @Query(value = "SELECT *, (6371 * acos(cos(radians(37.4685225))*cos(radians(P_LAT))*cos(radians(P_LON)-radians(126,8943311)+sin(radians(37.4685225))*sin(radians(P_LAT)))) AS distance " +
-            "FROM FARM " +
-            "WHERE share = 'TRUE'" +
-            "HAVING distance <= 0.3 " +
-            "ORDER BY distance "
+    @Query(value = "SELECT *," +
+            "       (6371 * acos(cos(radians(:latitude)) * cos(radians(latitude)) * cos(radians(longitude) " +
+            "           - radians(:longitude)) + sin(radians(:latitude)) * sin(radians(latitude)))) AS distance " +
+            "FROM farm " +
+            "WHERE share = 1 " +
+            "HAVING distance <= :km " +
+            "ORDER BY distance;"
             , nativeQuery = true)
     List<Farm> findFarmByRadius(double latitude, double longitude, int km);
 }

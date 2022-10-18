@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://bemyplan-dev-mysql.c3p7kjpj7cej.ap-northeast-2.rds.amazonaws.com:3306/ggulling?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: bemyplan_dev
+    password: bemyplan_pwd
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        default_batch_fetch_size: 1000

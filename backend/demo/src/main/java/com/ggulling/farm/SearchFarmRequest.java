@@ -4,8 +4,9 @@ import lombok.Getter;
 
 @Getter
 public class SearchFarmRequest {
-    private Long latitude;
-    private Long longitude;
+    private double latitude;
+    private double longitude;
     private String address;
+    private String sentence;
     private Transportation transportation;
 }

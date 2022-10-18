@@ -43,7 +43,7 @@ public class History extends BaseEntity {
     }
 
     public static History newInstance(final int reservationGGulCount, final int remainGgulCount, final User user, final Farm farm) {
-        return newInstance(
+        return new History(
                 reservationGGulCount,
                 remainGgulCount,
                 user,
