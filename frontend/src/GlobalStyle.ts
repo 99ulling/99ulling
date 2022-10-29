@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import './assets/css/font.css';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -20,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
      }
   }
   button {
+    font-family: 'Noto Sans KR', sans-serif;
     background: none;
     border: none;
     cursor: pointer;
