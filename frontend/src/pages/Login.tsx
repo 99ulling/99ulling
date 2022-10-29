@@ -1,11 +1,11 @@
+import { signIn } from '@/api/api';
+import { loginNickNameState } from '@/atom/atom';
+import { DefaultButton } from '@/components';
+import TextField from '@mui/material/TextField';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-
-import { signIn } from '@/api/api';
-import { loginNickNameState } from '@/atom/atom';
-import { DefaultButton } from '@/components';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -120,12 +120,8 @@ const Login = () => {
       </svg>
 
       <div style={{ width: '60%' }}>
-        <div style={{ width: '100%', paddingTop: '2rem' }}>
-          <input
-            style={{ textAlign: 'center', padding: '1.6rem 0' }}
-            onChange={onChangeNickName}
-            placeholder="닉네임"
-          />
+        <div style={{ paddingTop: '2rem' }}>
+          <TextField fullWidth label="닉네임" onChange={onChangeNickName} />
         </div>
         {danger ? <div>닉네임을 입력해주세요</div> : <></>}
         <DefaultButton

@@ -20,7 +20,7 @@ const DefaultButton = ({
       <StyledButton
         onClick={onClick}
         backgroundColor={backgroundColor}
-        color={color ?? '#ffaa01'}
+        color={color ?? 'white'}
         padding={padding}
       >
         {children}
@@ -47,4 +47,5 @@ const StyledButton = styled.button<{
   color: ${(props) => props.color};
   padding: ${(props) => props.padding};
   border: 1px solid #ffaa01;
+  border-radius: 0.5rem;
 `;
