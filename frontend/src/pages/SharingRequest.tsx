@@ -56,7 +56,7 @@ const SharingRequest = () => {
             onClick={() => {
               setLoading(true);
               setTimeout(() => {
-                navigate('/appcompleted');
+                navigate('/app-completed');
               }, 300);
             }}
             padding="0.8rem 0"

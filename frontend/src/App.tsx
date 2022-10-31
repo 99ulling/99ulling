@@ -38,15 +38,15 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/usertypechoice" element={<UserTypeChoice />} />
-          <Route path="/locationlevel" element={<LocationLevel />} />
-          <Route path="/usernamesetting" element={<UserNameSetting />} />
-          <Route path="/famernamesetting" element={<FamerNameSetting />} />
-          <Route path="/famersharing" element={<FamerSharing />} />
-          <Route path="/sharingrequest" element={<SharingRequest />} />
-          <Route path="/appcompleted" element={<AppCompleted />} />
-          <Route path="/famerupload" element={<FamerUpload />} />
-          <Route path="/famerappcompleted" element={<FamerAppCompleted />} />
+          <Route path="/user-type-choice" element={<UserTypeChoice />} />
+          <Route path="/location-level" element={<LocationLevel />} />
+          <Route path="/username-setting" element={<UserNameSetting />} />
+          <Route path="/famername-setting" element={<FamerNameSetting />} />
+          <Route path="/famer-sharing" element={<FamerSharing />} />
+          <Route path="/sharing-request" element={<SharingRequest />} />
+          <Route path="/app-completed" element={<AppCompleted />} />
+          <Route path="/famer-upload" element={<FamerUpload />} />
+          <Route path="/famer-app-completed" element={<FamerAppCompleted />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="/*" element={<Navigate replace to="/404" />} />
         </Routes>

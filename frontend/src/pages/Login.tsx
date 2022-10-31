@@ -30,8 +30,8 @@ const Login = () => {
           return data.data.data;
         })
         .then((data) => {
-          if (data.userType === 'USER') navigate('/locationlevel');
-          else navigate('/famersharing');
+          if (data.userType === 'USER') navigate('/location-level');
+          else navigate('/famer-sharing');
         })
         .catch((e) => {
           alert('닉네임을 확인해주세요.');
@@ -135,7 +135,7 @@ const Login = () => {
         <div style={{ paddingTop: '1.2rem' }}>
           <DefaultButton
             backgroundColor="#F57D14"
-            onClick={() => navigate('/usertypechoice')}
+            onClick={() => navigate('/user-type-choice')}
             padding="0.8rem 0"
           >
             회원가입

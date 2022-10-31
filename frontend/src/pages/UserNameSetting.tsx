@@ -46,7 +46,7 @@ const UserNameSetting = () => {
       })
         .then(() => {
           alert('가입을 성공했어요.\n바로 나눔 도와드릴게요.');
-          navigate('/locationlevel');
+          navigate('/location-level');
         })
         .catch(() => {
           alert('올바른 입력인지 확인해주세요.');
