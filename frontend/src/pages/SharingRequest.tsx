@@ -43,7 +43,11 @@ const SharingRequest = () => {
       <Wrapper>
         <FamerName>{femarData.name}</FamerName>
         <DataTable title="잔여 개수" value={`${femarData.remainCount}개`} />
-        <DataTable title="나눔 위치" value={femarData.address} />
+        <DataTable
+          title="나눔 위치"
+          value={femarData.address}
+          bottom="bottom"
+        />
         <DefaultButton
           backgroundColor="#F57D14"
           onClick={() => {
