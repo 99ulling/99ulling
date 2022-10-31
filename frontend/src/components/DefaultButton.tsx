@@ -46,6 +46,6 @@ const StyledButton = styled.button<{
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.color};
   padding: ${(props) => props.padding};
-  border: 1px solid #ffaa01;
+  border: 1px solid ${(props) => props.color};
   border-radius: 0.5rem;
 `;

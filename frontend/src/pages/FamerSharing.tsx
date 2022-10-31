@@ -40,7 +40,7 @@ const FamerSharing = () => {
         </div>
         <div style={{ width: '49%' }}>
           <DefaultButton
-            onClick={() => navigate('/famerupload')}
+            onClick={() => navigate('/famer-upload')}
             backgroundColor="D9D9D9"
             padding="1rem 0"
           >

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { signUp } from '@/api/api';
 import { loginNickNameState, loginUserAddressState } from '@/atom/atom';
 import { Back } from '@/components';
+import TextField from '@mui/material/TextField';
 
 const UserNameSetting = () => {
   const [nickName, setNickName] = useState('');
@@ -46,7 +47,7 @@ const UserNameSetting = () => {
       })
         .then(() => {
           alert('가입을 성공했어요.\n바로 나눔 도와드릴게요.');
-          navigate('/locationlevel');
+          navigate('/location-level');
         })
         .catch(() => {
           alert('올바른 입력인지 확인해주세요.');
@@ -61,20 +62,17 @@ const UserNameSetting = () => {
       <Back />
       {danger}
       <Text>
-        <span style={{ fontWeight: 'bold' }}>이용할 닉네임</span>을 알려주세요
+        <p style={{ paddingBottom: '0.4rem' }}>반가워요 귤줍님,</p>
+        <p>이용할 닉네임을 알려주세요</p>
       </Text>
-      <div style={{ width: '80%', padding: '2rem 0' }}>
-        <InputSetting
-          onChange={onChangeNickName}
-          style={{ textAlign: 'center' }}
-          placeholder="닉네임 입력하기"
-        />
+      <div style={{ width: '80%', padding: '2rem 0 1rem 0' }}>
+        <TextField fullWidth label="닉네임" onChange={onChangeNickName} />
       </div>
       <div style={{ width: '80%' }}>
-        <InputSetting
+        <TextField
+          fullWidth
+          label="현재 위치 입력"
           onChange={onChangeUserAddress}
-          style={{ textAlign: 'center' }}
-          placeholder="현재 위치 입력"
         />
       </div>
       <button
@@ -112,13 +110,8 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.div`
+  width: 80%;
   font-size: 1.4rem;
   padding-bottom: 1rem;
-`;
-
-const InputSetting = styled.input`
-  padding: 1.6rem 0;
-  padding-left: 20px;
-  border-color: none;
-  text-align: 'center';
+  font-weight: bold;
 `;

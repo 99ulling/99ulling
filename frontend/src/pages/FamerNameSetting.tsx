@@ -35,7 +35,7 @@ const FamerNameSetting = () => {
     if (famerName && famerAddress) {
       setAtomFamerName(famerName);
       setAtomAddressName(famerAddress);
-      navigate('/famersharing');
+      navigate('/famer-sharing');
     }
   };
 

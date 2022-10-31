@@ -37,7 +37,7 @@ const FamerUpload = () => {
           alert('성공적으로 등록했어요.');
           setShareState(ggul);
         })
-        .then(() => navigate('/famerappcompleted'))
+        .then(() => navigate('/famer-app-completed'))
         .catch(() => {
           alert('데이터 저장에 실패했어요.\n다시 시도해주세요.');
           navigate('/');

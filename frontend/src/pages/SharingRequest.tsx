@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
+import DataTable from '@/components/BorderData';
 
 const SharingRequest = () => {
   const [loading, setLoading] = useState(false);
@@ -41,29 +42,24 @@ const SharingRequest = () => {
       </ImgWrapper>
       <Wrapper>
         <FamerName>{femarData.name}</FamerName>
-        <FamerAddress>{femarData.address}</FamerAddress>
-        <Time>이용 시간 {femarData.availableTime}</Time>
-        <Bar>
-          잔여 개수
-          <Count>
-            {femarData.remainCount}/{femarData.totalCount}
-          </Count>
-        </Bar>
-        <Introduction>{femarData.femarData}</Introduction>
-        <ButtonPosition>
-          <DefaultButton
-            backgroundColor="#F57D14"
-            onClick={() => {
-              setLoading(true);
-              setTimeout(() => {
-                navigate('/appcompleted');
-              }, 300);
-            }}
-            padding="0.8rem 0"
-          >
-            신청하기
-          </DefaultButton>
-        </ButtonPosition>
+        <DataTable title="잔여 개수" value={`${femarData.remainCount}개`} />
+        <DataTable
+          title="나눔 위치"
+          value={femarData.address}
+          bottom="bottom"
+        />
+        <DefaultButton
+          backgroundColor="#F57D14"
+          onClick={() => {
+            setLoading(true);
+            setTimeout(() => {
+              navigate('/app-completed');
+            }, 300);
+          }}
+          padding="0.8rem 0"
+        >
+          신청하기
+        </DefaultButton>
       </Wrapper>
     </div>
   );
@@ -74,41 +70,11 @@ export default SharingRequest;
 const FamerName = styled.div`
   font-weight: bold;
   font-size: 2rem;
-  padding-top: 4rem;
-`;
-
-const FamerAddress = styled.div`
-  font-weight: bold;
-  font-size: 18px;
-  padding-top: 1rem;
+  padding-bottom: 1.4rem;
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Time = styled.div`
-  color: #727272;
-  padding-top: 1rem;
-  font-size: 1rem;
-`;
-
-const Bar = styled.div`
-  padding: 2rem 0;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #f57d14;
-  text-align: center;
-`;
-
-const Introduction = styled.div`
-  color: #727272;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.2rem;
+  padding: 2rem;
 `;
 
 const LoadingWrapper = styled.div<{ loading: boolean }>`
@@ -120,7 +86,7 @@ const LoadingWrapper = styled.div<{ loading: boolean }>`
     height: 100%;
     left: 0;
     top: 0;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: white;
     overflow-x: hidden;
   }
 `;
@@ -128,16 +94,4 @@ const LoadingWrapper = styled.div<{ loading: boolean }>`
 const ImgWrapper = styled.div`
   height: 320px;
   background-color: #777777;
-`;
-
-const Count = styled.div`
-  font-size: 3.2rem;
-  padding-top: 10px;
-`;
-
-const ButtonPosition = styled.div`
-  position: absolute;
-  bottom: 60px;
-  width: 100%;
-  padding: 1.2rem 42px 0 42px;
 `;
