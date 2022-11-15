@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint 'src/**' --fix",
+    "lint": "eslint --fix",
     "type-check": "tsc -p tsconfig.json"
   },
   "dependencies": {
@@ -40,6 +40,5 @@
     "prettier": "^2.7.1",
     "typescript": "^4.6.4",
     "vite": "^3.0.7"
-  },
-  "packageManager": "yarn@3.2.4"
+  }
 }
