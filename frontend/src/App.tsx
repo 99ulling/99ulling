@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
@@ -14,7 +15,6 @@ import {
   UserNameSetting,
   UserTypeChoice,
 } from '@/pages';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const App = () => {
   const theme = createTheme({

@@ -49,5 +49,7 @@ module.exports = {
       { ignoreRestSiblings: true },
     ],
     '@typescript-eslint/no-var-requires': 'warn',
+    'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
+    'import/no-named-as-default': 'off',
   },
 };

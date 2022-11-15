@@ -94,17 +94,6 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Time = styled.div`
-  color: #727272;
-  padding-top: 1rem;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const InputSetting = styled.input`
   padding: 1.6rem 0;
   padding-left: 20px;

@@ -1,3 +1,4 @@
+import TextField from '@mui/material/TextField';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
@@ -6,7 +7,6 @@ import styled from 'styled-components';
 import { signUp } from '@/api/api';
 import { loginNickNameState, loginUserAddressState } from '@/atom/atom';
 import { Back } from '@/components';
-import TextField from '@mui/material/TextField';
 
 const UserNameSetting = () => {
   const [nickName, setNickName] = useState('');
