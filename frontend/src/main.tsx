@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 
 import App from './App';
-import GlobalStyle from './GlobalStyle';
+import { globalStyles } from './globalStyles';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <GlobalStyle />
+    {globalStyles}
     <RecoilRoot>
       <App />
     </RecoilRoot>

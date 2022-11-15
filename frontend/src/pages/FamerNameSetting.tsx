@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
 
 import { loginFamerAddressState, loginFamerNameState } from '@/atom/atom';
 import { Back } from '@/components';

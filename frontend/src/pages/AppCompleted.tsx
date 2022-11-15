@@ -1,12 +1,12 @@
+import styled from '@emotion/styled';
 import { ComponentProps } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import styled from 'styled-components';
 
 import { searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
-import Lottie from '@/components/Lottie';
 import DataTable from '@/components/BorderData';
+import Lottie from '@/components/Lottie';
 
 const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
   <Lottie {...props} data-testid="completeLottie" src="/public/check.json" />
@@ -71,23 +71,6 @@ const SearchTextTop = styled.div`
   text-align: center;
   color: '#727272';
   padding-bottom: 20px;
-`;
-
-const DataLine = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-  border-top: 1px solid #d9d9d9;
-
-  &#top {
-    font-weight: bold;
-  }
-
-  &#bottom {
-    border-bottom: 1px solid #d9d9d9;
-  }
 `;
 
 const ButtonPosition = styled.div`
