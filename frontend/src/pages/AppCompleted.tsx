@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
 import { ComponentProps } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import styled from 'styled-components';
 
 import { searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';

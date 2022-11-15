@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
 
 import { signUp } from '@/api/api';
 import {
