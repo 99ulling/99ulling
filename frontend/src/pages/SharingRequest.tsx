@@ -6,6 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 import DataTable from '@/components/BorderData';
+import Tag from '@/components/Tag';
 
 const SharingRequest = () => {
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,7 @@ const SharingRequest = () => {
         />
       </ImgWrapper>
       <Wrapper>
+        <Tag color="#EB5757">NEW</Tag>
         <FamerName>{femarData.name}</FamerName>
         <DataTable title="잔여 개수" value={`${femarData.remainCount}개`} />
         <DataTable
@@ -70,6 +72,7 @@ export default SharingRequest;
 const FamerName = styled.div`
   font-weight: bold;
   font-size: 2rem;
+  padding-top: 1rem;
   padding-bottom: 1.4rem;
 `;
 
