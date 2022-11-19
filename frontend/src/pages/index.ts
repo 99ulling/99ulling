@@ -1,8 +1,8 @@
 export { default as AppCompleted } from './AppCompleted';
-export { default as FamerAppCompleted } from './FamerAppCompleted';
 export { default as FamerNameSetting } from './FamerNameSetting';
 export { default as FamerSharing } from './FamerSharing';
 export { default as FamerUpload } from './FamerUpload';
+export { default as FarmAppCompleted } from './FarmAppCompleted';
 export { default as LocationLevel } from './LocationLevel';
 export { default as Login } from './Login';
 export { default as NotFound } from './NotFound';

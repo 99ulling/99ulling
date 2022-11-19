@@ -4,10 +4,10 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import {
   AppCompleted,
-  FamerAppCompleted,
   FamerNameSetting,
   FamerSharing,
   FamerUpload,
+  FarmAppCompleted,
   LocationLevel,
   Login,
   NotFound,
@@ -46,7 +46,7 @@ const App = () => {
           <Route path="/sharing-request" element={<SharingRequest />} />
           <Route path="/app-completed" element={<AppCompleted />} />
           <Route path="/famer-upload" element={<FamerUpload />} />
-          <Route path="/famer-app-completed" element={<FamerAppCompleted />} />
+          <Route path="/farm-app-completed" element={<FarmAppCompleted />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="/*" element={<Navigate replace to="/404" />} />
         </Routes>

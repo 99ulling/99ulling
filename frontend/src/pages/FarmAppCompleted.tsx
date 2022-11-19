@@ -11,8 +11,8 @@ const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
   <Lottie {...props} data-testid="completeLottie" src="/public/check.json" />
 );
 
-const FamerAppCompleted = () => {
-  const femarData = useRecoilValue(searchState);
+const FarmAppCompleted = () => {
+  const farmData = useRecoilValue(searchState);
   const shareGgul = useRecoilValue(shareState);
   const navigate = useNavigate();
   return (
@@ -74,15 +74,15 @@ const FamerAppCompleted = () => {
       </DataLine>
       <DataLine>
         <div>농가 이름</div>
-        <div>{femarData.name}</div>
+        <div>{farmData.name}</div>
       </DataLine>
       <DataLine>
         <div>나눔 위치</div>
-        <div>{femarData.address}</div>
+        <div>{farmData.address}</div>
       </DataLine>
       <DataLine id="bottom">
         <div>이용 시간</div>
-        <div>{femarData.availableTime}</div>
+        <div>{farmData.availableTime}</div>
       </DataLine>
       <ButtonPosition>
         <DefaultButton
@@ -97,7 +97,7 @@ const FamerAppCompleted = () => {
   );
 };
 
-export default FamerAppCompleted;
+export default FarmAppCompleted;
 
 const Wrapper = styled.div`
   display: flex;
