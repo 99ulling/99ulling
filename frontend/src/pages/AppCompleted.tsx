@@ -13,38 +13,31 @@ const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
 );
 
 const AppCompleted = () => {
-  const femarData = useRecoilValue(searchState);
+  const farmData = useRecoilValue(searchState);
   const navigate = useNavigate();
   return (
     <Wrapper>
       <Back />
-      <div style={{ width: '35%', height: '110px' }}>
+      <LottieWrapper>
         <CompleteLottie loop={false} />
-      </div>
+      </LottieWrapper>
       <SearchText>
         <SearchTextTop>
-          <span
-            style={{
-              fontWeight: 'bold',
-              fontSize: '1.8rem',
-            }}
-          >
-            나눔이 신청되었어요
-          </span>
+          <CompletedInfo>나눔이 신청되었어요</CompletedInfo>
         </SearchTextTop>
         자정이 지나면 나눔이 자동으로 종료됩니다.
       </SearchText>
       <DataTable title="신청한 귤 개수" value="15개" />
-      <DataTable title="농가 이름" value={femarData.name} />
-      <DataTable title="나눔 위치" value={femarData.address} bottom="bottom" />
+      <DataTable title="농가 이름" value={farmData.name} />
+      <DataTable title="나눔 위치" value={farmData.address} bottom="bottom" />
 
       <ButtonPosition>
         <DefaultButton
           backgroundColor="#F57D14"
           onClick={() => navigate('/')}
-          padding="0.8rem 0"
+          padding="0.8rem 42px"
         >
-          확인
+          나눔받기
         </DefaultButton>
       </ButtonPosition>
     </Wrapper>
@@ -76,6 +69,15 @@ const SearchTextTop = styled.div`
 const ButtonPosition = styled.div`
   position: absolute;
   bottom: 60px;
-  width: 100%;
-  padding: 1.2rem 42px 0 42px;
+  width: 80%;
+`;
+
+const CompletedInfo = styled.span`
+  font-weight: bold;
+  font-size: 1.8rem;
+`;
+
+const LottieWrapper = styled.div`
+  width: 35%;
+  height: 110px;
 `;
