@@ -181,9 +181,7 @@ const UserTypeChoice = () => {
   return (
     <Wrapper>
       <Back />
-      <Text>
-        <span style={{ fontWeight: 'bold' }}>사용자 유형</span>을 선택해주세요
-      </Text>
+      <Text>사용자 유형을 선택해주세요</Text>
       <SVGWrapper>
         <button
           onClick={() => {
@@ -204,7 +202,9 @@ const UserTypeChoice = () => {
       </SVGWrapper>
       <button
         onClick={() =>
-          flag ? navigate('/famername-setting') : navigate('/username-setting')
+          flag
+            ? navigate('/farmer-name-setting')
+            : navigate('/username-setting')
         }
         style={{ position: 'absolute', bottom: '60px', right: '42px' }}
       >
@@ -241,6 +241,7 @@ const Wrapper = styled.div`
 const Text = styled.div`
   font-size: 1.4rem;
   padding-bottom: 1rem;
+  font-weight: 700;
 `;
 
 const SVGWrapper = styled.div`
@@ -253,4 +254,5 @@ const SVGWrapper = styled.div`
 const Job = styled.div`
   text-align: center;
   padding-top: 1rem;
+  font-weight: 700;
 `;

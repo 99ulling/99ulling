@@ -48,4 +48,5 @@ const StyledButton = styled.button<{
   padding: ${(props) => props.padding};
   border: 1px solid ${(props) => props.color};
   border-radius: 0.5rem;
+  font-weight: bold;
 `;

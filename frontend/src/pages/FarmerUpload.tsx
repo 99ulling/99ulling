@@ -1,22 +1,23 @@
 import styled from '@emotion/styled';
+import TextField from '@mui/material/TextField';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { signUp } from '@/api/api';
 import {
-  loginFamerAddressState,
-  loginFamerNameState,
+  loginFarmerAddressState,
+  loginFarmerNameState,
   shareState,
 } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
-const FamerUpload = () => {
+const FarmerUpload = () => {
   const [ggul, setGgul] = useState(0);
   const navigate = useNavigate();
   const setShareState = useSetRecoilState(shareState);
-  const famerName = useRecoilValue(loginFamerNameState);
-  const famerAddressState = useRecoilValue(loginFamerAddressState);
+  const farmerName = useRecoilValue(loginFarmerNameState);
+  const farmerAddressState = useRecoilValue(loginFarmerAddressState);
 
   const onChangeGgul = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const ggulCurrent = e.target.value;
@@ -27,17 +28,17 @@ const FamerUpload = () => {
   const handleSubmit = () => {
     if (ggul) {
       signUp({
-        address: famerAddressState,
+        address: farmerAddressState,
         latitude: 126.616186,
         longitude: 33.273398,
-        nickname: famerName,
+        nickname: farmerName,
         userType: 'FAMER',
       })
         .then(() => {
           alert('성공적으로 등록했어요.');
           setShareState(ggul);
         })
-        .then(() => navigate('/famer-app-completed'))
+        .then(() => navigate('/farmer-app-completed'))
         .catch(() => {
           alert('데이터 저장에 실패했어요.\n다시 시도해주세요.');
           navigate('/');
@@ -50,14 +51,10 @@ const FamerUpload = () => {
       <Back />
       <img width="100%" src="/sharing99.png" alt="sharing99.png" />
       <Wrapper>
-        <FamerName>{famerName}</FamerName>
-        <FamerAddress>{famerAddressState}</FamerAddress>
+        <FarmerName>{farmerName}</FarmerName>
+        <FarmerAddress>{farmerAddressState}</FarmerAddress>
         <div style={{ width: '80%', padding: '2rem 0' }}>
-          <InputSetting
-            style={{ textAlign: 'center', padding: '1.6rem 0' }}
-            placeholder="귤 나눔 개수를 알려주세요."
-            onChange={onChangeGgul}
-          />
+          <TextField fullWidth label="귤 나눔 개수" onChange={onChangeGgul} />
         </div>
         <ButtonPosition>
           <DefaultButton
@@ -65,7 +62,7 @@ const FamerUpload = () => {
             onClick={() => handleSubmit()}
             padding="0.8rem 0"
           >
-            확인하기
+            귤러가요
           </DefaultButton>
         </ButtonPosition>
       </Wrapper>
@@ -73,15 +70,15 @@ const FamerUpload = () => {
   );
 };
 
-export default FamerUpload;
+export default FarmerUpload;
 
-const FamerName = styled.div`
+const FarmerName = styled.div`
   font-weight: bold;
   font-size: 2rem;
   padding-top: 4rem;
 `;
 
-const FamerAddress = styled.div`
+const FarmerAddress = styled.div`
   font-weight: bold;
   font-size: 18px;
   padding-top: 1rem;
@@ -94,16 +91,9 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const InputSetting = styled.input`
-  padding: 1.6rem 0;
-  padding-left: 20px;
-  border-color: none;
-  text-align: 'center';
-`;
-
 const ButtonPosition = styled.div`
   position: absolute;
   bottom: 60px;
-  width: 100%;
+  width: 80%;
   padding: 1.2rem 42px 0 42px;
 `;

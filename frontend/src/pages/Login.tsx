@@ -32,7 +32,7 @@ const Login = () => {
         })
         .then((data) => {
           if (data.userType === 'USER') navigate('/location-level');
-          else navigate('/famer-sharing');
+          else navigate('/farmer-sharing');
         })
         .catch((e) => {
           alert('닉네임을 확인해주세요.');
