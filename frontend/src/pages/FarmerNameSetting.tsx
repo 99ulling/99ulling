@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import TextField from '@mui/material/TextField';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
@@ -42,23 +43,9 @@ const FarmerNameSetting = () => {
   return (
     <Wrapper>
       <Back />
-      <Text>
-        <span style={{ fontWeight: 'bold' }}>농장 정보</span>를 알려주세요
-      </Text>
-      <div style={{ width: '80%', padding: '2rem 0', paddingBottom: '0px' }}>
-        <InputSetting
-          onChange={onChangeFarmerName}
-          style={{ textAlign: 'center' }}
-          placeholder="농장 이름 입력하기"
-        />
-      </div>
-      <div style={{ width: '80%' }}>
-        <InputSetting
-          onChange={onChangeFarmerAddress}
-          style={{ textAlign: 'center' }}
-          placeholder="농장 주소 입력"
-        />
-      </div>
+      <Text>귤 농장 정보를 알려주세요</Text>
+      <Input onChange={onChangeFarmerName} label="농장 이름" />
+      <Input onChange={onChangeFarmerAddress} label="농장 주소" />
       <button
         onClick={() => handleSubmit()}
         style={{ position: 'absolute', bottom: '60px', right: '42px' }}
@@ -96,9 +83,9 @@ const Wrapper = styled.div`
 const Text = styled.div`
   font-size: 1.4rem;
   padding-bottom: 1rem;
+  font-weight: bold;
 `;
 
-const InputSetting = styled.input`
-  padding: 1.6rem 0;
-  border-color: none;
+const Input = styled(TextField)`
+  margin: 0.4rem 0;
 `;

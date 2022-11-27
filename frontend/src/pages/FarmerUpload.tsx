@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import TextField from '@mui/material/TextField';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
@@ -53,11 +54,7 @@ const FarmerUpload = () => {
         <FarmerName>{farmerName}</FarmerName>
         <FarmerAddress>{farmerAddressState}</FarmerAddress>
         <div style={{ width: '80%', padding: '2rem 0' }}>
-          <InputSetting
-            style={{ textAlign: 'center', padding: '1.6rem 0' }}
-            placeholder="귤 나눔 개수를 알려주세요."
-            onChange={onChangeGgul}
-          />
+          <TextField fullWidth label="귤 나눔 개수" onChange={onChangeGgul} />
         </div>
         <ButtonPosition>
           <DefaultButton
@@ -65,7 +62,7 @@ const FarmerUpload = () => {
             onClick={() => handleSubmit()}
             padding="0.8rem 0"
           >
-            확인하기
+            귤러가요
           </DefaultButton>
         </ButtonPosition>
       </Wrapper>
@@ -94,16 +91,9 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const InputSetting = styled.input`
-  padding: 1.6rem 0;
-  padding-left: 20px;
-  border-color: none;
-  text-align: 'center';
-`;
-
 const ButtonPosition = styled.div`
   position: absolute;
   bottom: 60px;
-  width: 100%;
+  width: 80%;
   padding: 1.2rem 42px 0 42px;
 `;
