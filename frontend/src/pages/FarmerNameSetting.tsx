@@ -3,39 +3,39 @@ import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
-import { loginFamerAddressState, loginFamerNameState } from '@/atom/atom';
+import { loginFarmerAddressState, loginFarmerNameState } from '@/atom/atom';
 import { Back } from '@/components';
 
-const FamerNameSetting = () => {
-  const [famerName, setFamerName] = useState('');
-  const [famerAddress, setFamerAddress] = useState('');
+const FarmerNameSetting = () => {
+  const [farmerName, setFarmerName] = useState('');
+  const [farmerAddress, setFarmerAddress] = useState('');
   const navigate = useNavigate();
-  const setAtomFamerName = useSetRecoilState(loginFamerNameState);
-  const setAtomAddressName = useSetRecoilState(loginFamerAddressState);
+  const setAtomFarmerName = useSetRecoilState(loginFarmerNameState);
+  const setAtomAddressName = useSetRecoilState(loginFarmerAddressState);
 
-  const onChangeFamerName = useCallback(
+  const onChangeFarmerName = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const famerNameCurrent = e.target.value;
+      const farmerNameCurrent = e.target.value;
 
-      setFamerName(famerNameCurrent);
+      setFarmerName(farmerNameCurrent);
     },
-    [setFamerName]
+    [setFarmerName]
   );
 
-  const onChangeFamerAddress = useCallback(
+  const onChangeFarmerAddress = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const famerAddressCurrent = e.target.value;
+      const farmerAddressCurrent = e.target.value;
 
-      setFamerAddress(famerAddressCurrent);
+      setFarmerAddress(farmerAddressCurrent);
     },
-    [setFamerAddress]
+    [setFarmerAddress]
   );
 
   const handleSubmit = () => {
-    if (famerName && famerAddress) {
-      setAtomFamerName(famerName);
-      setAtomAddressName(famerAddress);
-      navigate('/famer-sharing');
+    if (farmerName && farmerAddress) {
+      setAtomFarmerName(farmerName);
+      setAtomAddressName(farmerAddress);
+      navigate('/farmer-sharing');
     }
   };
 
@@ -47,14 +47,14 @@ const FamerNameSetting = () => {
       </Text>
       <div style={{ width: '80%', padding: '2rem 0', paddingBottom: '0px' }}>
         <InputSetting
-          onChange={onChangeFamerName}
+          onChange={onChangeFarmerName}
           style={{ textAlign: 'center' }}
           placeholder="농장 이름 입력하기"
         />
       </div>
       <div style={{ width: '80%' }}>
         <InputSetting
-          onChange={onChangeFamerAddress}
+          onChange={onChangeFarmerAddress}
           style={{ textAlign: 'center' }}
           placeholder="농장 주소 입력"
         />
@@ -84,7 +84,7 @@ const FamerNameSetting = () => {
   );
 };
 
-export default FamerNameSetting;
+export default FarmerNameSetting;
 
 const Wrapper = styled.div`
   display: flex;

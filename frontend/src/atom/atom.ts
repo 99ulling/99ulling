@@ -10,13 +10,13 @@ export const loginUserAddressState = atom({
   default: '제주시 첨단로 242',
 });
 
-export const loginFamerNameState = atom({
-  key: 'loginFamerNameState',
+export const loginFarmerNameState = atom({
+  key: 'loginFarmerNameState',
   default: '농부',
 });
 
-export const loginFamerAddressState = atom({
-  key: 'loginFamerAddressState',
+export const loginFarmerAddressState = atom({
+  key: 'loginFarmerAddressState',
   default: '제주시 첨단로 242',
 });
 

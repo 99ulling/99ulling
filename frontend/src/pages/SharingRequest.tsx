@@ -43,7 +43,7 @@ const SharingRequest = () => {
       </ImgWrapper>
       <Wrapper>
         <Tag color="#EB5757">NEW</Tag>
-        <FamerName>{femarData.name}</FamerName>
+        <FarmerName>{femarData.name}</FarmerName>
         <DataTable title="잔여 개수" value={`${femarData.remainCount}개`} />
         <DataTable
           title="나눔 위치"
@@ -69,7 +69,7 @@ const SharingRequest = () => {
 
 export default SharingRequest;
 
-const FamerName = styled.div`
+const FarmerName = styled.div`
   font-weight: bold;
   font-size: 2rem;
   padding-top: 1rem;

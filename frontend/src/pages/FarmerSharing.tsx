@@ -2,20 +2,20 @@ import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
-import { loginFamerAddressState, loginFamerNameState } from '@/atom/atom';
+import { loginFarmerAddressState, loginFarmerNameState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
-const FamerSharing = () => {
+const FarmerSharing = () => {
   const navigate = useNavigate();
-  const famerName = useRecoilValue(loginFamerNameState);
-  const famerAddress = useRecoilValue(loginFamerAddressState);
+  const farmerName = useRecoilValue(loginFarmerNameState);
+  const farmerAddress = useRecoilValue(loginFarmerAddressState);
   return (
     <Wrapper>
       <Back />
-      <Location>농장 위치 {famerAddress}</Location>
+      <Location>농장 위치 {farmerAddress}</Location>
       <SearchText>
         <SearchTextTop>
-          <span style={{ fontWeight: 'bold' }}>{famerName}</span>님
+          <span style={{ fontWeight: 'bold' }}>{farmerName}</span>님
         </SearchTextTop>
         오늘 나눔 하실건가요?
       </SearchText>
@@ -40,7 +40,7 @@ const FamerSharing = () => {
         </div>
         <div style={{ width: '49%' }}>
           <DefaultButton
-            onClick={() => navigate('/famer-upload')}
+            onClick={() => navigate('/farmer-upload')}
             backgroundColor="D9D9D9"
             padding="1rem 0"
           >
@@ -52,7 +52,7 @@ const FamerSharing = () => {
   );
 };
 
-export default FamerSharing;
+export default FarmerSharing;
 
 const Wrapper = styled.div`
   display: flex;
