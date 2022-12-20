@@ -10,6 +10,7 @@ import {
   FarmerUpload,
   LocationLevel,
   Login,
+  MyPage,
   NotFound,
   SharingRequest,
   UserNameSetting,
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/app-completed" element={<AppCompleted />} />
           <Route path="/farmer-upload" element={<FarmerUpload />} />
           <Route path="/farm-app-completed" element={<FarmAppCompleted />} />
+          <Route path="/mypage" element={<MyPage />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="/*" element={<Navigate replace to="/404" />} />
         </Routes>
