@@ -9,4 +9,4 @@ export { default as NotFound } from './NotFound';
 export { default as TypeChoice } from './TypeChoice';
 export { default as LocationLevel } from './user/LocationLevel';
 export { default as SharingRequest } from './user/SharingRequest';
-export { default as UserNameSetting } from './user/UserNameSetting';
+export { default as UserConfirm } from './user/UserConfirm';

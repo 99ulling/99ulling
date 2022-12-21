@@ -14,7 +14,7 @@ import {
   NotFound,
   SharingRequest,
   TypeChoice,
-  UserNameSetting,
+  UserConfirm,
 } from '@/pages';
 
 const App = () => {
@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/" element={<Login />} />
           <Route path="/type-choice" element={<TypeChoice />} />
           <Route path="/location-level" element={<LocationLevel />} />
-          <Route path="/username-setting" element={<UserNameSetting />} />
+          <Route path="/user-confirm" element={<UserConfirm />} />
           <Route path="/farmer-name-setting" element={<FarmerNameSetting />} />
           <Route path="/farmer-sharing" element={<FarmerSharing />} />
           <Route path="/sharing-request" element={<SharingRequest />} />
