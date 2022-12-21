@@ -23,16 +23,7 @@ const FarmAppCompleted = () => {
       <Back />
       <CompleteLottie loop={false} />
       <SearchText>
-        <SearchTextTop>
-          <span
-            style={{
-              fontWeight: 'bold',
-              fontSize: '1.6rem',
-            }}
-          >
-            나눔이 오픈되었어요
-          </span>
-        </SearchTextTop>
+        <CompletedInfo>나눔이 오픈되었어요</CompletedInfo>
         자정이 지나면 나눔이 자동으로 종료됩니다.
       </SearchText>
       <DataTable title="나눔한 귤 개수" value={`${shareGgul}개`} />
@@ -63,14 +54,15 @@ const Wrapper = styled.div`
 `;
 
 const SearchText = styled.div`
-  font-size: 1rem;
+  text-align: center;
   padding-top: 1rem;
   padding-bottom: 3rem;
+  line-height: 2.2rem;
 `;
 
-const SearchTextTop = styled.div`
-  text-align: center;
-  padding-bottom: 20px;
+const CompletedInfo = styled.div`
+  font-weight: bold;
+  font-size: 1.8rem;
 `;
 
 const ButtonPosition = styled.div`

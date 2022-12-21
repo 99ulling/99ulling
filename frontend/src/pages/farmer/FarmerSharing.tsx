@@ -15,7 +15,7 @@ const FarmerSharing = () => {
       <Location>농장 위치 {farmerAddress}</Location>
       <SearchText>
         <SearchTextTop>
-          <span style={{ fontWeight: 'bold' }}>{farmerName}</span>님
+          <TextFontNormal>{farmerName}</TextFontNormal>님
         </SearchTextTop>
         오늘 나눔 하실건가요?
         <svg
@@ -194,4 +194,8 @@ const SearchText = styled.div`
 const SearchTextTop = styled.div`
   text-align: center;
   padding-bottom: 10px;
+`;
+
+const TextFontNormal = styled.span`
+  font-weight: normal;
 `;

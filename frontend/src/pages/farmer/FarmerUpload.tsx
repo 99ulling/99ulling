@@ -53,9 +53,9 @@ const FarmerUpload = () => {
       <Wrapper>
         <FarmerName>{farmerName}</FarmerName>
         <FarmerAddress>{farmerAddressState}</FarmerAddress>
-        <div style={{ width: '80%', padding: '2rem 0' }}>
+        <TextFieldWrapper>
           <TextField fullWidth label="귤 나눔 개수" onChange={onChangeGgul} />
-        </div>
+        </TextFieldWrapper>
         <ButtonPosition>
           <DefaultButton
             backgroundColor="#F57D14"
@@ -96,4 +96,9 @@ const ButtonPosition = styled.div`
   bottom: 60px;
   width: 80%;
   padding: 1.2rem 42px 0 42px;
+`;
+
+const TextFieldWrapper = styled.div`
+  width: 80%;
+  padding: 2rem 0;
 `;
