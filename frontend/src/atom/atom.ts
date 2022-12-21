@@ -26,7 +26,7 @@ export const searchState = atom({
     address: '제주시 첨단로 242',
     availableTime: '09:00 : 13:00',
     farmImage: '/sharing99.png',
-    femarData: '제주의 태양과 맑은 물을 먹고자라나 맛이 좋아요',
+    farmerData: '제주의 태양과 맑은 물을 먹고자라나 맛이 좋아요',
     id: 3,
     name: '알찬귤 농장',
     remainCount: 70,

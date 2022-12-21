@@ -268,7 +268,7 @@ const LocationLevel = () => {
   const [loading, setLoading] = useState(false);
   const nickName = useRecoilValue(loginNickNameState);
   const userAddress = useRecoilValue(loginUserAddressState);
-  const femarData = useSetRecoilState(searchState);
+  const farmerData = useSetRecoilState(searchState);
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -281,7 +281,7 @@ const LocationLevel = () => {
         transportation: 'BIKE',
       })
         .then((data) => {
-          femarData(data.data.data);
+          farmerData(data.data.data);
           navigate('/sharing-request');
         })
         .catch(() => {

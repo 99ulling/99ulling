@@ -32,7 +32,7 @@ const FarmerUpload = () => {
         latitude: 126.616186,
         longitude: 33.273398,
         nickname: farmerName,
-        userType: 'FAMER',
+        userType: 'FARMER',
       })
         .then(() => {
           alert('성공적으로 등록했어요.');
