@@ -10,7 +10,7 @@ import Tag from '@/components/Tag';
 
 const SharingRequest = () => {
   const [loading, setLoading] = useState(false);
-  const femarData = useRecoilValue(searchState);
+  const farmerData = useRecoilValue(searchState);
 
   const Loading = () => {
     return (
@@ -37,17 +37,17 @@ const SharingRequest = () => {
         <img
           width="100%"
           height={320}
-          src={femarData.farmImage}
-          alt={femarData.farmImage}
+          src={farmerData.farmImage}
+          alt={farmerData.farmImage}
         />
       </ImgWrapper>
       <Wrapper>
         <Tag color="#EB5757">NEW</Tag>
-        <FarmerName>{femarData.name}</FarmerName>
-        <DataTable title="잔여 개수" value={`${femarData.remainCount}개`} />
+        <FarmerName>{farmerData.name}</FarmerName>
+        <DataTable title="잔여 개수" value={`${farmerData.remainCount}개`} />
         <DataTable
           title="나눔 위치"
-          value={femarData.address}
+          value={farmerData.address}
           bottom="bottom"
         />
         <DefaultButton
