@@ -46,27 +46,9 @@ const FarmerNameSetting = () => {
       <Text>귤 농장 정보를 알려주세요</Text>
       <Input onChange={onChangeFarmerName} label="농장 이름" />
       <Input onChange={onChangeFarmerAddress} label="농장 주소" />
-      <button
-        onClick={() => handleSubmit()}
-        style={{ position: 'absolute', bottom: '60px', right: '42px' }}
-      >
-        <svg
-          width="56"
-          height="56"
-          viewBox="0 0 56 56"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="56" height="56" rx="8" fill="#F57D14" />
-          <path
-            d="M15 27.4118L24.1765 38L41 18"
-            stroke="white"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
+      <NextButton onClick={handleSubmit}>
+        <RightArrow />
+      </NextButton>
     </Wrapper>
   );
 };
@@ -89,3 +71,30 @@ const Text = styled.div`
 const Input = styled(TextField)`
   margin: 0.4rem 0;
 `;
+
+const NextButton = styled.button`
+  position: absolute;
+  bottom: 60px;
+  right: 42px;
+`;
+
+const RightArrow = () => {
+  return (
+    <svg
+      width="56"
+      height="56"
+      viewBox="0 0 56 56"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="56" height="56" rx="8" fill="#F57D14" />
+      <path
+        d="M15 27.4118L24.1765 38L41 18"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

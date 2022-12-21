@@ -13,8 +13,8 @@ import {
   MyPage,
   NotFound,
   SharingRequest,
+  TypeChoice,
   UserNameSetting,
-  UserTypeChoice,
 } from '@/pages';
 
 const App = () => {
@@ -39,7 +39,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/user-type-choice" element={<UserTypeChoice />} />
+          <Route path="/type-choice" element={<TypeChoice />} />
           <Route path="/location-level" element={<LocationLevel />} />
           <Route path="/username-setting" element={<UserNameSetting />} />
           <Route path="/farmer-name-setting" element={<FarmerNameSetting />} />

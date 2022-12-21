@@ -62,40 +62,18 @@ const UserNameSetting = () => {
       <Back />
       {danger}
       <Text>
-        <p style={{ paddingBottom: '0.4rem' }}>반가워요 귤줍님,</p>
-        <p>이용할 닉네임을 알려주세요</p>
+        <SearchTextTop>반가워요 귤줍님,</SearchTextTop>
+        이용할 닉네임을 알려주세요
       </Text>
-      <div style={{ width: '80%', padding: '2rem 0 1rem 0' }}>
-        <TextField fullWidth label="닉네임" onChange={onChangeNickName} />
-      </div>
-      <div style={{ width: '80%' }}>
-        <TextField
-          fullWidth
-          label="현재 위치 입력"
-          onChange={onChangeUserAddress}
-        />
-      </div>
-      <button
-        onClick={() => handleSubmit()}
-        style={{ position: 'absolute', bottom: '60px', right: '42px' }}
-      >
-        <svg
-          width="56"
-          height="56"
-          viewBox="0 0 56 56"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="56" height="56" rx="8" fill="#F57D14" />
-          <path
-            d="M15 27.4118L24.1765 38L41 18"
-            stroke="white"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
+      <TextField fullWidth label="닉네임" onChange={onChangeNickName} />
+      <TextField
+        fullWidth
+        label="현재 위치 입력"
+        onChange={onChangeUserAddress}
+      />
+      <NextButton onClick={handleSubmit}>
+        <RightArrow />
+      </NextButton>
     </Wrapper>
   );
 };
@@ -107,11 +85,43 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
 `;
 
 const Text = styled.div`
-  width: 80%;
+  width: 100%;
   font-size: 1.4rem;
-  padding-bottom: 1rem;
   font-weight: bold;
 `;
+
+const SearchTextTop = styled.div`
+  padding-bottom: 10px;
+`;
+
+const NextButton = styled.button`
+  position: absolute;
+  bottom: 60px;
+  right: 42px;
+`;
+
+const RightArrow = () => {
+  return (
+    <svg
+      width="56"
+      height="56"
+      viewBox="0 0 56 56"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="56" height="56" rx="8" fill="#F57D14" />
+      <path
+        d="M15 27.4118L24.1765 38L41 18"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
