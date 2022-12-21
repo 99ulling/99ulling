@@ -34,9 +34,8 @@ const Login = () => {
           if (data.userType === 'USER') navigate('/location-level');
           else navigate('/farmer-sharing');
         })
-        .catch((e) => {
+        .catch(() => {
           alert('닉네임을 확인해주세요.');
-          console.log(e);
         });
     } else {
       setDanger(true);
@@ -136,7 +135,7 @@ const Login = () => {
         <div style={{ paddingTop: '1.2rem' }}>
           <DefaultButton
             backgroundColor="#F57D14"
-            onClick={() => navigate('/user-type-choice')}
+            onClick={() => navigate('/type-choice')}
             padding="0.8rem 0"
           >
             회원가입

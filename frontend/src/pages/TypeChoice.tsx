@@ -5,10 +5,74 @@ import { useNavigate } from 'react-router-dom';
 import { Back } from '@/components';
 
 interface Props {
-  id: string;
+  color: string;
 }
 
-const Farmer = ({ id }: Props) => {
+const TypeChoice = () => {
+  const navigate = useNavigate();
+  const [flag, setFlag] = useState(true);
+  return (
+    <Wrapper>
+      <Back />
+      <Text>사용자 유형을 선택해주세요</Text>
+      <SVGWrapper>
+        <button onClick={() => setFlag(true)}>
+          <Farmer color={flag ? '#F57D14' : '#EFEFF0'} />
+          <Job>농부</Job>
+        </button>
+        <button onClick={() => setFlag(false)}>
+          <PickUp color={flag ? '#EFEFF0' : '#F57D14'} />
+          <Job>귤줍</Job>
+        </button>
+      </SVGWrapper>
+      <NextButton
+        onClick={() =>
+          flag
+            ? navigate('/farmer-name-setting')
+            : navigate('/username-setting')
+        }
+      >
+        <RightArrow />
+      </NextButton>
+    </Wrapper>
+  );
+};
+
+export default TypeChoice;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const Text = styled.div`
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+  font-weight: 700;
+`;
+
+const SVGWrapper = styled.div`
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+`;
+
+const Job = styled.div`
+  text-align: center;
+  padding-top: 1rem;
+  font-weight: 700;
+`;
+
+const NextButton = styled.button`
+  position: absolute;
+  bottom: 60px;
+  right: 42px;
+`;
+
+const Farmer = ({ color }: Props) => {
   return (
     <svg
       width="160"
@@ -17,14 +81,14 @@ const Farmer = ({ id }: Props) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="1" y="1" width="158" height="157" rx="7" fill={id} />
+      <rect x="1" y="1" width="158" height="157" rx="7" fill={color} />
       <rect
         x="1"
         y="1"
         width="158"
         height="157"
         rx="7"
-        stroke={id}
+        stroke={color}
         strokeWidth="2"
       />
       <path
@@ -117,7 +181,7 @@ const Farmer = ({ id }: Props) => {
   );
 };
 
-const PickUp = ({ id }: Props) => {
+const PickUp = ({ color }: Props) => {
   return (
     <svg
       width="160"
@@ -126,7 +190,7 @@ const PickUp = ({ id }: Props) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="1" y="1" width="158" height="157" rx="7" fill={id} />
+      <rect x="1" y="1" width="158" height="157" rx="7" fill={color} />
       <path
         d="M62.9079 86H64.3639V77.312H62.9079V86ZM63.6439 75.52C64.2039 75.52 64.6199 75.152 64.6199 74.544C64.6199 73.984 64.2039 73.616 63.6439 73.616C63.0679 73.616 62.6679 73.984 62.6679 74.544C62.6679 75.152 63.0679 75.52 63.6439 75.52ZM69.0102 86.224C69.4102 86.224 69.6342 86.16 69.8422 86.096L69.6502 84.976C69.4742 85.008 69.4102 85.008 69.3462 85.008C69.1222 85.008 68.9302 84.832 68.9302 84.368V73.28H67.4742V84.272C67.4742 85.52 67.9062 86.224 69.0102 86.224ZM73.7171 86.224C74.1171 86.224 74.3411 86.16 74.5491 86.096L74.3571 84.976C74.1811 85.008 74.1171 85.008 74.0531 85.008C73.8291 85.008 73.6371 84.832 73.6371 84.368V73.28H72.1811V84.272C72.1811 85.52 72.6131 86.224 73.7171 86.224ZM79.4159 86.224C80.6159 86.224 81.4799 85.584 82.2959 84.64H82.3279L82.4559 86H83.6559V77.312H82.1999V83.488C81.3839 84.512 80.7439 84.944 79.8639 84.944C78.7119 84.944 78.2159 84.256 78.2159 82.64V77.312H76.7599V82.816C76.7599 85.04 77.5919 86.224 79.4159 86.224ZM89.0387 86.224C91.0867 86.224 92.1907 85.056 92.1907 83.632C92.1907 81.984 90.8147 81.472 89.5507 80.992C88.5587 80.64 87.6787 80.32 87.6787 79.488C87.6787 78.816 88.1747 78.24 89.2787 78.24C90.0467 78.24 90.6707 78.576 91.2627 79.008L91.9667 78.08C91.2947 77.536 90.3347 77.104 89.2627 77.104C87.3747 77.104 86.2707 78.176 86.2707 79.552C86.2707 81.04 87.5987 81.616 88.7987 82.08C89.7587 82.432 90.7987 82.832 90.7987 83.712C90.7987 84.48 90.2227 85.088 89.0707 85.088C88.0307 85.088 87.2627 84.656 86.5107 84.048L85.7907 85.024C86.6067 85.696 87.8067 86.224 89.0387 86.224ZM96.7248 86.224C97.2688 86.224 97.8448 86.064 98.3248 85.888L98.0368 84.8C97.7648 84.912 97.3648 85.04 97.0608 85.04C96.0528 85.04 95.7168 84.416 95.7168 83.36V78.496H98.0688V77.312H95.7168V74.864H94.4848L94.3248 77.312L92.9648 77.408V78.496H94.2608V83.328C94.2608 85.056 94.8688 86.224 96.7248 86.224Z"
         fill="#828282"
@@ -137,7 +201,7 @@ const PickUp = ({ id }: Props) => {
         width="158"
         height="157"
         rx="7"
-        stroke={id}
+        stroke={color}
         strokeWidth="2"
       />
       <path
@@ -175,84 +239,23 @@ const PickUp = ({ id }: Props) => {
   );
 };
 
-const UserTypeChoice = () => {
-  const navigate = useNavigate();
-  const [flag, setFlag] = useState(true);
+const RightArrow = () => {
   return (
-    <Wrapper>
-      <Back />
-      <Text>사용자 유형을 선택해주세요</Text>
-      <SVGWrapper>
-        <button
-          onClick={() => {
-            setFlag(true);
-          }}
-        >
-          <Farmer id={flag ? '#F57D14' : '#EFEFF0'} />
-          <Job>농부</Job>
-        </button>
-        <button
-          onClick={() => {
-            setFlag(false);
-          }}
-        >
-          <PickUp id={flag ? '#EFEFF0' : '#F57D14'} />
-          <Job>귤줍</Job>
-        </button>
-      </SVGWrapper>
-      <button
-        onClick={() =>
-          flag
-            ? navigate('/farmer-name-setting')
-            : navigate('/username-setting')
-        }
-        style={{ position: 'absolute', bottom: '60px', right: '42px' }}
-      >
-        <svg
-          width="56"
-          height="56"
-          viewBox="0 0 56 56"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="56" height="56" rx="8" fill="#F57D14" />
-          <path
-            d="M12 33H43.5L34.5 23"
-            stroke="#F2F2F2"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-    </Wrapper>
+    <svg
+      width="56"
+      height="56"
+      viewBox="0 0 56 56"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="56" height="56" rx="8" fill="#F57D14" />
+      <path
+        d="M12 33H43.5L34.5 23"
+        stroke="#F2F2F2"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 };
-
-export default UserTypeChoice;
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Text = styled.div`
-  font-size: 1.4rem;
-  padding-bottom: 1rem;
-  font-weight: 700;
-`;
-
-const SVGWrapper = styled.div`
-  display: flex;
-  width: 85%;
-  justify-content: space-between;
-  padding-top: 1.2rem;
-`;
-
-const Job = styled.div`
-  text-align: center;
-  padding-top: 1rem;
-  font-weight: 700;
-`;
