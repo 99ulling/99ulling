@@ -3,10 +3,12 @@ package com.ggulling.auth;
 import com.ggulling.auth.dto.request.SignInRequest;
 import com.ggulling.auth.dto.request.SignUpRequest;
 import com.ggulling.auth.dto.response.SignInResponse;
+import com.ggulling.auth.dto.response.SignUpByNicknameResponse;
 import com.ggulling.farm.Farm;
 import com.ggulling.farm.FarmRepository;
 import com.ggulling.user.User;
 import com.ggulling.user.UserRepository;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +18,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class AuthService {
     private final UserRepository userRepository;
     private final FarmRepository farmRepository;
@@ -46,5 +48,12 @@ public class AuthService {
 
         return user.map(value -> SignInResponse.of(value.getId(), value.getNickname(), UserType.USER, "", "", "", ""))
                 .orElseGet(() -> SignInResponse.of(farm.get().getId(), farm.get().getFarmName(), UserType.FARMER, farm.get().getFarmImage(), farm.get().getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + farm.get().getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")), farm.get().getAddress(), farm.get().getSentence()));
+    }
+
+    public SignUpByNicknameResponse signUpByNickname(final String nickname) {
+        if (userRepository.existsByNickname(nickname))
+            throw new UserAlreadyExistsException();
+
+        return SignUpByNicknameResponse.of(userRepository.save(User.newInstance(nickname)));
     }
 }

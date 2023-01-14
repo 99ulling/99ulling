@@ -1,5 +1,6 @@
 package com.ggulling.user;
 
+import com.ggulling.common.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
