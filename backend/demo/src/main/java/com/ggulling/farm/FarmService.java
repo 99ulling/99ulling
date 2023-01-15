@@ -2,6 +2,7 @@ package com.ggulling.farm;
 
 import com.ggulling.history.History;
 import com.ggulling.history.HistoryRepository;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,16 +13,13 @@ import java.util.Optional;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
-public class FarmService {
-    public static final int RADIUS = 1;
-    final private FarmRepository farmRepository;
-    final private HistoryRepository historyRepository;
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+class FarmService {
+    private final FarmRepository farmRepository;
+    private final HistoryRepository historyRepository;
 
     @Transactional(readOnly = true)
     public SearchFarmResponse searchFarm(SearchFarmRequest request) {
-
-//        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude(), request.getTransportation().getKm());
         final List<Farm> farmList = farmRepository.findAll();
 
         if (farmList.isEmpty()) throw new NoFarmAvailableException();
@@ -36,6 +34,14 @@ public class FarmService {
 
         return SearchFarmResponse.of(targetFarm, remains);
     }
+
+    @Transactional(readOnly = true)
+    public SearchFarmResponse searchFarmByRange(final SearchFarmByRangeRequest request) {
+        //조건에 맞는 농장 가져오기
+        final List<Farm> farmList = farmRepository.findFarmByRadius(request.getLatitude(), request.getLongitude(), request.getTransportation().getKm());
+        final int randInt = (int) (Math.random() * farmList.size());
+
+        return SearchFarmResponse.of(farmList.get(randInt));    }
 
     private int getRemains(Farm targetFarm, Optional<History> history) {
         if (history.isEmpty()) {

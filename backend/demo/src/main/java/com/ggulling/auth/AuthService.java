@@ -19,11 +19,11 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class AuthService {
+class AuthService {
     private final UserRepository userRepository;
     private final FarmRepository farmRepository;
 
-    public SignInResponse signUp(final SignUpRequest request) {
+    public final SignInResponse signUp(final SignUpRequest request) {
         Optional<User> user = userRepository.findByNickname(request.getNickname());
         Optional<Farm> farm = farmRepository.findByFarmName(request.getNickname());
 
@@ -40,7 +40,7 @@ public class AuthService {
         return SignInResponse.of(newUser.getId(), newUser.getNickname(), request.getUserType(), "", "", "", "");
     }
 
-    public SignInResponse signIn(final SignInRequest request) {
+    public final SignInResponse signIn(final SignInRequest request) {
         Optional<User> user = userRepository.findByNickname(request.getNickname());
         Optional<Farm> farm = farmRepository.findByFarmName(request.getNickname());
 
@@ -50,7 +50,7 @@ public class AuthService {
                 .orElseGet(() -> SignInResponse.of(farm.get().getId(), farm.get().getFarmName(), UserType.FARMER, farm.get().getFarmImage(), farm.get().getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + farm.get().getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")), farm.get().getAddress(), farm.get().getSentence()));
     }
 
-    public SignUpByNicknameResponse signUpByNickname(final String nickname) {
+    public final SignUpByNicknameResponse signUpByNickname(final String nickname) {
         if (userRepository.existsByNickname(nickname))
             throw new UserAlreadyExistsException();
 

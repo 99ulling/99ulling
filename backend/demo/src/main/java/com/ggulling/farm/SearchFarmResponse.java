@@ -21,6 +21,19 @@ public class SearchFarmResponse {
     private int remainCount;
     private String sentence;
 
+    public static SearchFarmResponse of(Farm farm) {
+        return new SearchFarmResponse(
+                farm.getId(),
+                farm.getFarmName(),
+                farm.getFarmImage(),
+                farm.getAddress(),
+                farm.getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + farm.getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")),
+                farm.getSharingGgulCount(),
+                farm.getSharingGgulCount(),
+                farm.getSentence()
+        );
+    }
+
     public static SearchFarmResponse of(Farm farm, int remainCount) {
         return new SearchFarmResponse(
                 farm.getId(),

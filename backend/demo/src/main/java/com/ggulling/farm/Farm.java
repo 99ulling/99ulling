@@ -46,6 +46,10 @@ public class Farm extends BaseEntity {
         availableEndTime = endTime;
     }
 
+    public void minusSharingCount(int minusCount) {
+        this.sharingGgulCount -= minusCount;
+    }
+
     public void changeSharingCount(int sharingGgulCount) {
         this.sharingGgulCount = sharingGgulCount;
     }
