@@ -30,6 +30,7 @@ public class Farm extends BaseEntity {
     private LocalTime availableStartTime;
     private LocalTime availableEndTime;
     private int sharingGgulCount;
+    private int remainGgulCount;
     private String sentence;
 
     public void activeShare() {
@@ -46,8 +47,8 @@ public class Farm extends BaseEntity {
         availableEndTime = endTime;
     }
 
-    public void minusSharingCount(int minusCount) {
-        this.sharingGgulCount -= minusCount;
+    public void minusRemainCount(int minusCount) {
+        this.remainGgulCount -= minusCount;
     }
 
     public void changeSharingCount(int sharingGgulCount) {
@@ -68,6 +69,7 @@ public class Farm extends BaseEntity {
         this.availableStartTime = availableStartTime;
         this.availableEndTime = availableEndTime;
         this.sharingGgulCount = sharingGgulCount;
+        this.remainGgulCount = sharingGgulCount;
         this.sentence = sentence;
     }
 

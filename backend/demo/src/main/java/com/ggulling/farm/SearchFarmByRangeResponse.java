@@ -4,14 +4,13 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
-import lombok.val;
 
 import java.time.format.DateTimeFormatter;
 
 @ToString
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class SearchFarmResponse {
+public class SearchFarmByRangeResponse {
     private Long id;
     private String name;
     private String farmImage;
@@ -19,19 +18,18 @@ public class SearchFarmResponse {
     private String availableTime;
     private int totalCount;
     private int remainCount;
-    private String sentence;
+    private double distance;
 
-    public static SearchFarmResponse of(Farm farm, int remainCount) {
-        return new SearchFarmResponse(
+    public static SearchFarmByRangeResponse of(Farm farm, double distance) {
+        return new SearchFarmByRangeResponse(
                 farm.getId(),
                 farm.getFarmName(),
                 farm.getFarmImage(),
                 farm.getAddress(),
                 farm.getAvailableStartTime().format(DateTimeFormatter.ofPattern("HH:mm")) + " ~ " + farm.getAvailableEndTime().format(DateTimeFormatter.ofPattern("HH:mm")),
                 farm.getSharingGgulCount(),
-                remainCount,
-                farm.getSentence()
+                farm.getRemainGgulCount(),
+                distance
         );
     }
 }
-
