@@ -14,6 +14,7 @@ import com.ggulling.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -99,6 +100,19 @@ public class SharingService {
                 .orElseThrow(NotExistsReservationException::new);
 
         return SharingByNicknameResponse.of(history);
+    }
+
+    public CompleteSharingResponse completeSharing(String nickname) {
+        final User user = userRepository.findByNickname(nickname)
+                .orElseThrow(NotExistsUserException::new);
+
+        final History history = historyRepository.findByUserIdAndStatus(user.getId(), String.valueOf(Status.INPROGRESS))
+                .orElseThrow(NotExistsReservationException::new);
+        history.completeSharing();
+
+        userRepository.delete(user);
+
+        return CompleteSharingResponse.of(history);
     }
 
     private int getRemains(Farm farm, Optional<History> history) {

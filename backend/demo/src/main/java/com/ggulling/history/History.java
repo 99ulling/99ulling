@@ -2,6 +2,7 @@ package com.ggulling.history;
 
 import com.ggulling.common.BaseEntity;
 import com.ggulling.farm.Farm;
+import com.ggulling.sharing.Status;
 import com.ggulling.user.User;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -35,11 +36,18 @@ public class History extends BaseEntity {
     @JoinColumn(name = "farm_id")
     private Farm farm;
 
+    private Status status;
+
+    public void completeSharing() {
+        this.status = Status.COMPLETED;
+    }
+
     private History(final int reservationGGulCount, final int remainGgulCount, final User user, final Farm farm) {
         this.reservationGGulCount = reservationGGulCount;
         this.remainGgulCount = remainGgulCount;
         this.user = user;
         this.farm = farm;
+        this.status = Status.INPROGRESS;
     }
 
     public static History newInstance(final int reservationGGulCount, final int remainGgulCount, final User user, final Farm farm) {
