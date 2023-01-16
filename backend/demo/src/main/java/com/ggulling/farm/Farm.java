@@ -32,6 +32,7 @@ public class Farm extends BaseEntity {
     private int sharingGgulCount;
     private int remainGgulCount;
     private String sentence;
+    private String phoneNumber;
 
     public void activeShare() {
         share = false;

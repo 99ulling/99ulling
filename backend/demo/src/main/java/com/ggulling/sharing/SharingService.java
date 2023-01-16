@@ -76,6 +76,16 @@ public class SharingService {
         return SharingReservationResponse.of(histories.get(0));
     }
 
+    public SharingByNicknameResponse findSharingByNickname(final String nickname) {
+        final User user = userRepository.findByNickname(nickname)
+                .orElseThrow(NotExistsUserException::new);
+
+        final History history = historyRepository.findByUserIdAndStatus(user.getId(), String.valueOf(Status.INPROGRESS))
+                .orElseThrow(NotExistsReservationException::new);
+
+        return SharingByNicknameResponse.of(history);
+    }
+
     private int getRemains(Farm farm, Optional<History> history) {
         if (history.isEmpty()) {
             return farm.getSharingGgulCount();

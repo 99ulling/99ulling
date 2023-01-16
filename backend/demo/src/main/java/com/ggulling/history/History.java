@@ -32,7 +32,7 @@ public class History extends BaseEntity {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "farm_id")w
+    @JoinColumn(name = "farm_id")
     private Farm farm;
 
     private History(final int reservationGGulCount, final int remainGgulCount, final User user, final Farm farm) {
