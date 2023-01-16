@@ -1,6 +1,7 @@
 package com.ggulling.farm;
 
 import com.ggulling.common.BaseEntity;
+import com.ggulling.sharing.InvalidGgulCountException;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,7 +50,9 @@ public class Farm extends BaseEntity {
     }
 
     public void minusRemainCount(int minusCount) {
+        if (remainGgulCount < minusCount) throw new InvalidGgulCountException();
         this.remainGgulCount -= minusCount;
+
     }
 
     public void changeSharingCount(int sharingGgulCount) {

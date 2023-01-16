@@ -34,8 +34,17 @@ public class SharingController {
         return sharingService.getSharingReservation(userId);
     }
 
+    @ApiOperation("귤줍이 나눔을 예약합니다.")
+    @PostMapping("v2/sharing/reservation")
+    public ReserveSharingResponse reserveSharingGgul(@Valid @RequestBody ReserveSharingRequest request) {
+        return sharingService.reserveSharingGgul(request);
+    }
+
     @ApiOperation("귤줍이 나눔을 확인합니다.")
     @GetMapping("v2/sharing/reservation/{nickname}")
     public SharingByNicknameResponse findSharingByNickname(@PathVariable String nickname){
         return sharingService.findSharingByNickname(nickname);
-    }}
+    }
+}
+
+

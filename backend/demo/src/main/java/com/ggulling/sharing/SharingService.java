@@ -61,6 +61,21 @@ public class SharingService {
         return new ReserveSharingResponse(newHistory.getId());
     }
 
+    public ReserveSharingResponse reserveSharingGgul(ReserveSharingRequest request) {
+        final Farm farm = farmRepository.findByIdAndShareTrue(request.getFarmId())
+                .orElseThrow(NotExistsFarmException::new);
+
+        final User user = userRepository.findById(request.getUserId())
+                .orElseThrow(NotExistsUserException::new);
+
+        farm.minusRemainCount(request.getGgulCount());
+
+        History newHistory = History.newInstance(request.getGgulCount(), 0, user, farm);
+        historyRepository.save(newHistory);
+
+        return new ReserveSharingResponse(newHistory.getId());
+    }
+
     @Transactional(readOnly = true)
     public SharingReservationResponse getSharingReservation(Long userId) {
         User user = userRepository.findById(userId)
