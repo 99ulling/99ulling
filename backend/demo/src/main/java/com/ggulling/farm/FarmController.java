@@ -12,14 +12,20 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/farm")
+@RequestMapping("/api")
 public class FarmController {
 
     private final FarmService farmService;
 
-    @ApiOperation("전방의 귤 농가를 탐색하여 조회합니다.")
-    @PostMapping("/search")
+    @ApiOperation("귤 농가를 탐색하여 조회합니다.")
+    @PostMapping("/v1/farm/search")
     public SearchFarmResponse searchFarm(@Valid @RequestBody SearchFarmRequest request) {
         return farmService.searchFarm(request);
+    }
+
+    @ApiOperation("v2 - 전방의 귤 농가를 탐색하여 조회합니다.")
+    @GetMapping("/v2/farm/search")
+    public SearchFarmByRangeResponse searchFarmByRange(@Valid @RequestBody SearchFarmByRangeRequest request) {
+        return farmService.searchFarmByRange(request);
     }
 }

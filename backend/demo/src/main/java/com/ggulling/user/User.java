@@ -1,5 +1,6 @@
 package com.ggulling.user;
 
+import com.ggulling.common.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
@@ -22,6 +23,15 @@ public class User {
 
     private User(final String nickname) {
         this.nickname = nickname;
+    }
+
+    private User(final Long id, final String nickname) {
+        this.id = id;
+        this.nickname = nickname;
+    }
+
+    public static User getAnonymous() {
+        return new User(-1L, "anonymous");
     }
 
     public static User newInstance(final String nickname) {
