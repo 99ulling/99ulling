@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @RestController
 @RequiredArgsConstructor
@@ -36,9 +37,9 @@ public class AuthController {
         return authService.signIn(request);
     }
 
-    @ApiOperation("닉네임이 유효한지 확인합니다.")
+    @ApiOperation("v2- 닉네임이 유효한지 확인합니다.")
     @PostMapping("/v2/auth/nickname")
-    public SignUpByNicknameResponse signUpByNickname(@Valid @RequestBody String nickname) {
-        return authService.signUpByNickname(nickname);
+    public SignUpByNicknameResponse signUpByNickname( @RequestBody SignInRequest request) {
+        return authService.signUpByNickname(request.getNickname());
     }
 }

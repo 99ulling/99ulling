@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
 class FarmService {
     private final FarmRepository farmRepository;
     private final HistoryRepository historyRepository;

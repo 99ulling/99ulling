@@ -23,8 +23,8 @@ public class FarmController {
         return farmService.searchFarm(request);
     }
 
-    @ApiOperation("전방의 귤 농가를 탐색하여 조회합니다.")
-    @PostMapping("/v2/farm/search")
+    @ApiOperation("v2 - 전방의 귤 농가를 탐색하여 조회합니다.")
+    @GetMapping("/v2/farm/search")
     public SearchFarmByRangeResponse searchFarmByRange(@Valid @RequestBody SearchFarmByRangeRequest request) {
         return farmService.searchFarmByRange(request);
     }

@@ -25,6 +25,15 @@ public class User extends BaseEntity {
         this.nickname = nickname;
     }
 
+    private User(final Long id, final String nickname) {
+        this.id = id;
+        this.nickname = nickname;
+    }
+
+    public static User getAnonymous() {
+        return new User(-1L, "anonymous");
+    }
+
     public static User newInstance(final String nickname) {
         return new User(nickname);
     }

@@ -3,22 +3,15 @@ package com.ggulling.sharing;
 import com.ggulling.auth.NotExistsUserException;
 import com.ggulling.farm.Farm;
 import com.ggulling.farm.FarmRepository;
-import com.ggulling.farm.NoFarmAvailableException;
-import com.ggulling.farm.SearchFarmRequest;
-import com.ggulling.farm.SearchFarmResponse;
 import com.ggulling.history.History;
 import com.ggulling.history.HistoryRepository;
-import com.ggulling.history.SharingHistoryResponse;
 import com.ggulling.user.User;
 import com.ggulling.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,11 +55,11 @@ public class SharingService {
         return new ReserveSharingResponse(newHistory.getId());
     }
 
-    public ReserveSharingResponse reserveSharingGgul(ReserveSharingRequest request) {
+    public ReserveSharingResponse reserveSharingGgul(SharingGgulRequest request) {
         final Farm farm = farmRepository.findByIdAndShareTrue(request.getFarmId())
                 .orElseThrow(NotExistsFarmException::new);
 
-        final User user = userRepository.findById(request.getUserId())
+        final User user = userRepository.findByNickname(request.getNickname())
                 .orElseThrow(NotExistsUserException::new);
 
         farm.minusRemainCount(request.getGgulCount());
@@ -96,7 +89,7 @@ public class SharingService {
         final User user = userRepository.findByNickname(nickname)
                 .orElseThrow(NotExistsUserException::new);
 
-        final History history = historyRepository.findByUserIdAndStatus(user.getId(), String.valueOf(Status.INPROGRESS))
+        final History history = historyRepository.findByUserIdAndStatus(user.getId(), Status.INPROGRESS)
                 .orElseThrow(NotExistsReservationException::new);
 
         return SharingByNicknameResponse.of(history);
@@ -106,9 +99,12 @@ public class SharingService {
         final User user = userRepository.findByNickname(nickname)
                 .orElseThrow(NotExistsUserException::new);
 
-        final History history = historyRepository.findByUserIdAndStatus(user.getId(), String.valueOf(Status.INPROGRESS))
+        final History history = historyRepository.findByUserIdAndStatus(user.getId(), Status.INPROGRESS)
                 .orElseThrow(NotExistsReservationException::new);
+
         history.completeSharing();
+        history.changeToAnonymous(userRepository.findById(-1L)
+                .orElseGet(User::getAnonymous));
 
         userRepository.delete(user);
 
