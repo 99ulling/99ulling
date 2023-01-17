@@ -1,6 +1,7 @@
 package com.ggulling.farm;
 
 import com.ggulling.common.BaseEntity;
+import com.ggulling.sharing.InvalidGgulCountException;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +31,9 @@ public class Farm extends BaseEntity {
     private LocalTime availableStartTime;
     private LocalTime availableEndTime;
     private int sharingGgulCount;
+    private int remainGgulCount;
     private String sentence;
+    private String phoneNumber;
 
     public void activeShare() {
         share = false;
@@ -44,6 +47,12 @@ public class Farm extends BaseEntity {
 
         availableStartTime = startTime;
         availableEndTime = endTime;
+    }
+
+    public void minusRemainCount(int minusCount) {
+        if (remainGgulCount < minusCount) throw new InvalidGgulCountException();
+        this.remainGgulCount -= minusCount;
+
     }
 
     public void changeSharingCount(int sharingGgulCount) {
@@ -64,6 +73,7 @@ public class Farm extends BaseEntity {
         this.availableStartTime = availableStartTime;
         this.availableEndTime = availableEndTime;
         this.sharingGgulCount = sharingGgulCount;
+        this.remainGgulCount = sharingGgulCount;
         this.sentence = sentence;
     }
 
