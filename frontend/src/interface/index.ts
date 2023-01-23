@@ -7,7 +7,6 @@ export interface SignUp {
 }
 
 export interface Search {
-  address: string;
   latitude: number;
   longitude: number;
   transportation: string;

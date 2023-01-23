@@ -5,7 +5,6 @@ interface Props {
   onClick?: () => void;
   backgroundColor?: string;
   color?: string;
-  padding?: string;
 }
 
 const DefaultButton = ({
@@ -13,28 +12,19 @@ const DefaultButton = ({
   backgroundColor,
   color,
   onClick,
-  padding,
 }: Props) => {
   return (
-    <Wrapper>
-      <StyledButton
-        onClick={onClick}
-        backgroundColor={backgroundColor}
-        color={color ?? 'white'}
-        padding={padding}
-      >
-        {children}
-      </StyledButton>
-    </Wrapper>
+    <StyledButton
+      onClick={onClick}
+      backgroundColor={backgroundColor}
+      color={color ?? 'white'}
+    >
+      {children}
+    </StyledButton>
   );
 };
 
 export default DefaultButton;
-
-const Wrapper = styled.div`
-  width: 100%;
-  padding: 9px 0;
-`;
 
 const StyledButton = styled.button<{
   color: string;
@@ -45,7 +35,7 @@ const StyledButton = styled.button<{
   height: auto;
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.color};
-  padding: ${(props) => props.padding};
+  padding: 1rem 0;
   border: 1px solid ${(props) => props.color};
   border-radius: 0.5rem;
   font-weight: bold;

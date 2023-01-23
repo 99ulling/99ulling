@@ -46,7 +46,6 @@ const NotFound = () => {
           onClick={() => navigate('/')}
           backgroundColor="#F57D14"
           color="#fff"
-          padding="1rem 0"
         >
           홈으로 돌아가기
         </DefaultButton>
