@@ -3,8 +3,6 @@ import TextField from '@mui/material/TextField';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Back } from '@/components';
-
 const UserConfirm = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -20,7 +18,6 @@ const UserConfirm = () => {
 
   return (
     <>
-      <Back />
       <Middle>
         <div>
           <Text>
