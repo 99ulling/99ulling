@@ -7,7 +7,7 @@ const instance = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_URL,
   headers: {
     'Content-Type': 'application/json',
-    accept: '*/*',
+    'Access-Control-Allow-Origin': '*',
   },
 });
 
