@@ -31,8 +31,8 @@ export const signIn = (nickname: string) => {
 
 export const search = (data: Search) => {
   return instance({
-    url: '/api/v1/farm/search',
+    url: '/api/v2/farm/search',
     data,
-    method: 'POST',
+    method: 'GET',
   });
 };
