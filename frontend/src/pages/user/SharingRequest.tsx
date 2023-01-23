@@ -80,7 +80,7 @@ const Middle = styled.div`
   width: 100%;
 
   & > div {
-    padding: 0 2rem;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
