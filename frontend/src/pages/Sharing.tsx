@@ -17,7 +17,6 @@ const Sharing = () => {
           <DefaultButton
             onClick={() => navigate('/location-level')}
             backgroundColor="#F57D14"
-            padding="1rem 0"
           >
             나눔받기
           </DefaultButton>

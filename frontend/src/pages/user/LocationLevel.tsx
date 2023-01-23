@@ -88,11 +88,7 @@ const LocationLevel = () => {
         </div>
       </Middle>
       <Bottom>
-        <DefaultButton
-          backgroundColor="#F57D14"
-          onClick={() => handleSubmit()}
-          padding="1rem 0"
-        >
+        <DefaultButton backgroundColor="#F57D14" onClick={() => handleSubmit()}>
           귤러가요
         </DefaultButton>
       </Bottom>

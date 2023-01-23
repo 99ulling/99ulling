@@ -81,7 +81,6 @@ const SharingRequest = () => {
               navigate('/app-completed');
             }, 300);
           }}
-          padding="1rem 0"
         >
           신청하기
         </DefaultButton>

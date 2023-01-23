@@ -31,11 +31,7 @@ const FarmAppCompleted = () => {
       <DataTable title="나눔 위치" value={farmData.address} />
       <DataTable title="이용 시간" value={farmData.availableTime} />
       <ButtonPosition>
-        <DefaultButton
-          backgroundColor="#F57D14"
-          onClick={() => navigate('/')}
-          padding="0.8rem 0"
-        >
+        <DefaultButton backgroundColor="#F57D14" onClick={() => navigate('/')}>
           확인
         </DefaultButton>
       </ButtonPosition>

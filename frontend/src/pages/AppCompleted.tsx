@@ -41,11 +41,7 @@ const AppCompleted = () => {
         </div>
       </Middle>
       <Bottom>
-        <DefaultButton
-          backgroundColor="#F57D14"
-          onClick={() => navigate('/')}
-          padding="1rem 0"
-        >
+        <DefaultButton backgroundColor="#F57D14" onClick={() => navigate('/')}>
           나눔받기
         </DefaultButton>
       </Bottom>

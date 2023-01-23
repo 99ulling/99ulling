@@ -5,7 +5,6 @@ interface Props {
   onClick?: () => void;
   backgroundColor?: string;
   color?: string;
-  padding?: string;
 }
 
 const DefaultButton = ({
@@ -13,14 +12,12 @@ const DefaultButton = ({
   backgroundColor,
   color,
   onClick,
-  padding,
 }: Props) => {
   return (
     <StyledButton
       onClick={onClick}
       backgroundColor={backgroundColor}
       color={color ?? 'white'}
-      padding={padding}
     >
       {children}
     </StyledButton>
@@ -38,7 +35,7 @@ const StyledButton = styled.button<{
   height: auto;
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.color};
-  padding: ${(props) => props.padding};
+  padding: 1rem 0;
   border: 1px solid ${(props) => props.color};
   border-radius: 0.5rem;
   font-weight: bold;
