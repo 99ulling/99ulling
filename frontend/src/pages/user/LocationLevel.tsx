@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { search } from '@/api/api';
-import { loginNickNameState, searchState } from '@/atom/atom';
-import { Back, DefaultButton } from '@/components';
+import { searchState } from '@/atom/atom';
+import { DefaultButton } from '@/components';
 
 interface Props {
   color: string;
@@ -16,7 +16,6 @@ const LocationLevel = () => {
   const [bike, setBike] = useState(false);
   const [car, setCar] = useState(false);
   const [loading, setLoading] = useState(false);
-  const nickName = useRecoilValue(loginNickNameState);
   const farmerData = useSetRecoilState(searchState);
   const navigate = useNavigate();
 
@@ -58,14 +57,10 @@ const LocationLevel = () => {
   };
 
   return (
-    <Wrapper>
+    <>
       <Loading />
-      <Back />
       <SearchText>
-        <SearchTextTop>
-          <TextFontNormal>{nickName}</TextFontNormal>님 주변에서
-        </SearchTextTop>
-        귤 농가를 발견했어요
+        주변 귤 농가를 탐색합니다
         <ChoiceText>이동 수단에 맞는 농가를 추천해 드릴게요</ChoiceText>
       </SearchText>
       <button
@@ -96,29 +91,16 @@ const LocationLevel = () => {
       >
         귤러가요
       </DefaultButton>
-    </Wrapper>
+    </>
   );
 };
 
 export default LocationLevel;
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  gap: 1rem;
-`;
-
 const SearchText = styled.div`
   width: 100%;
   font-size: 1.4rem;
   font-weight: bold;
-`;
-
-const SearchTextTop = styled.div`
-  padding-bottom: 10px;
 `;
 
 const ChoiceText = styled.div`
@@ -140,10 +122,6 @@ const LoadingWrapper = styled.div<{ loading: boolean }>`
     background-color: white;
     overflow-x: hidden;
   }
-`;
-
-const TextFontNormal = styled.span`
-  font-weight: normal;
 `;
 
 const Walk = ({ color }: Props) => {
