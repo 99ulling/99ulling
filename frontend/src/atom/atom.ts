@@ -5,19 +5,9 @@ export const loginNickNameState = atom({
   default: '뀰줍',
 });
 
-export const loginUserAddressState = atom({
-  key: 'loginUserAddressState',
-  default: '제주도 서귀포시 농장로 342길 2',
-});
-
 export const loginFarmerNameState = atom({
   key: 'loginFarmerNameState',
   default: '농부',
-});
-
-export const loginFarmerAddressState = atom({
-  key: 'loginFarmerAddressState',
-  default: '제주도 서귀포시 농장로 342길 2',
 });
 
 export const searchState = atom({

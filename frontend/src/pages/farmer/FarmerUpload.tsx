@@ -5,11 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { signUp } from '@/api/api';
-import {
-  loginFarmerAddressState,
-  loginFarmerNameState,
-  shareState,
-} from '@/atom/atom';
+import { loginFarmerNameState, shareState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
 const FarmerUpload = () => {
@@ -17,7 +13,6 @@ const FarmerUpload = () => {
   const navigate = useNavigate();
   const setShareState = useSetRecoilState(shareState);
   const farmerName = useRecoilValue(loginFarmerNameState);
-  const farmerAddressState = useRecoilValue(loginFarmerAddressState);
 
   const onChangeGgul = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const ggulCurrent = e.target.value;
@@ -28,7 +23,7 @@ const FarmerUpload = () => {
   const handleSubmit = () => {
     if (ggul) {
       signUp({
-        address: farmerAddressState,
+        address: '제주도 서귀포시 농장로 342길 2',
         latitude: 126.616186,
         longitude: 33.273398,
         nickname: farmerName,
@@ -52,7 +47,6 @@ const FarmerUpload = () => {
       <img width="100%" src="/sharing99.png" alt="sharing99.png" />
       <Wrapper>
         <FarmerName>{farmerName}</FarmerName>
-        <FarmerAddress>{farmerAddressState}</FarmerAddress>
         <TextFieldWrapper>
           <TextField fullWidth label="귤 나눔 개수" onChange={onChangeGgul} />
         </TextFieldWrapper>
@@ -76,12 +70,6 @@ const FarmerName = styled.div`
   font-weight: bold;
   font-size: 2rem;
   padding-top: 4rem;
-`;
-
-const FarmerAddress = styled.div`
-  font-weight: bold;
-  font-size: 18px;
-  padding-top: 1rem;
 `;
 
 const Wrapper = styled.div`

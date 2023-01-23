@@ -1,18 +1,15 @@
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
 
-import { loginFarmerAddressState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
 
 const Sharing = () => {
   const navigate = useNavigate();
-  const farmerAddress = useRecoilValue(loginFarmerAddressState);
 
   return (
     <Wrapper>
       <Location>
-        현위치 {farmerAddress}
+        현위치 제주도 서귀포시 농장로 342길 2
         <svg
           width="16"
           height="16"
