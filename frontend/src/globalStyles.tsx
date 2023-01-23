@@ -113,15 +113,10 @@ export const globalStyles = (
         display: block;
       }
       body {
-        line-height: 1;
         font-family: 'Noto Sans KR', sans-serif;
+        margin: 0 auto;
         @media all and (min-width: 768px) {
           width: 412px;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
         }
       }
       ol,
@@ -152,6 +147,7 @@ export const globalStyles = (
       }
       #root > div {
         min-height: 100vh;
+        padding: 0 2rem;
       }
     `}
   />
