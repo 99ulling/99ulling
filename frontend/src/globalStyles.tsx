@@ -145,7 +145,12 @@ export const globalStyles = (
         cursor: pointer;
         padding: 0;
       }
-      #root > div {
+      #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
         min-height: 100vh;
         padding: 0 2rem;
       }
