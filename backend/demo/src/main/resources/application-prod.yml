@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://bemyplan-dev-mysql.c3p7kjpj7cej.ap-northeast-2.rds.amazonaws.com:3306/ggulling?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
-    username: bemyplan_dev
-    password: bemyplan_pwd
+    url: jdbc:mysql://db-ggulling.chjb7abqc76k.ap-northeast-2.rds.amazonaws.com:3306/ggulling?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: admin
+    password: ggulggul
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
