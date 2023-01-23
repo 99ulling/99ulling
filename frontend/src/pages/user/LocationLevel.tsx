@@ -6,6 +6,7 @@ import { useSetRecoilState } from 'recoil';
 import { search } from '@/api/api';
 import { searchState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
+import Loading from '@/components/Loading';
 
 interface Props {
   color: string;
@@ -38,26 +39,9 @@ const LocationLevel = () => {
     }
   };
 
-  const Loading = () => {
-    return (
-      <LoadingWrapper loading={loading ? 'block' : 'none'} className="overlay">
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100%',
-          }}
-        >
-          <img width={300} src="loading.gif" alt="loading.gif" />
-        </div>
-      </LoadingWrapper>
-    );
-  };
-
   return (
     <>
-      <Loading />
+      <Loading loading={loading} />
       <Middle>
         <div>
           <SearchText>
@@ -119,20 +103,6 @@ const ChoiceText = styled.div`
   font-weight: normal;
   padding-top: 1rem;
   padding-bottom: 2rem;
-`;
-
-const LoadingWrapper = styled.div<{ loading: string }>`
-  &.overlay {
-    display: ${(props) => (props.loading === 'block' ? 'block' : 'none')};
-    z-index: 1000;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-color: white;
-    overflow-x: hidden;
-  }
 `;
 
 const TypeButton = styled.button`

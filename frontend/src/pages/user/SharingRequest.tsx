@@ -6,6 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { searchState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
 import DataTable from '@/components/BorderData';
+import Loading from '@/components/Loading';
 import Tag from '@/components/Tag';
 
 const SharingRequest = () => {
@@ -28,26 +29,11 @@ const SharingRequest = () => {
     }, 300);
   };
 
-  const Loading = () => {
-    return (
-      <LoadingWrapper loading={loading ? 'block' : 'none'} className="overlay">
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100%',
-          }}
-        >
-          <img width={300} src="loading.gif" alt="loading.gif" />
-        </div>
-      </LoadingWrapper>
-    );
-  };
   const navigate = useNavigate();
+
   return (
     <>
-      <Loading />
+      <Loading loading={loading} />
       <ImgWrapper>
         <img
           width="100%"
@@ -106,20 +92,6 @@ const FarmerName = styled.div`
   font-size: 2rem;
   padding-top: 1rem;
   padding-bottom: 1.4rem;
-`;
-
-const LoadingWrapper = styled.div<{ loading: string }>`
-  &.overlay {
-    display: ${(props) => (props.loading === 'block' ? 'block' : 'none')};
-    z-index: 1000;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-color: white;
-    overflow-x: hidden;
-  }
 `;
 
 const ImgWrapper = styled.div`
