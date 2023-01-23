@@ -55,7 +55,6 @@ const Login = () => {
         <DefaultButton
           color="#F57D14"
           backgroundColor="#ffffff"
-          padding="0.8rem 0"
           onClick={handleLogin}
         >
           로그인
@@ -64,7 +63,6 @@ const Login = () => {
           <DefaultButton
             backgroundColor="#F57D14"
             onClick={() => navigate('/type-choice')}
-            padding="0.8rem 0"
           >
             회원가입
           </DefaultButton>

@@ -54,7 +54,6 @@ const FarmerUpload = () => {
           <DefaultButton
             backgroundColor="#F57D14"
             onClick={() => handleSubmit()}
-            padding="0.8rem 0"
           >
             귤러가요
           </DefaultButton>
