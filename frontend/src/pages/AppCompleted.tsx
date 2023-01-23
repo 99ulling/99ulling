@@ -18,38 +18,52 @@ const AppCompleted = () => {
   const farmData = useRecoilValue(searchState);
   const navigate = useNavigate();
   return (
-    <Wrapper>
+    <>
       <Back />
-      <CompleteLottie loop={false} />
-      <SearchText>
-        <CompletedInfo>나눔이 신청되었어요</CompletedInfo>
-        자정이 지나면 나눔이 자동으로 종료됩니다.
-      </SearchText>
-      <DataTable title="신청한 귤 개수" value="15개" />
-      <DataTable title="농가 이름" value={farmData.name} />
-      <DataTable title="나눔 위치" value={farmData.address} bottom="bottom" />
-
-      <ButtonPosition>
+      <Middle>
+        <div>
+          <CompleteLottie loop={false} />
+          <SearchText>
+            <CompletedInfo>나눔이 신청되었어요</CompletedInfo>
+            자정이 지나면 나눔이 자동으로 종료됩니다.
+          </SearchText>
+          <DataTable
+            title="신청한 귤 개수"
+            value="15개"
+            remainCount="remainCount"
+          />
+          <DataTable title="농가 이름" value={farmData.name} />
+          <DataTable
+            title="나눔 위치"
+            value={farmData.address}
+            bottom="bottom"
+          />
+        </div>
+      </Middle>
+      <Bottom>
         <DefaultButton
           backgroundColor="#F57D14"
           onClick={() => navigate('/')}
-          padding="0.8rem 42px"
+          padding="1rem 0"
         >
           나눔받기
         </DefaultButton>
-      </ButtonPosition>
-    </Wrapper>
+      </Bottom>
+    </>
   );
 };
 
 export default AppCompleted;
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 42px;
+const Middle = styled.div`
+  width: 100%;
+  & > div {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
 `;
 
 const SearchText = styled.div`
@@ -57,12 +71,6 @@ const SearchText = styled.div`
   padding-top: 1rem;
   padding-bottom: 3rem;
   line-height: 2.2rem;
-`;
-
-const ButtonPosition = styled.div`
-  position: absolute;
-  bottom: 60px;
-  width: 80%;
 `;
 
 const CompletedInfo = styled.div`
@@ -73,4 +81,9 @@ const CompletedInfo = styled.div`
 const LottieWrapper = styled.div`
   width: 35%;
   height: 110px;
+`;
+
+const Bottom = styled.div`
+  width: 85%;
+  padding-bottom: 4rem;
 `;
