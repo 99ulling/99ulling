@@ -49,10 +49,12 @@ const SharingRequest = () => {
           alt={farmerData.farmImage}
         />
       </ImgWrapper>
-      <Wrapper>
+      <Middle>
         <div>
-          <Tag color="#EB5757">NEW</Tag>
-          <FarmerName>{farmerData.name}</FarmerName>
+          <div>
+            <Tag color="#EB5757">NEW</Tag>
+            <FarmerName>{farmerData.name}</FarmerName>
+          </div>
           <DataTable
             title="잔여 개수"
             remainCount="remainCount"
@@ -63,46 +65,49 @@ const SharingRequest = () => {
             value={farmerData.address}
             bottom="bottom"
           />
-          <FormWrapper>
-            <Counter>
-              <CounterButton onClick={onDecrease}>－</CounterButton>
-              <div>{count}</div>
-              <CounterButton onClick={onIncrease}>＋</CounterButton>
-            </Counter>
-            <DefaultButton
-              backgroundColor="#F57D14"
-              onClick={() => {
-                setLoading(true);
-                setTimeout(() => {
-                  navigate('/app-completed');
-                }, 300);
-              }}
-              padding="1rem 0"
-            >
-              신청하기
-            </DefaultButton>
-          </FormWrapper>
         </div>
-      </Wrapper>
+      </Middle>
+      <FormWrapper>
+        <Counter>
+          <CounterButton onClick={onDecrease}>－</CounterButton>
+          <div>{count}</div>
+          <CounterButton onClick={onIncrease}>＋</CounterButton>
+        </Counter>
+        <DefaultButton
+          backgroundColor="#F57D14"
+          onClick={() => {
+            setLoading(true);
+            setTimeout(() => {
+              navigate('/app-completed');
+            }, 300);
+          }}
+          padding="1rem 0"
+        >
+          신청하기
+        </DefaultButton>
+      </FormWrapper>
     </>
   );
 };
 
 export default SharingRequest;
 
+const Middle = styled.div`
+  width: 100%;
+
+  & > div {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+`;
+
 const FarmerName = styled.div`
   font-weight: bold;
   font-size: 2rem;
   padding-top: 1rem;
   padding-bottom: 1.4rem;
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-
-  & > div {
-    padding: 0 1rem;
-  }
 `;
 
 const LoadingWrapper = styled.div<{ loading: string }>`
@@ -144,7 +149,8 @@ const CounterButton = styled.button`
 `;
 
 const FormWrapper = styled.div`
+  width: 85%;
   display: flex;
   gap: 0.5rem;
-  padding-top: 3rem;
+  padding: 2rem 0 4rem 0;
 `;
