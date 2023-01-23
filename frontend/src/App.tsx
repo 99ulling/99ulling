@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
+import Header from '@/components/Header';
 import {
   AppCompleted,
   FarmAppCompleted,
@@ -37,6 +38,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Sharing />} />
           <Route path="/type-choice" element={<TypeChoice />} />
