@@ -6,15 +6,15 @@ import {
   AppCompleted,
   FarmAppCompleted,
   FarmerNameSetting,
-  FarmerSharing,
   FarmerUpload,
   LocationLevel,
   Login,
   MyPage,
   NotFound,
+  Sharing,
   SharingRequest,
   TypeChoice,
-  UserNameSetting,
+  UserConfirm,
 } from '@/pages';
 
 const App = () => {
@@ -38,12 +38,12 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Sharing />} />
           <Route path="/type-choice" element={<TypeChoice />} />
           <Route path="/location-level" element={<LocationLevel />} />
-          <Route path="/username-setting" element={<UserNameSetting />} />
+          <Route path="/user-confirm" element={<UserConfirm />} />
           <Route path="/farmer-name-setting" element={<FarmerNameSetting />} />
-          <Route path="/farmer-sharing" element={<FarmerSharing />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/sharing-request" element={<SharingRequest />} />
           <Route path="/app-completed" element={<AppCompleted />} />
           <Route path="/farmer-upload" element={<FarmerUpload />} />

@@ -27,9 +27,7 @@ const TypeChoice = () => {
       </SVGWrapper>
       <NextButton
         onClick={() =>
-          flag
-            ? navigate('/farmer-name-setting')
-            : navigate('/username-setting')
+          flag ? navigate('/farmer-name-setting') : navigate('/user-confirm')
         }
       >
         <RightArrow />

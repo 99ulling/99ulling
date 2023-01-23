@@ -96,7 +96,6 @@ const InputWrapper = styled.div`
 const Description = styled.div`
   position: fixed;
   width: 100%;
-  height: 100%;
   right: 0;
   top: 80%;
   color: #c5c5c5;

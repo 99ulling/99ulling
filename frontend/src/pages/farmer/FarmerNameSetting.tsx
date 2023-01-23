@@ -4,15 +4,13 @@ import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
-import { loginFarmerAddressState, loginFarmerNameState } from '@/atom/atom';
+import { loginFarmerNameState } from '@/atom/atom';
 import { Back } from '@/components';
 
 const FarmerNameSetting = () => {
   const [farmerName, setFarmerName] = useState('');
-  const [farmerAddress, setFarmerAddress] = useState('');
   const navigate = useNavigate();
   const setAtomFarmerName = useSetRecoilState(loginFarmerNameState);
-  const setAtomAddressName = useSetRecoilState(loginFarmerAddressState);
 
   const onChangeFarmerName = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,19 +21,9 @@ const FarmerNameSetting = () => {
     [setFarmerName]
   );
 
-  const onChangeFarmerAddress = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const farmerAddressCurrent = e.target.value;
-
-      setFarmerAddress(farmerAddressCurrent);
-    },
-    [setFarmerAddress]
-  );
-
   const handleSubmit = () => {
-    if (farmerName && farmerAddress) {
+    if (farmerName) {
       setAtomFarmerName(farmerName);
-      setAtomAddressName(farmerAddress);
       navigate('/farmer-sharing');
     }
   };
@@ -45,7 +33,6 @@ const FarmerNameSetting = () => {
       <Back />
       <Text>귤 농장 정보를 알려주세요</Text>
       <Input onChange={onChangeFarmerName} label="농장 이름" />
-      <Input onChange={onChangeFarmerAddress} label="농장 주소" />
       <NextButton onClick={handleSubmit}>
         <RightArrow />
       </NextButton>

@@ -4,11 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { search } from '@/api/api';
-import {
-  loginNickNameState,
-  loginUserAddressState,
-  searchState,
-} from '@/atom/atom';
+import { loginNickNameState, searchState } from '@/atom/atom';
 import { Back, DefaultButton } from '@/components';
 
 interface Props {
@@ -21,7 +17,6 @@ const LocationLevel = () => {
   const [car, setCar] = useState(false);
   const [loading, setLoading] = useState(false);
   const nickName = useRecoilValue(loginNickNameState);
-  const userAddress = useRecoilValue(loginUserAddressState);
   const farmerData = useSetRecoilState(searchState);
   const navigate = useNavigate();
 
@@ -29,7 +24,7 @@ const LocationLevel = () => {
     if (walk || bike || car) {
       setLoading(true);
       search({
-        address: userAddress,
+        address: '제주도 서귀포시 농장로 342길 2',
         latitude: 126.616186,
         longitude: 33.273398,
         transportation: 'BIKE',

@@ -5,25 +5,15 @@ export const loginNickNameState = atom({
   default: '뀰줍',
 });
 
-export const loginUserAddressState = atom({
-  key: 'loginUserAddressState',
-  default: '제주시 첨단로 242',
-});
-
 export const loginFarmerNameState = atom({
   key: 'loginFarmerNameState',
   default: '농부',
 });
 
-export const loginFarmerAddressState = atom({
-  key: 'loginFarmerAddressState',
-  default: '제주시 첨단로 242',
-});
-
 export const searchState = atom({
   key: 'searchState',
   default: {
-    address: '제주시 첨단로 242',
+    address: '제주도 서귀포시 농장로 342길 2',
     availableTime: '09:00 : 13:00',
     farmImage: '/sharing99.png',
     farmerData: '제주의 태양과 맑은 물을 먹고자라나 맛이 좋아요',
