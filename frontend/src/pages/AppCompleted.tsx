@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import { searchState } from '@/atom/atom';
-import { Back, DefaultButton } from '@/components';
+import { DefaultButton } from '@/components';
 import DataTable from '@/components/BorderData';
 import Lottie from '@/components/Lottie';
 
@@ -19,7 +19,6 @@ const AppCompleted = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Back />
       <Middle>
         <div>
           <CompleteLottie loop={false} />
@@ -42,7 +41,7 @@ const AppCompleted = () => {
       </Middle>
       <Bottom>
         <DefaultButton backgroundColor="#F57D14" onClick={() => navigate('/')}>
-          나눔받기
+          완료
         </DefaultButton>
       </Bottom>
     </>
