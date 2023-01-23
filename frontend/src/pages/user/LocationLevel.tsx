@@ -58,43 +58,59 @@ const LocationLevel = () => {
   return (
     <>
       <Loading />
-      <SearchText>
-        주변 귤 농가를 탐색합니다
-        <ChoiceText>이동 수단에 맞는 농가를 추천해 드릴게요</ChoiceText>
-      </SearchText>
-      <TypeButton
-        onClick={() => {
-          setWalk(!walk);
-        }}
-      >
-        <Walk color={walk ? '#F57D14' : '#EFEFF0'} />
-      </TypeButton>
-      <TypeButton
-        onClick={() => {
-          setBike(!bike);
-        }}
-      >
-        <Bike color={bike ? '#F57D14' : '#EFEFF0'} />
-      </TypeButton>
-      <TypeButton
-        onClick={() => {
-          setCar(!car);
-        }}
-      >
-        <Car color={car ? '#F57D14' : '#EFEFF0'} />
-      </TypeButton>
-      <DefaultButton
-        backgroundColor="#F57D14"
-        onClick={() => handleSubmit()}
-        padding="0.8rem 0"
-      >
-        귤러가요
-      </DefaultButton>
+      <Middle>
+        <div>
+          <SearchText>
+            주변 귤 농가를 탐색합니다
+            <ChoiceText>이동 수단에 맞는 농가를 추천해 드릴게요</ChoiceText>
+          </SearchText>
+          <TypeButton
+            onClick={() => {
+              setWalk(!walk);
+            }}
+          >
+            <Walk color={walk ? '#F57D14' : '#EFEFF0'} />
+          </TypeButton>
+          <TypeButton
+            onClick={() => {
+              setBike(!bike);
+            }}
+          >
+            <Bike color={bike ? '#F57D14' : '#EFEFF0'} />
+          </TypeButton>
+          <TypeButton
+            onClick={() => {
+              setCar(!car);
+            }}
+          >
+            <Car color={car ? '#F57D14' : '#EFEFF0'} />
+          </TypeButton>
+        </div>
+      </Middle>
+      <Bottom>
+        <DefaultButton
+          backgroundColor="#F57D14"
+          onClick={() => handleSubmit()}
+          padding="1rem 0"
+        >
+          귤러가요
+        </DefaultButton>
+      </Bottom>
     </>
   );
 };
 
 export default LocationLevel;
+
+const Middle = styled.div`
+  width: 100%;
+  & > div {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+`;
 
 const SearchText = styled.div`
   width: 100%;
@@ -125,6 +141,11 @@ const LoadingWrapper = styled.div<{ loading: string }>`
 
 const TypeButton = styled.button`
   width: 100%;
+`;
+
+const Bottom = styled.div`
+  width: 85%;
+  padding-bottom: 4rem;
 `;
 
 const Walk = ({ color }: Props) => {
