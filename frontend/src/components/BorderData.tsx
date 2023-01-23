@@ -4,13 +4,14 @@ interface BorderData {
   title: string;
   value: string;
   bottom?: 'bottom';
+  remainCount?: 'remainCount';
 }
 
-const DataTable = ({ title, value, bottom }: BorderData) => {
+const DataTable = ({ title, value, bottom, remainCount }: BorderData) => {
   return (
     <Wrapper id={bottom}>
       <Title>{title}</Title>
-      <div>{value}</div>
+      <Value id={remainCount}>{value}</Value>
     </Wrapper>
   );
 };
@@ -31,4 +32,11 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
+`;
+
+const Value = styled.div`
+  &#remainCount {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 `;

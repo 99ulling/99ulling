@@ -16,25 +16,18 @@ const DefaultButton = ({
   padding,
 }: Props) => {
   return (
-    <Wrapper>
-      <StyledButton
-        onClick={onClick}
-        backgroundColor={backgroundColor}
-        color={color ?? 'white'}
-        padding={padding}
-      >
-        {children}
-      </StyledButton>
-    </Wrapper>
+    <StyledButton
+      onClick={onClick}
+      backgroundColor={backgroundColor}
+      color={color ?? 'white'}
+      padding={padding}
+    >
+      {children}
+    </StyledButton>
   );
 };
 
 export default DefaultButton;
-
-const Wrapper = styled.div`
-  width: 100%;
-  padding: 9px 0;
-`;
 
 const StyledButton = styled.button<{
   color: string;

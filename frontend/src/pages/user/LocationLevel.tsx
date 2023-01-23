@@ -23,9 +23,9 @@ const LocationLevel = () => {
     if (walk || bike || car) {
       setLoading(true);
       search({
-        latitude: 126.616186,
-        longitude: 33.273398,
-        transportation: 'BIKE',
+        latitude: 126.700375,
+        longitude: 33.2812025,
+        transportation: 'CAR',
       })
         .then((data) => {
           farmerData(data.data.data);
@@ -40,7 +40,7 @@ const LocationLevel = () => {
 
   const Loading = () => {
     return (
-      <LoadingWrapper loading={loading} className="overlay">
+      <LoadingWrapper loading={loading ? 'block' : 'none'} className="overlay">
         <div
           style={{
             display: 'flex',
@@ -109,9 +109,9 @@ const ChoiceText = styled.div`
   padding-bottom: 2rem;
 `;
 
-const LoadingWrapper = styled.div<{ loading: boolean }>`
+const LoadingWrapper = styled.div<{ loading: string }>`
   &.overlay {
-    display: ${(props) => (props.loading ? 'block' : 'none')};
+    display: ${(props) => (props.loading === 'block' ? 'block' : 'none')};
     z-index: 1000;
     position: fixed;
     width: 100%;
