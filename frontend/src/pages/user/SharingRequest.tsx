@@ -21,6 +21,18 @@ const SharingRequest = () => {
     setCount((prevCount) => prevCount - 1);
   };
 
+  const handleButton = () => {
+    if (count <= 0) {
+      alert('1개 이상을 선택해 주세요');
+      return;
+    }
+
+    setLoading(true);
+    setTimeout(() => {
+      navigate('/user-confirm');
+    }, 300);
+  };
+
   const Loading = () => {
     return (
       <LoadingWrapper loading={loading ? 'block' : 'none'} className="overlay">
@@ -73,15 +85,7 @@ const SharingRequest = () => {
           <div>{count}</div>
           <CounterButton onClick={onIncrease}>＋</CounterButton>
         </Counter>
-        <DefaultButton
-          backgroundColor="#F57D14"
-          onClick={() => {
-            setLoading(true);
-            setTimeout(() => {
-              navigate('/app-completed');
-            }, 300);
-          }}
-        >
+        <DefaultButton backgroundColor="#F57D14" onClick={handleButton}>
           신청하기
         </DefaultButton>
       </FormWrapper>
