@@ -56,6 +56,7 @@ const Text = styled.div`
   width: 100%;
   font-size: 1.4rem;
   font-weight: bold;
+  padding-bottom: 3rem;
 `;
 
 const SearchTextTop = styled.div`
