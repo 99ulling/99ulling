@@ -152,7 +152,6 @@ export const globalStyles = (
         flex-direction: column;
         gap: 1rem;
         min-height: 100vh;
-        padding: 0 2rem;
       }
     `}
   />

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import { searchState } from '@/atom/atom';
-import { Back, DefaultButton } from '@/components';
+import { DefaultButton } from '@/components';
 import DataTable from '@/components/BorderData';
 import Tag from '@/components/Tag';
 
@@ -30,9 +30,8 @@ const SharingRequest = () => {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <>
       <Loading />
-      <Back />
       <ImgWrapper>
         <img
           width="100%"
@@ -63,7 +62,7 @@ const SharingRequest = () => {
           신청하기
         </DefaultButton>
       </Wrapper>
-    </div>
+    </>
   );
 };
 

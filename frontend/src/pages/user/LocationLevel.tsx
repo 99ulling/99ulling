@@ -23,7 +23,6 @@ const LocationLevel = () => {
     if (walk || bike || car) {
       setLoading(true);
       search({
-        address: '제주도 서귀포시 농장로 342길 2',
         latitude: 126.616186,
         longitude: 33.273398,
         transportation: 'BIKE',
@@ -63,27 +62,27 @@ const LocationLevel = () => {
         주변 귤 농가를 탐색합니다
         <ChoiceText>이동 수단에 맞는 농가를 추천해 드릴게요</ChoiceText>
       </SearchText>
-      <button
+      <TypeButton
         onClick={() => {
           setWalk(!walk);
         }}
       >
         <Walk color={walk ? '#F57D14' : '#EFEFF0'} />
-      </button>
-      <button
+      </TypeButton>
+      <TypeButton
         onClick={() => {
           setBike(!bike);
         }}
       >
         <Bike color={bike ? '#F57D14' : '#EFEFF0'} />
-      </button>
-      <button
+      </TypeButton>
+      <TypeButton
         onClick={() => {
           setCar(!car);
         }}
       >
         <Car color={car ? '#F57D14' : '#EFEFF0'} />
-      </button>
+      </TypeButton>
       <DefaultButton
         backgroundColor="#F57D14"
         onClick={() => handleSubmit()}
@@ -124,16 +123,20 @@ const LoadingWrapper = styled.div<{ loading: boolean }>`
   }
 `;
 
+const TypeButton = styled.button`
+  width: 100%;
+`;
+
 const Walk = ({ color }: Props) => {
   return (
     <svg
-      width="350"
-      height="100"
+      width="100%"
+      height="100%"
       viewBox="0 0 350 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="350" height="100" rx="10" fill={color} />
+      <rect width="100%" height="100%" rx="10" fill={color} />
       <path
         d="M68.93 35.156H63.34V30.034H68.722V27.85H60.662V37.314H68.93V35.156ZM59.57 34.584C57.568 34.974 55.8 35.104 53.876 35.13V30.06H59.31V27.876H51.224V37.314H52.576C55.15 37.314 57.256 37.262 59.752 36.742L59.57 34.584ZM70.594 39.706H49.3V41.89H58.53V50.028H61.208V41.89H70.568L70.594 39.706ZM77.018 43.84H90.174V50.028H92.852V41.682H77.018V43.84ZM82.66 37.158H77.122V33.596H82.66V37.158ZM90.174 26.524V32.478H85.286V27.876H82.66V31.516H77.122V27.902H74.47V39.316H85.286V34.662H90.174V40.512H92.852V26.498L90.174 26.524ZM114.096 26.498V50.054H116.8V26.498H114.096ZM104.294 28.24C100.81 28.24 98.2619 31.464 98.2619 36.508C98.2619 41.604 100.81 44.802 104.294 44.802C107.804 44.802 110.352 41.604 110.352 36.508C110.352 31.464 107.804 28.24 104.294 28.24ZM104.294 30.658C106.348 30.658 107.778 32.868 107.778 36.508C107.778 40.2 106.348 42.41 104.294 42.41C102.266 42.41 100.836 40.2 100.836 36.508C100.836 32.868 102.266 30.658 104.294 30.658Z"
         fill={color === '#F57D14' ? 'white' : 'black'}
@@ -183,13 +186,13 @@ const Walk = ({ color }: Props) => {
 const Bike = ({ color }: Props) => {
   return (
     <svg
-      width="350"
-      height="100"
+      width="100%"
+      height="100%"
       viewBox="0 0 350 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="350" height="100" rx="10" fill={color} />
+      <rect width="100%" height="100%" rx="10" fill={color} />
       <path
         d="M273.297 30.8457L292.586 60.5488H269.267L246.523 33.4925"
         stroke="black"
@@ -279,13 +282,13 @@ const Bike = ({ color }: Props) => {
 const Car = ({ color }: Props) => {
   return (
     <svg
-      width="350"
-      height="100"
+      width="100%"
+      height="100%"
       viewBox="0 0 350 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="350" height="100" rx="10" fill={color} />
+      <rect width="100%" height="100%" rx="10" fill={color} />
       <g>
         <path
           d="M299.425 33.9471C296.535 25.4579 285.878 23.7871 280.911 24.0129H270.371C261.406 24.0129 252.704 27.0446 245.68 32.6155L230.337 44.7845C221.857 44.7845 214.984 51.6582 214.984 60.1374C214.984 61.0103 214.172 61.6857 213.565 62.3127C212.941 62.9572 212.769 64.0063 213.367 64.848L215.066 67.2428C215.723 68.1676 216.786 68.717 217.92 68.717H300.237C302.356 68.717 304.281 67.4821 305.163 65.556L306.731 62.1355C307.643 60.1456 306.189 57.8796 304 57.8796C303.84 57.8796 303.709 57.7585 303.7 57.5988C303.44 52.9899 302.256 42.2626 299.425 33.9471Z"
