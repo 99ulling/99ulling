@@ -8,23 +8,38 @@ const Sharing = () => {
 
   return (
     <>
-      <Location>
-        현위치 제주도 서귀포시 농장로 342길 2<LocationIcon />
-      </Location>
-      <MapIcon />
-      <DefaultButton
-        onClick={() => navigate('/location-level')}
-        backgroundColor="#F57D14"
-        padding="1rem 0"
-      >
-        나눔받기
-      </DefaultButton>
+      <Middle>
+        <div>
+          <Location>
+            현위치 제주도 서귀포시 농장로 342길 2<LocationIcon />
+          </Location>
+          <MapIcon />
+          <DefaultButton
+            onClick={() => navigate('/location-level')}
+            backgroundColor="#F57D14"
+            padding="1rem 0"
+          >
+            나눔받기
+          </DefaultButton>
+        </div>
+      </Middle>
       <AlreadyAppliedButton>이미 신청하셨나요?</AlreadyAppliedButton>
     </>
   );
 };
 
 export default Sharing;
+
+const Middle = styled.div`
+  width: 100%;
+  & > div {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+`;
 
 const Location = styled.div`
   display: flex;
@@ -37,6 +52,7 @@ const Location = styled.div`
 const AlreadyAppliedButton = styled.button`
   color: #727272;
   text-decoration: underline;
+  padding-bottom: 10rem;
 `;
 
 const LocationIcon = () => {

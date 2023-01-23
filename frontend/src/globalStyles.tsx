@@ -147,8 +147,8 @@ export const globalStyles = (
       }
       #root {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: space-between;
         flex-direction: column;
         gap: 1rem;
         min-height: 100vh;
