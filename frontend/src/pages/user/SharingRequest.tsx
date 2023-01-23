@@ -9,7 +9,7 @@ import DataTable from '@/components/BorderData';
 import Tag from '@/components/Tag';
 
 const SharingRequest = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [loading, setLoading] = useState(false);
   const farmerData = useRecoilValue(searchState);
 
@@ -17,16 +17,11 @@ const SharingRequest = () => {
     setCount((prevCount) => prevCount + 1);
   };
   const onDecrease = () => {
-    if (count <= 0) return;
+    if (count <= 1) return;
     setCount((prevCount) => prevCount - 1);
   };
 
   const handleButton = () => {
-    if (count <= 0) {
-      alert('1개 이상을 선택해 주세요');
-      return;
-    }
-
     setLoading(true);
     setTimeout(() => {
       navigate('/user-confirm');
