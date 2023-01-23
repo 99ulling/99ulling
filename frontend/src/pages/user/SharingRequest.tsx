@@ -9,12 +9,21 @@ import DataTable from '@/components/BorderData';
 import Tag from '@/components/Tag';
 
 const SharingRequest = () => {
+  const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const farmerData = useRecoilValue(searchState);
 
+  const onIncrease = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+  const onDecrease = () => {
+    if (count <= 0) return;
+    setCount((prevCount) => prevCount - 1);
+  };
+
   const Loading = () => {
     return (
-      <LoadingWrapper loading={loading} className="overlay">
+      <LoadingWrapper loading={loading ? 'block' : 'none'} className="overlay">
         <div
           style={{
             display: 'flex',
@@ -41,26 +50,39 @@ const SharingRequest = () => {
         />
       </ImgWrapper>
       <Wrapper>
-        <Tag color="#EB5757">NEW</Tag>
-        <FarmerName>{farmerData.name}</FarmerName>
-        <DataTable title="잔여 개수" value={`${farmerData.remainCount}개`} />
-        <DataTable
-          title="나눔 위치"
-          value={farmerData.address}
-          bottom="bottom"
-        />
-        <DefaultButton
-          backgroundColor="#F57D14"
-          onClick={() => {
-            setLoading(true);
-            setTimeout(() => {
-              navigate('/app-completed');
-            }, 300);
-          }}
-          padding="0.8rem 0"
-        >
-          신청하기
-        </DefaultButton>
+        <div>
+          <Tag color="#EB5757">NEW</Tag>
+          <FarmerName>{farmerData.name}</FarmerName>
+          <DataTable
+            title="잔여 개수"
+            remainCount="remainCount"
+            value={`${farmerData.remainCount}개`}
+          />
+          <DataTable
+            title="나눔 위치"
+            value={farmerData.address}
+            bottom="bottom"
+          />
+          <FormWrapper>
+            <Counter>
+              <CounterButton onClick={onDecrease}>－</CounterButton>
+              <div>{count}</div>
+              <CounterButton onClick={onIncrease}>＋</CounterButton>
+            </Counter>
+            <DefaultButton
+              backgroundColor="#F57D14"
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => {
+                  navigate('/app-completed');
+                }, 300);
+              }}
+              padding="1rem 0"
+            >
+              신청하기
+            </DefaultButton>
+          </FormWrapper>
+        </div>
       </Wrapper>
     </>
   );
@@ -76,12 +98,16 @@ const FarmerName = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: 2rem;
+  width: 100%;
+
+  & > div {
+    padding: 0 1rem;
+  }
 `;
 
-const LoadingWrapper = styled.div<{ loading: boolean }>`
+const LoadingWrapper = styled.div<{ loading: string }>`
   &.overlay {
-    display: ${(props) => (props.loading ? 'block' : 'none')};
+    display: ${(props) => (props.loading === 'block' ? 'block' : 'none')};
     z-index: 1000;
     position: fixed;
     width: 100%;
@@ -94,6 +120,31 @@ const LoadingWrapper = styled.div<{ loading: boolean }>`
 `;
 
 const ImgWrapper = styled.div`
+  width: 100%;
   height: 320px;
   background-color: #777777;
+`;
+
+const Counter = styled.div`
+  display: flex;
+  gap: 2rem;
+  border-radius: 0.5rem;
+  border: 2px solid #ffaa01;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: #777778;
+  font-weight: bold;
+  font-size: 1.4rem;
+`;
+
+const CounterButton = styled.button`
+  color: #777778;
+  font-size: 2rem;
+`;
+
+const FormWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 3rem;
 `;
