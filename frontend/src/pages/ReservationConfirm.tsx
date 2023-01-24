@@ -16,7 +16,11 @@ const ReservationConfirm = () => {
     }
 
     getReservation(nicknameRef.current.value)
-      .then(() => navigate('/mypage'))
+      .then((data) => {
+        navigate('/mypage', {
+          state: { nickname: nicknameRef.current?.value, prop: data.data.data },
+        });
+      })
       .catch(() => alert('닉네임을 확인해 주세요'));
   };
 

@@ -1,78 +1,124 @@
 import styled from '@emotion/styled';
-import { InputAdornment, TextField } from '@mui/material';
-import { useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { loginNickNameState } from '@/atom/atom';
-import { Back } from '@/components';
+import { DefaultButton } from '@/components';
 
 const MyPage = () => {
-  const [value, setValue] = useState('');
-  const nickName = useRecoilValue(loginNickNameState);
+  const { state } = useLocation();
+  const { nickname, prop } = state;
+  const navigate = useNavigate();
+
   return (
-    <Wrapper>
-      <Back />
-      <SearchText>
-        <SearchTextTop>
-          <TextFontNormal>{nickName}</TextFontNormal>님 안녕하세요!
-        </SearchTextTop>
-        나눔 상황을 알려드릴게요
-      </SearchText>
-      <TextField
-        placeholder="상품을 검색해 보세요"
-        type="text"
-        variant="outlined"
-        fullWidth
-        size="small"
-        onChange={(e) => setValue(e.target.value)}
-        value={value}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <svg
-                width="28"
-                height="26"
-                viewBox="0 0 28 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M11.5451 16.8215C8.10595 16.8215 5.30928 14.176 5.30928 10.9211C5.30928 7.66789 8.10595 5.02239 11.5451 5.02239C14.986 5.02239 17.7826 7.66789 17.7826 10.9211C17.7826 14.176 14.986 16.8215 11.5451 16.8215V16.8215ZM24.9083 21.7095L18.7704 15.905C19.8544 14.501 20.5158 12.7899 20.5158 10.9211C20.5158 6.24276 16.4925 2.43701 11.5451 2.43701C6.59939 2.43701 2.57617 6.24276 2.57617 10.9211C2.57617 15.5995 6.59939 19.4069 11.5451 19.4069C13.5327 19.4069 15.3536 18.7715 16.8413 17.7348L22.9774 23.5376L24.9083 21.7095Z"
-                  fill="#CCCCCC"
-                />
-              </svg>
-            </InputAdornment>
-          ),
-        }}
-      />
-      <div>상품 n개</div>
-    </Wrapper>
+    <>
+      <Middle>
+        <div>
+          <Text>
+            <SearchTextTop>{nickname ?? '귤줍'}님,</SearchTextTop>
+            나눔 상황을 알려드려요
+          </Text>
+          <InfoWrapper>
+            <FarmerInfo>
+              <FarmerImage
+                src={prop.farmImage ?? '/sharing99.png'}
+                alt={prop.farmImage ?? 'sharing99'}
+              />
+              <FarmerTextInfo>
+                <div>
+                  <FarmerTitle>{prop.farmName}</FarmerTitle>
+                  <FarmAddress>{prop.address}</FarmAddress>
+                </div>
+                <SharingGgulCount>
+                  나눔한 귤 개수: {prop.reservationCount}
+                </SharingGgulCount>
+              </FarmerTextInfo>
+            </FarmerInfo>
+            <DefaultButton
+              backgroundColor="#F57D14"
+              onClick={() => navigate('/')}
+            >
+              완료하기
+            </DefaultButton>
+            <DefaultButton backgroundColor="#F57D14">
+              <TelPhone href={`tel:${prop.phoneNumber}`}>
+                농부에게 전화하기
+              </TelPhone>
+            </DefaultButton>
+          </InfoWrapper>
+        </div>
+      </Middle>
+      <div></div>
+    </>
   );
 };
 
 export default MyPage;
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  gap: 1rem;
+const Middle = styled.div`
+  width: 100%;
+  & > div {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
 `;
 
-const SearchText = styled.div`
+const Text = styled.div`
   width: 100%;
   font-size: 1.4rem;
   font-weight: bold;
+  padding-bottom: 3rem;
 `;
 
 const SearchTextTop = styled.div`
   padding-bottom: 10px;
 `;
 
-const TextFontNormal = styled.span`
-  font-weight: normal;
+const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border: 1.5px solid #f57d14;
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+  gap: 1rem;
+`;
+
+const FarmerInfo = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const FarmerImage = styled.img`
+  width: 120px;
+  height: 100px;
+  border-radius: 0.5rem;
+`;
+
+const FarmerTitle = styled.h1`
+  word-break: keep-all;
+  font-size: 0.9rem;
+`;
+
+const FarmAddress = styled.div`
+  word-break: keep-all;
+  font-size: 0.8rem;
+  color: #4f4f4f;
+`;
+
+const SharingGgulCount = styled.div`
+  font-size: 0.8rem;
+  color: #4f4f4f;
+`;
+
+const FarmerTextInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+const TelPhone = styled.a`
+  text-decoration: none;
+  color: white;
 `;
