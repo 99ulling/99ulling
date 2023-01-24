@@ -76,7 +76,7 @@ const Map = ({ latitude, longitude }: MapProps) => {
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         function displayMarker(position: any, message: string) {
-          const imageSrc = '/public/marker.png',
+          const imageSrc = '/marker.png',
             imageSize = new window.kakao.maps.Size(64, 69),
             imageOption = { offset: new window.kakao.maps.Point(27, 69) };
 
