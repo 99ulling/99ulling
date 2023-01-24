@@ -5,11 +5,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Header from '@/components/Header';
 import {
   AppCompleted,
-  FarmAppCompleted,
-  FarmerNameSetting,
-  FarmerUpload,
   LocationLevel,
-  Login,
   MyPage,
   NotFound,
   Sharing,
@@ -44,12 +40,8 @@ const App = () => {
           <Route path="/type-choice" element={<TypeChoice />} />
           <Route path="/location-level" element={<LocationLevel />} />
           <Route path="/user-confirm" element={<UserConfirm />} />
-          <Route path="/farmer-name-setting" element={<FarmerNameSetting />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/sharing-request" element={<SharingRequest />} />
           <Route path="/app-completed" element={<AppCompleted />} />
-          <Route path="/farmer-upload" element={<FarmerUpload />} />
-          <Route path="/farm-app-completed" element={<FarmAppCompleted />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="/*" element={<Navigate replace to="/404" />} />
