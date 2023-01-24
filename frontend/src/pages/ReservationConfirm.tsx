@@ -1,16 +1,12 @@
 import styled from '@emotion/styled';
 import TextField from '@mui/material/TextField';
 import { useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 
-import { reservation } from '@/api/api';
-import { searchState } from '@/atom/atom';
+import { getReservation } from '@/api/api';
 
-const UserConfirm = () => {
+const ReservationConfirm = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
-  const farmerData = useRecoilValue(searchState);
-  const { state: count } = useLocation();
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -19,13 +15,13 @@ const UserConfirm = () => {
       return;
     }
 
-    reservation({
-      farmId: farmerData.id,
-      ggulCount: count,
-      nickname: nicknameRef.current.value,
-    })
-      .then(() => navigate('/app-completed'))
-      .catch(() => alert('이미 신청한 닉네임이에요'));
+    getReservation(nicknameRef.current.value)
+      .then((data) => {
+        navigate('/mypage', {
+          state: { nickname: nicknameRef.current?.value, prop: data.data.data },
+        });
+      })
+      .catch(() => alert('닉네임을 확인해 주세요'));
   };
 
   return (
@@ -34,7 +30,7 @@ const UserConfirm = () => {
         <div>
           <Text>
             <SearchTextTop>반가워요 귤줍님,</SearchTextTop>
-            이용할 닉네임을 알려주세요
+            예약하신 닉네임을 알려주세요
           </Text>
           <TextField fullWidth label="닉네임" inputRef={nicknameRef} />
         </div>
@@ -48,7 +44,7 @@ const UserConfirm = () => {
   );
 };
 
-export default UserConfirm;
+export default ReservationConfirm;
 
 const Middle = styled.div`
   width: 100%;

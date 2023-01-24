@@ -5,9 +5,9 @@ export const loginNickNameState = atom({
   default: '뀰줍',
 });
 
-export const loginFarmerNameState = atom({
-  key: 'loginFarmerNameState',
-  default: '농부',
+export const loginUserAddressState = atom({
+  key: 'loginUserAddressState',
+  default: '제주특별자치도 제주시 첨단로 242',
 });
 
 export const searchState = atom({
@@ -22,9 +22,4 @@ export const searchState = atom({
     remainCount: 70,
     totalCount: 100,
   },
-});
-
-export const shareState = atom({
-  key: 'shareState',
-  default: 100,
 });
