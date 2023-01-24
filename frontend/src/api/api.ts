@@ -25,3 +25,13 @@ export const reservation = (data: Reservation) => {
     method: 'POST',
   });
 };
+
+export const getReservation = (nickname: string) => {
+  return instance({
+    url: '/api/v2/sharing/reservation',
+    params: {
+      nickname,
+    },
+    method: 'GET',
+  });
+};

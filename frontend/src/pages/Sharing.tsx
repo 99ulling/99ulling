@@ -31,7 +31,9 @@ const Sharing = () => {
         </div>
       </Middle>
       <Bottom>
-        <AlreadyAppliedButton>이미 신청하셨나요?</AlreadyAppliedButton>
+        <AlreadyAppliedButton onClick={() => navigate('/reservation-confirm')}>
+          이미 신청하셨나요?
+        </AlreadyAppliedButton>
       </Bottom>
     </>
   );

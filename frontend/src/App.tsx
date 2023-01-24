@@ -8,6 +8,7 @@ import {
   LocationLevel,
   MyPage,
   NotFound,
+  ReservationConfirm,
   Sharing,
   SharingRequest,
   TypeChoice,
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/user-confirm" element={<UserConfirm />} />
           <Route path="/sharing-request" element={<SharingRequest />} />
           <Route path="/app-completed" element={<AppCompleted />} />
+          <Route path="/reservation-confirm" element={<ReservationConfirm />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="/*" element={<Navigate replace to="/404" />} />
