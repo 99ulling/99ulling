@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 import { Search, SignUp } from '@/interface';
-axios.defaults.baseURL = import.meta.env.VITE_REACT_APP_URL;
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_URL,
@@ -29,10 +28,10 @@ export const signIn = (nickname: string) => {
   });
 };
 
-export const search = (data: Search) => {
+export const search = (params: Search) => {
   return instance({
     url: '/api/v2/farm/search',
-    data,
+    params,
     method: 'GET',
   });
 };
