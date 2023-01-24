@@ -10,6 +10,11 @@ export const loginFarmerNameState = atom({
   default: '농부',
 });
 
+export const loginUserAddressState = atom({
+  key: 'loginUserAddressState',
+  default: '제주특별자치도 제주시 첨단로 242',
+});
+
 export const searchState = atom({
   key: 'searchState',
   default: {

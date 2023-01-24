@@ -1,18 +1,25 @@
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
+import { loginUserAddressState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
 import Map from '@/components/Map';
 
 const Sharing = () => {
   const navigate = useNavigate();
+  const userAddress = useRecoilValue(loginUserAddressState);
 
   return (
     <>
       <Middle>
         <div>
           <Location>
-            현위치 제주도 서귀포시 농장로 342길 2<LocationIcon />
+            <b>현위치</b>
+            <LocationAddress>
+              {userAddress}
+              <LocationIcon />
+            </LocationAddress>
           </Location>
           <Map latitude={33.450701} longitude={126.570667} />
           <DefaultButton
@@ -43,10 +50,17 @@ const Middle = styled.div`
 
 const Location = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   color: #727272;
   cursor: pointer;
+`;
+
+const LocationAddress = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 const AlreadyAppliedButton = styled.button`
