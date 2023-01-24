@@ -38,10 +38,12 @@
 
 # 📎 Link
 ### Frontend Domain
-`업데이트 예정`
+`https://99ulling.vercel.app`
 
 ### Backend API Docs 
-`http://52.78.123.77/swagger-ui/index.html#`
+ver1 : `http://52.78.123.77/swagger-ui/index.html#`
+
+ver2 : `http://15.164.48.61/swagger-ui/index.html#`
 
 ### Youtube (시연)
 `https://youtu.be/zlroW6naiLE`
