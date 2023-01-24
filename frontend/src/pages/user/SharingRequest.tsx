@@ -25,7 +25,9 @@ const SharingRequest = () => {
   const handleButton = () => {
     setLoading(true);
     setTimeout(() => {
-      navigate('/user-confirm');
+      navigate('/user-confirm', {
+        state: count,
+      });
     }, 300);
   };
 
