@@ -11,3 +11,9 @@ export interface Search {
   longitude: number;
   transportation: string;
 }
+
+export interface Reservation {
+  farmId: number;
+  ggulCount: number;
+  nickname: string;
+}

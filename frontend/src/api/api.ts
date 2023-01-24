@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Search, SignUp } from '@/interface';
+import { Reservation, Search, SignUp } from '@/interface';
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_REACT_APP_URL,
@@ -33,5 +33,13 @@ export const search = (params: Search) => {
     url: '/api/v2/farm/search',
     params,
     method: 'GET',
+  });
+};
+
+export const reservation = (data: Reservation) => {
+  return instance({
+    url: '/api/v2/sharing/reservation',
+    data,
+    method: 'POST',
   });
 };

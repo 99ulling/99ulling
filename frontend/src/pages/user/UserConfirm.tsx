@@ -1,10 +1,16 @@
 import styled from '@emotion/styled';
 import TextField from '@mui/material/TextField';
 import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+
+import { reservation } from '@/api/api';
+import { searchState } from '@/atom/atom';
 
 const UserConfirm = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
+  const farmerData = useRecoilValue(searchState);
+  const { state: count } = useLocation();
   const navigate = useNavigate();
 
   const handleSubmit = () => {
@@ -13,7 +19,13 @@ const UserConfirm = () => {
       return;
     }
 
-    navigate('/app-completed');
+    reservation({
+      farmId: farmerData.id,
+      ggulCount: count,
+      nickname: nicknameRef.current.value,
+    })
+      .then(() => navigate('/app-completed'))
+      .catch(() => alert('이미 신청한 닉네임이에요'));
   };
 
   return (
