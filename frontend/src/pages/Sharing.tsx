@@ -30,7 +30,9 @@ const Sharing = () => {
           </DefaultButton>
         </div>
       </Middle>
-      <AlreadyAppliedButton>이미 신청하셨나요?</AlreadyAppliedButton>
+      <Bottom>
+        <AlreadyAppliedButton>이미 신청하셨나요?</AlreadyAppliedButton>
+      </Bottom>
     </>
   );
 };
@@ -66,6 +68,9 @@ const LocationAddress = styled.div`
 const AlreadyAppliedButton = styled.button`
   color: #727272;
   text-decoration: underline;
+`;
+
+const Bottom = styled.div`
   padding-bottom: 10rem;
 `;
 
