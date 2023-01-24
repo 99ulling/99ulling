@@ -51,13 +51,13 @@ const Map = ({ latitude, longitude }: MapProps) => {
 
             const callback = function (
               result: {
-                road_address: { address_name: string };
+                road_address?: { address_name: string };
                 address: { address_name: string };
               }[],
               status: string
             ) {
               if (status === window.kakao.maps.services.Status.OK) {
-                setAddress(result[0].road_address.address_name);
+                setAddress(result[0].address.address_name);
               }
             };
             geocoder.coord2Address(longitude, latitude, callback);
