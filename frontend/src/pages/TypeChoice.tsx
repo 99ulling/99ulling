@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Back } from '@/components';
+import useToggle from '@/hooks/useToggle';
 
 interface Props {
   color: string;
@@ -10,24 +10,24 @@ interface Props {
 
 const TypeChoice = () => {
   const navigate = useNavigate();
-  const [flag, setFlag] = useState(true);
+  const [toggle, setToggle] = useToggle(true);
   return (
     <Wrapper>
       <Back />
       <Text>사용자 유형을 선택해주세요</Text>
       <SVGWrapper>
-        <button onClick={() => setFlag(true)}>
-          <Farmer color={flag ? '#F57D14' : '#EFEFF0'} />
+        <button onClick={() => setToggle(true)}>
+          <Farmer color={toggle ? '#F57D14' : '#EFEFF0'} />
           <Job>농부</Job>
         </button>
-        <button onClick={() => setFlag(false)}>
-          <PickUp color={flag ? '#EFEFF0' : '#F57D14'} />
+        <button onClick={() => setToggle(false)}>
+          <PickUp color={toggle ? '#EFEFF0' : '#F57D14'} />
           <Job>귤줍</Job>
         </button>
       </SVGWrapper>
       <NextButton
         onClick={() =>
-          flag ? navigate('/farmer-name-setting') : navigate('/user-confirm')
+          toggle ? navigate('/farmer-name-setting') : navigate('/user-confirm')
         }
       >
         <RightArrow />
