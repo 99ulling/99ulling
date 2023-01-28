@@ -2,10 +2,16 @@ import styled from '@emotion/styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { DefaultButton } from '@/components';
+import { GetReservation } from '@/interface';
+
+interface RouteState {
+  nickname: string;
+  prop: GetReservation;
+}
 
 const MyPage = () => {
   const { state } = useLocation();
-  const { nickname, prop } = state;
+  const { nickname, prop }: RouteState = state;
   const navigate = useNavigate();
 
   return (

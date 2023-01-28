@@ -10,15 +10,18 @@ const ReservationConfirm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (!nicknameRef.current?.value) {
+    if (!nicknameRef.current) return;
+
+    if (!nicknameRef.current.value) {
       alert('닉네임을 입력해 주세요');
       return;
     }
 
     getReservation(nicknameRef.current.value)
       .then((data) => {
+        if (!nicknameRef.current) return;
         navigate('/mypage', {
-          state: { nickname: nicknameRef.current?.value, prop: data.data.data },
+          state: { nickname: nicknameRef.current.value, prop: data.data.data },
         });
       })
       .catch(() => alert('닉네임을 확인해 주세요'));
