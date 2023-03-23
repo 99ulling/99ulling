@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
+import { AppScreen } from '@stackflow/plugin-basic-ui';
 import { ComponentProps } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import { searchState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
 import DataTable from '@/components/BorderData';
 import Lottie from '@/components/Lottie';
+import { useFlow } from '@/useFlow';
 
 const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
   <LottieWrapper>
@@ -16,9 +17,10 @@ const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
 
 const AppCompleted = () => {
   const farmData = useRecoilValue(searchState);
-  const navigate = useNavigate();
+  const { push } = useFlow();
+
   return (
-    <>
+    <AppScreen appBar={{ title: '귤러가요' }}>
       <Middle>
         <div>
           <CompleteLottie loop={false} />
@@ -40,11 +42,14 @@ const AppCompleted = () => {
         </div>
       </Middle>
       <Bottom>
-        <DefaultButton backgroundColor="#F57D14" onClick={() => navigate('/')}>
+        <DefaultButton
+          backgroundColor="#F57D14"
+          onClick={() => push('Sharing', {})}
+        >
           완료
         </DefaultButton>
       </Bottom>
-    </>
+    </AppScreen>
   );
 };
 

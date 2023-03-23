@@ -1,10 +1,5 @@
 import { atom } from 'recoil';
 
-export const loginNickNameState = atom({
-  key: 'loginNickNameState',
-  default: '뀰줍',
-});
-
 export const loginUserAddressState = atom({
   key: 'loginUserAddressState',
   default: '제주특별자치도 제주시 첨단로 242',

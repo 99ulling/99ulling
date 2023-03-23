@@ -1,18 +1,20 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import { searchState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
 import DataTable from '@/components/BorderData';
+import Layout from '@/components/Layout';
 import Loading from '@/components/Loading';
 import Tag from '@/components/Tag';
+import { useFlow } from '@/useFlow';
 
 const SharingRequest = () => {
   const [count, setCount] = useState(1);
   const [loading, setLoading] = useState(false);
   const farmerData = useRecoilValue(searchState);
+  const { push } = useFlow();
 
   const onIncrease = () => {
     setCount((prevCount) => prevCount + 1);
@@ -25,16 +27,14 @@ const SharingRequest = () => {
   const handleButton = () => {
     setLoading(true);
     setTimeout(() => {
-      navigate('/user-confirm', {
-        state: count,
+      push('UserConfirm', {
+        count,
       });
     }, 300);
   };
 
-  const navigate = useNavigate();
-
   return (
-    <>
+    <Layout>
       <Loading loading={loading} />
       <ImgWrapper>
         <img
@@ -72,21 +72,16 @@ const SharingRequest = () => {
           신청하기
         </DefaultButton>
       </FormWrapper>
-    </>
+    </Layout>
   );
 };
 
 export default SharingRequest;
 
 const Middle = styled.div`
-  width: 100%;
-
-  & > div {
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const FarmerName = styled.div`
@@ -121,8 +116,9 @@ const CounterButton = styled.button`
 `;
 
 const FormWrapper = styled.div`
-  width: 85%;
+  width: 92%;
   display: flex;
   gap: 0.5rem;
-  padding: 2rem 0 4rem 0;
+  padding-top: 2rem;
+  margin: 0 auto;
 `;

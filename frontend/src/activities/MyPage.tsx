@@ -1,21 +1,30 @@
 import styled from '@emotion/styled';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { AppScreen } from '@stackflow/plugin-basic-ui';
+import { useActivityParams } from '@stackflow/react';
 
 import { DefaultButton } from '@/components';
-import { GetReservation } from '@/interface';
-
-interface RouteState {
-  nickname: string;
-  prop: GetReservation;
-}
+import { useFlow } from '@/useFlow';
 
 const MyPage = () => {
-  const { state } = useLocation();
-  const { nickname, prop }: RouteState = state;
-  const navigate = useNavigate();
+  const { push } = useFlow();
+  const {
+    nickname,
+    address,
+    farmImage,
+    farmName,
+    phoneNumber,
+    reservationCount,
+  } = useActivityParams<{
+    nickname: string;
+    address: string;
+    farmImage: string;
+    farmName: string;
+    phoneNumber: string;
+    reservationCount: string;
+  }>();
 
   return (
-    <>
+    <AppScreen appBar={{ title: '귤러가요' }}>
       <Middle>
         <div>
           <Text>
@@ -25,35 +34,33 @@ const MyPage = () => {
           <InfoWrapper>
             <FarmerInfo>
               <FarmerImage
-                src={prop.farmImage ?? '/sharing99.png'}
-                alt={prop.farmImage ?? 'sharing99'}
+                src={farmImage ?? '/sharing99.png'}
+                alt={farmImage ?? 'sharing99'}
               />
               <FarmerTextInfo>
                 <div>
-                  <FarmerTitle>{prop.farmName}</FarmerTitle>
-                  <FarmAddress>{prop.address}</FarmAddress>
+                  <FarmerTitle>{farmName}</FarmerTitle>
+                  <FarmAddress>{address}</FarmAddress>
                 </div>
                 <SharingGgulCount>
-                  나눔한 귤 개수: {prop.reservationCount}
+                  나눔한 귤 개수: {reservationCount}
                 </SharingGgulCount>
               </FarmerTextInfo>
             </FarmerInfo>
             <DefaultButton
               backgroundColor="#F57D14"
-              onClick={() => navigate('/')}
+              onClick={() => push('Sharing', {})}
             >
               완료하기
             </DefaultButton>
             <DefaultButton backgroundColor="#F57D14">
-              <TelPhone href={`tel:${prop.phoneNumber}`}>
-                농부에게 전화하기
-              </TelPhone>
+              <TelPhone href={`tel:${phoneNumber}`}>농부에게 전화하기</TelPhone>
             </DefaultButton>
           </InfoWrapper>
         </div>
       </Middle>
       <div></div>
-    </>
+    </AppScreen>
   );
 };
 

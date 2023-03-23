@@ -1,16 +1,13 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 
 import { search } from '@/api/api';
 import { searchState } from '@/atom/atom';
 import { DefaultButton } from '@/components';
+import Layout from '@/components/Layout';
 import Loading from '@/components/Loading';
-
-interface Props {
-  color: string;
-}
+import { useFlow } from '@/useFlow';
 
 const LocationLevel = () => {
   const [walk, setWalk] = useState(false);
@@ -18,7 +15,7 @@ const LocationLevel = () => {
   const [car, setCar] = useState(false);
   const [loading, setLoading] = useState(false);
   const farmerData = useSetRecoilState(searchState);
-  const navigate = useNavigate();
+  const { push } = useFlow();
 
   const handleSubmit = () => {
     if (walk || bike || car) {
@@ -30,7 +27,7 @@ const LocationLevel = () => {
       })
         .then((data) => {
           farmerData(data.data.data);
-          navigate('/sharing-request');
+          push('SharingRequest', {});
         })
         .catch(() => {
           alert('주변에 농장이 없어요. 다른 위치에서 다시 시도해 주세요.');
@@ -40,7 +37,7 @@ const LocationLevel = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Loading loading={loading} />
       <Middle>
         <div>
@@ -70,26 +67,21 @@ const LocationLevel = () => {
             <Car color={car ? '#F57D14' : '#EFEFF0'} />
           </TypeButton>
         </div>
-      </Middle>
-      <Bottom>
         <DefaultButton backgroundColor="#F57D14" onClick={handleSubmit}>
           귤러가요
         </DefaultButton>
-      </Bottom>
-    </>
+      </Middle>
+    </Layout>
   );
 };
 
 export default LocationLevel;
 
 const Middle = styled.div`
-  width: 100%;
-  & > div {
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  padding: 2rem 2rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 const SearchText = styled.div`
@@ -109,12 +101,7 @@ const TypeButton = styled.button`
   width: 100%;
 `;
 
-const Bottom = styled.div`
-  width: 85%;
-  padding-bottom: 4rem;
-`;
-
-const Walk = ({ color }: Props) => {
+const Walk = ({ color }: { color: string }) => {
   return (
     <svg
       width="100%"
@@ -170,7 +157,7 @@ const Walk = ({ color }: Props) => {
   );
 };
 
-const Bike = ({ color }: Props) => {
+const Bike = ({ color }: { color: string }) => {
   return (
     <svg
       width="100%"
@@ -266,7 +253,7 @@ const Bike = ({ color }: Props) => {
   );
 };
 
-const Car = ({ color }: Props) => {
+const Car = ({ color }: { color: string }) => {
   return (
     <svg
       width="100%"

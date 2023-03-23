@@ -1,40 +1,46 @@
 import styled from '@emotion/styled';
 import TextField from '@mui/material/TextField';
+import { AppScreen } from '@stackflow/plugin-basic-ui';
 import { useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
 
-import { reservation } from '@/api/api';
-import { searchState } from '@/atom/atom';
+import { getReservation } from '@/api/api';
+import { useFlow } from '@/useFlow';
 
-const UserConfirm = () => {
+const ReservationConfirm = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
-  const farmerData = useRecoilValue(searchState);
-  const { state: count } = useLocation();
-  const navigate = useNavigate();
+  const { push } = useFlow();
 
   const handleSubmit = () => {
-    if (!nicknameRef.current?.value) {
+    if (!nicknameRef.current) return;
+
+    if (!nicknameRef.current.value) {
       alert('닉네임을 입력해 주세요');
       return;
     }
 
-    reservation({
-      farmId: farmerData.id,
-      ggulCount: count,
-      nickname: nicknameRef.current.value,
-    })
-      .then(() => navigate('/app-completed'))
-      .catch(() => alert('이미 신청한 닉네임이에요'));
+    getReservation(nicknameRef.current.value)
+      .then((data) => {
+        if (!nicknameRef.current) return;
+        push('MyPage', {
+          nickname: nicknameRef.current.value,
+          address: data.data.data.address,
+          farmImage: data.data.data.farmImage,
+          farmName: data.data.data.farmName,
+          phoneNumber: data.data.data.phoneNumber,
+          reservationCount: data.data.data.reservationCount,
+          reservationId: data.data.data.reservationId,
+        });
+      })
+      .catch(() => alert('닉네임을 확인해 주세요'));
   };
 
   return (
-    <>
+    <AppScreen appBar={{ title: '귤러가요' }}>
       <Middle>
         <div>
           <Text>
             <SearchTextTop>반가워요 귤줍님,</SearchTextTop>
-            이용할 닉네임을 알려주세요
+            예약하신 닉네임을 알려주세요
           </Text>
           <TextField fullWidth label="닉네임" inputRef={nicknameRef} />
         </div>
@@ -44,11 +50,11 @@ const UserConfirm = () => {
           <Check />
         </NextButton>
       </Bottom>
-    </>
+    </AppScreen>
   );
 };
 
-export default UserConfirm;
+export default ReservationConfirm;
 
 const Middle = styled.div`
   width: 100%;

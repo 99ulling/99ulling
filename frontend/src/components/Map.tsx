@@ -114,8 +114,8 @@ const Map = ({ latitude, longitude }: MapProps) => {
 };
 
 const MapContainer = styled.div`
-  width: 325px;
-  height: 325px;
+  width: 100%;
+  min-height: 60vh;
 `;
 
 export default Map;
