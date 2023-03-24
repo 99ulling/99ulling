@@ -9,12 +9,3 @@ export interface Reservation {
   ggulCount: number;
   nickname: string;
 }
-
-export interface GetReservation {
-  address: string;
-  farmImage: string;
-  farmName: string;
-  phoneNumber: string;
-  reservationCount: number;
-  reservationId: number;
-}

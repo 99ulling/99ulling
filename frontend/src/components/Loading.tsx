@@ -15,7 +15,7 @@ const Loading = ({ loading }: Prop) => {
           height: '100%',
         }}
       >
-        <img width={300} src="loading.gif" alt="loading.gif" />
+        <img width={300} src="/loading.gif" alt="loading.gif" />
       </div>
     </LoadingWrapper>
   );

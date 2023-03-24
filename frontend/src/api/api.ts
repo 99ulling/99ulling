@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Reservation, Search } from '@/interface';
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_REACT_APP_URL,
+  baseURL: import.meta!.env.VITE_REACT_APP_URL,
   headers: {
     'Content-Type': 'application/json',
     accept: '*/*',
