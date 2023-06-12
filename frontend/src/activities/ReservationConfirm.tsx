@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import TextField from '@mui/material/TextField';
 import { AppScreen } from '@stackflow/plugin-basic-ui';
 import { useRef } from 'react';
 
@@ -7,7 +6,7 @@ import { getReservation } from '@/api/api';
 import { useFlow } from '@/useFlow';
 
 const ReservationConfirm = () => {
-  const nicknameRef = useRef<HTMLInputElement>(null);
+  const nicknameRef = useRef<HTMLTextAreaElement>(null);
   const { push } = useFlow();
 
   const handleSubmit = () => {
@@ -42,7 +41,7 @@ const ReservationConfirm = () => {
             <SearchTextTop>반가워요 귤줍님,</SearchTextTop>
             예약하신 닉네임을 알려주세요
           </Text>
-          <TextField fullWidth label="닉네임" inputRef={nicknameRef} />
+          <textarea placeholder="닉네임" ref={nicknameRef} />
         </div>
       </Middle>
       <Bottom>
