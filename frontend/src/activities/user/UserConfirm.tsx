@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import TextField from '@mui/material/TextField';
 import { useActivityParams } from '@stackflow/react';
 import { useRef } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -10,7 +9,7 @@ import Layout from '@/components/Layout';
 import { useFlow } from '@/useFlow';
 
 const UserConfirm = () => {
-  const nicknameRef = useRef<HTMLInputElement>(null);
+  const nicknameRef = useRef<HTMLTextAreaElement>(null);
   const farmerData = useRecoilValue(searchState);
   const { count } = useActivityParams<{
     count: string;
@@ -220,7 +219,7 @@ const UserConfirm = () => {
             fill="#FFAA01"
           />
         </svg>
-        <TextField fullWidth label="닉네임" inputRef={nicknameRef} />
+        <textarea placeholder="닉네임" ref={nicknameRef} />
       </Middle>
       <Bottom>
         <NextButton onClick={handleSubmit}>
