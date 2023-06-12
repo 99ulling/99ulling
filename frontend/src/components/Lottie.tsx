@@ -1,5 +1,5 @@
-import lottie, { AnimationItem } from 'lottie-web';
-import { memo, MutableRefObject, useEffect, useRef } from 'react';
+import lottie, { AnimationItem } from "lottie-web";
+import { memo, MutableRefObject, useEffect, useRef } from "react";
 
 interface Props {
   src: string;
@@ -26,7 +26,7 @@ const Lottie = memo(
         container: container.current,
         loop,
         autoplay,
-        renderer: 'svg',
+        renderer: "svg",
         path: src,
         assetsPath,
         name,

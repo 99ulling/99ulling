@@ -1,12 +1,12 @@
-import styled from '@emotion/styled';
-import { useActivityParams } from '@stackflow/react';
-import { useRef } from 'react';
-import { useRecoilValue } from 'recoil';
+import styled from "@emotion/styled";
+import { useActivityParams } from "@stackflow/react";
+import { useRef } from "react";
+import { useRecoilValue } from "recoil";
 
-import { reservation } from '@/api/api';
-import { searchState } from '@/atom/atom';
-import Layout from '@/components/Layout';
-import { useFlow } from '@/useFlow';
+import { reservation } from "@/api/api";
+import { searchState } from "@/atom/atom";
+import Layout from "@/components/Layout";
+import { useFlow } from "@/useFlow";
 
 const UserConfirm = () => {
   const nicknameRef = useRef<HTMLTextAreaElement>(null);
@@ -18,7 +18,7 @@ const UserConfirm = () => {
 
   const handleSubmit = () => {
     if (!nicknameRef.current?.value) {
-      alert('닉네임을 입력해 주세요');
+      alert("닉네임을 입력해 주세요");
       return;
     }
 
@@ -27,8 +27,8 @@ const UserConfirm = () => {
       ggulCount: Number(count),
       nickname: nicknameRef.current.value,
     })
-      .then(() => push('AppCompleted', {}))
-      .catch(() => alert('이미 신청한 닉네임이에요'));
+      .then(() => push("AppCompleted", {}))
+      .catch(() => alert("이미 신청한 닉네임이에요"));
   };
 
   return (

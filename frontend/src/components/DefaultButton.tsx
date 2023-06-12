@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 interface Props {
   children: React.ReactNode;
@@ -17,7 +17,7 @@ const DefaultButton = ({
     <StyledButton
       onClick={onClick}
       backgroundColor={backgroundColor}
-      color={color ?? 'white'}
+      color={color ?? "white"}
     >
       {children}
     </StyledButton>

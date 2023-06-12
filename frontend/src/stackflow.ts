@@ -1,7 +1,7 @@
-import { basicUIPlugin } from '@stackflow/plugin-basic-ui';
-import { historySyncPlugin } from '@stackflow/plugin-history-sync';
-import { basicRendererPlugin } from '@stackflow/plugin-renderer-basic';
-import { stackflow } from '@stackflow/react';
+import { basicUIPlugin } from "@stackflow/plugin-basic-ui";
+import { historySyncPlugin } from "@stackflow/plugin-history-sync";
+import { basicRendererPlugin } from "@stackflow/plugin-renderer-basic";
+import { stackflow } from "@stackflow/react";
 
 import {
   AppCompleted,
@@ -12,30 +12,30 @@ import {
   Sharing,
   SharingRequest,
   UserConfirm,
-} from '@/activities';
+} from "@/activities";
 
 export const { Stack, activities } = stackflow({
   transitionDuration: 350,
   plugins: [
     basicRendererPlugin(),
     basicUIPlugin({
-      theme: 'cupertino',
+      theme: "cupertino",
       appBar: {
-        minHeight: '100vh',
+        minHeight: "100vh",
       },
     }),
     historySyncPlugin({
       routes: {
-        Sharing: '/',
-        LocationLevel: '/location-level',
-        UserConfirm: '/user-confirm',
-        SharingRequest: '/sharing-request',
-        AppCompleted: '/app-completed',
-        ReservationConfirm: '/reservation-confirm',
-        MyPage: '/mypage',
-        NotFound: '/404',
+        Sharing: "/",
+        LocationLevel: "/location-level",
+        UserConfirm: "/user-confirm",
+        SharingRequest: "/sharing-request",
+        AppCompleted: "/app-completed",
+        ReservationConfirm: "/reservation-confirm",
+        MyPage: "/mypage",
+        NotFound: "/404",
       },
-      fallbackActivity: () => 'NotFound',
+      fallbackActivity: () => "NotFound",
     }),
   ],
   activities: {
@@ -48,7 +48,7 @@ export const { Stack, activities } = stackflow({
     SharingRequest,
     UserConfirm,
   },
-  initialActivity: () => 'Sharing',
+  initialActivity: () => "Sharing",
 });
 
 export type TypeActivities = typeof activities;

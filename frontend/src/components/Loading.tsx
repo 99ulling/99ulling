@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 interface Prop {
   loading: boolean;
@@ -6,13 +6,13 @@ interface Prop {
 
 const Loading = ({ loading }: Prop) => {
   return (
-    <LoadingWrapper loading={loading ? 'block' : 'none'} className="overlay">
+    <LoadingWrapper loading={loading ? "block" : "none"} className="overlay">
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100%',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
         }}
       >
         <img width={300} src="/loading.gif" alt="loading.gif" />
@@ -25,7 +25,7 @@ export default Loading;
 
 const LoadingWrapper = styled.div<{ loading: string }>`
   &.overlay {
-    display: ${(props) => (props.loading === 'block' ? 'block' : 'none')};
+    display: ${(props) => (props.loading === "block" ? "block" : "none")};
     z-index: 1000;
     position: fixed;
     width: 100%;

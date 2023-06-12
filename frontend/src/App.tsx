@@ -1,7 +1,7 @@
-import { StrictMode, Suspense } from 'react';
-import { RecoilRoot } from 'recoil';
+import { StrictMode, Suspense } from "react";
+import { RecoilRoot } from "recoil";
 
-import { Stack } from './stackflow';
+import { Stack } from "./stackflow";
 
 const App = () => (
   <StrictMode>

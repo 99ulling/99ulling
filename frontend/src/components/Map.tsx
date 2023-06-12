@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
+import styled from "@emotion/styled";
+import { useEffect } from "react";
+import { useSetRecoilState } from "recoil";
 
-import { loginUserAddressState } from '@/atom/atom';
+import { loginUserAddressState } from "@/atom/atom";
 
 declare global {
   interface Window {
@@ -20,7 +20,7 @@ const Map = ({ latitude, longitude }: MapProps) => {
   const setAddress = useSetRecoilState(loginUserAddressState);
 
   useEffect(() => {
-    const mapScript = document.createElement('script');
+    const mapScript = document.createElement("script");
 
     mapScript.async = true;
     mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${
@@ -31,7 +31,7 @@ const Map = ({ latitude, longitude }: MapProps) => {
 
     const onLoadKakaoMap = () => {
       window.kakao.maps.load(() => {
-        const container = document.getElementById('map');
+        const container = document.getElementById("map");
         const options = {
           center: new window.kakao.maps.LatLng(latitude, longitude),
         };
@@ -69,14 +69,14 @@ const Map = ({ latitude, longitude }: MapProps) => {
               33.450701,
               126.570667
             ),
-            message = 'geolocation을 사용할수 없어요..';
+            message = "geolocation을 사용할수 없어요..";
 
           displayMarker(locPosition, message);
         }
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         function displayMarker(position: any, message: string) {
-          const imageSrc = '/marker.png',
+          const imageSrc = "/marker.png",
             imageSize = new window.kakao.maps.Size(64, 69),
             imageOption = { offset: new window.kakao.maps.Point(27, 69) };
 
@@ -105,9 +105,9 @@ const Map = ({ latitude, longitude }: MapProps) => {
         }
       });
     };
-    mapScript.addEventListener('load', onLoadKakaoMap);
+    mapScript.addEventListener("load", onLoadKakaoMap);
 
-    return () => mapScript.removeEventListener('load', onLoadKakaoMap);
+    return () => mapScript.removeEventListener("load", onLoadKakaoMap);
   }, [latitude, longitude, setAddress]);
 
   return <MapContainer id="map" />;

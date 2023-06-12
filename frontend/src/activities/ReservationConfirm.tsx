@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
-import { AppScreen } from '@stackflow/plugin-basic-ui';
-import { useRef } from 'react';
+import styled from "@emotion/styled";
+import { AppScreen } from "@stackflow/plugin-basic-ui";
+import { useRef } from "react";
 
-import { getReservation } from '@/api/api';
-import { useFlow } from '@/useFlow';
+import { getReservation } from "@/api/api";
+import { useFlow } from "@/useFlow";
 
 const ReservationConfirm = () => {
   const nicknameRef = useRef<HTMLTextAreaElement>(null);
@@ -13,14 +13,14 @@ const ReservationConfirm = () => {
     if (!nicknameRef.current) return;
 
     if (!nicknameRef.current.value) {
-      alert('닉네임을 입력해 주세요');
+      alert("닉네임을 입력해 주세요");
       return;
     }
 
     getReservation(nicknameRef.current.value)
       .then((data) => {
         if (!nicknameRef.current) return;
-        push('MyPage', {
+        push("MyPage", {
           nickname: nicknameRef.current.value,
           address: data.data.data.address,
           farmImage: data.data.data.farmImage,
@@ -30,11 +30,11 @@ const ReservationConfirm = () => {
           reservationId: data.data.data.reservationId,
         });
       })
-      .catch(() => alert('닉네임을 확인해 주세요'));
+      .catch(() => alert("닉네임을 확인해 주세요"));
   };
 
   return (
-    <AppScreen appBar={{ title: '귤러가요' }}>
+    <AppScreen appBar={{ title: "귤러가요" }}>
       <Middle>
         <div>
           <Text>

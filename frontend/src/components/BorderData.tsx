@@ -1,10 +1,10 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 interface BorderData {
   title: string;
   value: string;
-  bottom?: 'bottom';
-  remainCount?: 'remainCount';
+  bottom?: "bottom";
+  remainCount?: "remainCount";
 }
 
 const DataTable = ({ title, value, bottom, remainCount }: BorderData) => {
