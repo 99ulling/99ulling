@@ -1,14 +1,14 @@
-import styled from '@emotion/styled';
-import { useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import styled from "@emotion/styled";
+import { useState } from "react";
+import { useRecoilValue } from "recoil";
 
-import { searchState } from '@/atom/atom';
-import { DefaultButton } from '@/components';
-import DataTable from '@/components/BorderData';
-import Layout from '@/components/Layout';
-import Loading from '@/components/Loading';
-import Tag from '@/components/Tag';
-import { useFlow } from '@/useFlow';
+import { searchState } from "@/atom/atom";
+import { DefaultButton } from "@/components";
+import DataTable from "@/components/BorderData";
+import Layout from "@/components/Layout";
+import Loading from "@/components/Loading";
+import Tag from "@/components/Tag";
+import { useFlow } from "@/useFlow";
 
 const SharingRequest = () => {
   const [count, setCount] = useState(1);
@@ -27,7 +27,7 @@ const SharingRequest = () => {
   const handleButton = () => {
     setLoading(true);
     setTimeout(() => {
-      push('UserConfirm', {
+      push("UserConfirm", {
         count,
       });
     }, 300);

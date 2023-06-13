@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { AppScreen } from '@stackflow/plugin-basic-ui';
+import styled from "@emotion/styled";
+import { AppScreen } from "@stackflow/plugin-basic-ui";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 export default Layout;
 
 const AppTitle = styled.header`
-  font-family: 'bazzi';
+  font-family: "bazzi";
   font-size: 2rem;
   font-weight: normal;
   color: #f57d14;
