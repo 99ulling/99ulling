@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
-import { AppScreen } from '@stackflow/plugin-basic-ui';
-import { useActivityParams } from '@stackflow/react';
+import styled from "@emotion/styled";
+import { AppScreen } from "@stackflow/plugin-basic-ui";
+import { useActivityParams } from "@stackflow/react";
 
-import { DefaultButton } from '@/components';
-import { useFlow } from '@/useFlow';
+import { DefaultButton } from "@/components";
+import { useFlow } from "@/useFlow";
 
 const MyPage = () => {
   const { push } = useFlow();
@@ -24,18 +24,18 @@ const MyPage = () => {
   }>();
 
   return (
-    <AppScreen appBar={{ title: '귤러가요' }}>
+    <AppScreen appBar={{ title: "귤러가요" }}>
       <Middle>
         <div>
           <Text>
-            <SearchTextTop>{nickname ?? '귤줍'}님,</SearchTextTop>
+            <SearchTextTop>{nickname ?? "귤줍"}님,</SearchTextTop>
             나눔 상황을 알려드려요
           </Text>
           <InfoWrapper>
             <FarmerInfo>
               <FarmerImage
-                src={farmImage ?? '/sharing99.png'}
-                alt={farmImage ?? 'sharing99'}
+                src={farmImage ?? "/sharing99.png"}
+                alt={farmImage ?? "sharing99"}
               />
               <FarmerTextInfo>
                 <div>
@@ -49,7 +49,7 @@ const MyPage = () => {
             </FarmerInfo>
             <DefaultButton
               backgroundColor="#F57D14"
-              onClick={() => push('Sharing', {})}
+              onClick={() => push("Sharing", {})}
             >
               완료하기
             </DefaultButton>

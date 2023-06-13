@@ -1,12 +1,12 @@
-import styled from '@emotion/styled';
-import { useRecoilValue } from 'recoil';
+import styled from "@emotion/styled";
+import { useRecoilValue } from "recoil";
 
-import { loginUserAddressState } from '@/atom/atom';
-import { DefaultButton } from '@/components';
-import Layout from '@/components/Layout';
-import Map from '@/components/Map';
+import { loginUserAddressState } from "@/atom/atom";
+import { DefaultButton } from "@/components";
+import Layout from "@/components/Layout";
+import Map from "@/components/Map";
 
-import { useFlow } from '../useFlow';
+import { useFlow } from "../useFlow";
 
 const Sharing = () => {
   const { push } = useFlow();
@@ -21,15 +21,15 @@ const Sharing = () => {
           <LocationIcon />
         </Location>
         <Map latitude={33.450701} longitude={126.570667} />
-        <div style={{ width: '90%', textAlign: 'center' }}>
+        <div style={{ width: "90%", textAlign: "center" }}>
           <DefaultButton
-            onClick={() => push('LocationLevel', {})}
+            onClick={() => push("LocationLevel", {})}
             backgroundColor="#F57D14"
           >
             나눔받기
           </DefaultButton>
         </div>
-        <AlreadyAppliedButton onClick={() => push('ReservationConfirm', {})}>
+        <AlreadyAppliedButton onClick={() => push("ReservationConfirm", {})}>
           이미 신청하셨나요?
         </AlreadyAppliedButton>
       </Middle>

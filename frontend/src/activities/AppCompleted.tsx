@@ -1,15 +1,15 @@
-import styled from '@emotion/styled';
-import { AppScreen } from '@stackflow/plugin-basic-ui';
-import { ComponentProps } from 'react';
-import { useRecoilValue } from 'recoil';
+import styled from "@emotion/styled";
+import { AppScreen } from "@stackflow/plugin-basic-ui";
+import { ComponentProps } from "react";
+import { useRecoilValue } from "recoil";
 
-import { searchState } from '@/atom/atom';
-import { DefaultButton } from '@/components';
-import DataTable from '@/components/BorderData';
-import Lottie from '@/components/Lottie';
-import { useFlow } from '@/useFlow';
+import { searchState } from "@/atom/atom";
+import { DefaultButton } from "@/components";
+import DataTable from "@/components/BorderData";
+import Lottie from "@/components/Lottie";
+import { useFlow } from "@/useFlow";
 
-const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, 'src'>) => (
+const CompleteLottie = (props: Omit<ComponentProps<typeof Lottie>, "src">) => (
   <LottieWrapper>
     <Lottie {...props} data-testid="completeLottie" src="/public/check.json" />
   </LottieWrapper>
@@ -20,7 +20,7 @@ const AppCompleted = () => {
   const { push } = useFlow();
 
   return (
-    <AppScreen appBar={{ title: '귤러가요' }}>
+    <AppScreen appBar={{ title: "귤러가요" }}>
       <Middle>
         <div>
           <CompleteLottie loop={false} />
@@ -44,7 +44,7 @@ const AppCompleted = () => {
       <Bottom>
         <DefaultButton
           backgroundColor="#F57D14"
-          onClick={() => push('Sharing', {})}
+          onClick={() => push("Sharing", {})}
         >
           완료
         </DefaultButton>
