@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { AppScreen } from "@stackflow/plugin-basic-ui";
 import { useActivityParams } from "@stackflow/react";
 
-import { DefaultButton } from "@/components";
+import { Button } from "@/components";
 import { useFlow } from "@/useFlow";
 
 const MyPage = () => {
@@ -47,15 +47,12 @@ const MyPage = () => {
                 </SharingGgulCount>
               </FarmerTextInfo>
             </FarmerInfo>
-            <DefaultButton
-              backgroundColor="#F57D14"
-              onClick={() => push("Sharing", {})}
-            >
+            <Button appearance="primary" onClick={() => push("Sharing", {})}>
               완료하기
-            </DefaultButton>
-            <DefaultButton backgroundColor="#F57D14">
+            </Button>
+            <Button appearance="primary">
               <TelPhone href={`tel:${phoneNumber}`}>농부에게 전화하기</TelPhone>
-            </DefaultButton>
+            </Button>
           </InfoWrapper>
         </div>
       </Middle>

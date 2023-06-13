@@ -4,7 +4,7 @@ import { ComponentProps } from "react";
 import { useRecoilValue } from "recoil";
 
 import { searchState } from "@/atom/atom";
-import { DefaultButton } from "@/components";
+import { Button } from "@/components";
 import DataTable from "@/components/BorderData";
 import Lottie from "@/components/Lottie";
 import { useFlow } from "@/useFlow";
@@ -42,12 +42,9 @@ const AppCompleted = () => {
         </div>
       </Middle>
       <Bottom>
-        <DefaultButton
-          backgroundColor="#F57D14"
-          onClick={() => push("Sharing", {})}
-        >
+        <Button appearance="primary" onClick={() => push("Sharing", {})}>
           완료
-        </DefaultButton>
+        </Button>
       </Bottom>
     </AppScreen>
   );

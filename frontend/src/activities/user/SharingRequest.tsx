@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRecoilValue } from "recoil";
 
 import { searchState } from "@/atom/atom";
-import { DefaultButton } from "@/components";
+import { Button } from "@/components";
 import DataTable from "@/components/BorderData";
 import Layout from "@/components/Layout";
 import Loading from "@/components/Loading";
@@ -68,9 +68,9 @@ const SharingRequest = () => {
           <div>{count}</div>
           <CounterButton onClick={onIncrease}>＋</CounterButton>
         </Counter>
-        <DefaultButton backgroundColor="#F57D14" onClick={handleButton}>
+        <Button appearance="primary" onClick={handleButton}>
           신청하기
-        </DefaultButton>
+        </Button>
       </FormWrapper>
     </Layout>
   );
