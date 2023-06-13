@@ -3,7 +3,19 @@ export const color = {
   secondary: "#FFAA01",
   tertiary: "#FFC01D",
 
-  white: "#FFFFFF",
+  lightest: "#FFFFFF",
+  lighter: "#F7FAFC",
+  light: "#EEF3F6",
+  mediumlight: "#ECF4F9",
+  medium: "#D9E8F2",
+  mediumdark: "#73828C",
+  dark: "#5C6870",
+  darker: "#454E54",
+  darkest: "#2E3438",
+  tr10: "rgba(0, 0, 0, 0.1)",
+  tr5: "rgba(0, 0, 0, 0.05)",
+
+  border: "hsla(203, 50%, 30%, 0.15)",
 };
 
 export const typography = {
