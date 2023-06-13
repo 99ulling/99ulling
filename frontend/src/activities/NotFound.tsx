@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { AppScreen } from "@stackflow/plugin-basic-ui";
 
-import { DefaultButton } from "@/components";
+import { Button } from "@/components";
 import { useFlow } from "@/useFlow";
 
 const NotFound = () => {
@@ -15,13 +15,13 @@ const NotFound = () => {
           <StyledText>요청하신 페이지를 찾을 수 없어요</StyledText>
           <StyledText id="last">올바른 주소로 접속해 주세요</StyledText>
 
-          <DefaultButton
+          <Button
             onClick={() => push("Sharing", {})}
-            backgroundColor="#F57D14"
+            appearance="primary"
             color="#fff"
           >
             홈으로 돌아가기
-          </DefaultButton>
+          </Button>
         </Wrapper>
       </Wrapper>
     </AppScreen>

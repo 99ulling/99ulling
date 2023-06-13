@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
 
 import { loginUserAddressState } from "@/atom/atom";
-import { DefaultButton } from "@/components";
+import { Button } from "@/components";
 import Layout from "@/components/Layout";
 import Map from "@/components/Map";
 
@@ -22,12 +22,12 @@ const Sharing = () => {
         </Location>
         <Map latitude={33.450701} longitude={126.570667} />
         <div style={{ width: "90%", textAlign: "center" }}>
-          <DefaultButton
+          <Button
+            appearance="primary"
             onClick={() => push("LocationLevel", {})}
-            backgroundColor="#F57D14"
           >
             나눔받기
-          </DefaultButton>
+          </Button>
         </div>
         <AlreadyAppliedButton onClick={() => push("ReservationConfirm", {})}>
           이미 신청하셨나요?

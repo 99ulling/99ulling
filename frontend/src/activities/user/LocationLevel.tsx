@@ -4,7 +4,7 @@ import { useSetRecoilState } from "recoil";
 
 import { search } from "@/api/api";
 import { searchState } from "@/atom/atom";
-import { DefaultButton } from "@/components";
+import { Button } from "@/components";
 import Layout from "@/components/Layout";
 import Loading from "@/components/Loading";
 import { useFlow } from "@/useFlow";
@@ -67,9 +67,9 @@ const LocationLevel = () => {
             <Car color={car ? "#F57D14" : "#EFEFF0"} />
           </TypeButton>
         </div>
-        <DefaultButton backgroundColor="#F57D14" onClick={handleSubmit}>
+        <Button appearance="primary" onClick={handleSubmit}>
           귤러가요
-        </DefaultButton>
+        </Button>
       </Middle>
     </Layout>
   );
