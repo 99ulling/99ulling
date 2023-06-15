@@ -11,8 +11,8 @@
     "preview": "vite preview",
     "lint": "eslint --fix",
     "type:check": "tsc --noEmit",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -35,8 +35,9 @@
     "@storybook/addon-essentials": "^7.0.20",
     "@storybook/addon-interactions": "^7.0.20",
     "@storybook/addon-links": "^7.0.20",
-    "@storybook/builder-vite": "^7.0.20",
+    "@storybook/addon-mdx-gfm": "^7.0.20",
     "@storybook/react": "^7.0.20",
+    "@storybook/react-vite": "^7.0.20",
     "@storybook/testing-library": "^0.1.0",
     "@types/node": "^18.15.5",
     "@types/react": "^18.0.28",
@@ -54,6 +55,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.12",
     "prettier": "^2.8.6",
+    "storybook": "^7.0.20",
     "typescript": "^5.0.2",
     "vite": "^4.2.3"
   },
