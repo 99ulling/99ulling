@@ -68,9 +68,7 @@ const SharingRequest = () => {
           <div>{count}</div>
           <CounterButton onClick={onIncrease}>＋</CounterButton>
         </Counter>
-        <Button appearance="primary" onClick={handleButton}>
-          신청하기
-        </Button>
+        <Button onClick={handleButton}>신청하기</Button>
       </FormWrapper>
     </Layout>
   );

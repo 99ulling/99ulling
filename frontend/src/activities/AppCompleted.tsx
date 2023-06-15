@@ -42,9 +42,7 @@ const AppCompleted = () => {
         </div>
       </Middle>
       <Bottom>
-        <Button appearance="primary" onClick={() => push("Sharing", {})}>
-          완료
-        </Button>
+        <Button onClick={() => push("Sharing", {})}>완료</Button>
       </Bottom>
     </AppScreen>
   );

@@ -22,10 +22,7 @@ const Sharing = () => {
         </Location>
         <Map latitude={33.450701} longitude={126.570667} />
         <div style={{ width: "90%", textAlign: "center" }}>
-          <Button
-            appearance="primary"
-            onClick={() => push("LocationLevel", {})}
-          >
+          <Button fullWidth={true} onClick={() => push("LocationLevel", {})}>
             나눔받기
           </Button>
         </div>
