@@ -15,11 +15,7 @@ const NotFound = () => {
           <StyledText>요청하신 페이지를 찾을 수 없어요</StyledText>
           <StyledText id="last">올바른 주소로 접속해 주세요</StyledText>
 
-          <Button
-            onClick={() => push("Sharing", {})}
-            appearance="primary"
-            color="#fff"
-          >
+          <Button onClick={() => push("Sharing", {})} color="#fff">
             홈으로 돌아가기
           </Button>
         </Wrapper>

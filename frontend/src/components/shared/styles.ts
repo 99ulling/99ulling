@@ -16,7 +16,7 @@ export const color = {
   tr5: "rgba(0, 0, 0, 0.05)",
 
   border: "hsla(203, 50%, 30%, 0.15)",
-};
+} as const;
 
 export const typography = {
   type: {
@@ -39,4 +39,9 @@ export const typography = {
     l2: 40,
     l3: 48,
   },
+} as const;
+
+export const SIZES = {
+  SMALL: "small",
+  MEDIUM: "medium",
 } as const;

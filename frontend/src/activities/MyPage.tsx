@@ -47,10 +47,8 @@ const MyPage = () => {
                 </SharingGgulCount>
               </FarmerTextInfo>
             </FarmerInfo>
-            <Button appearance="primary" onClick={() => push("Sharing", {})}>
-              완료하기
-            </Button>
-            <Button appearance="primary">
+            <Button onClick={() => push("Sharing", {})}>완료하기</Button>
+            <Button>
               <TelPhone href={`tel:${phoneNumber}`}>농부에게 전화하기</TelPhone>
             </Button>
           </InfoWrapper>

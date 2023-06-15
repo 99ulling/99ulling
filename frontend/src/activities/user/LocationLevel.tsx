@@ -67,9 +67,7 @@ const LocationLevel = () => {
             <Car color={car ? "#F57D14" : "#EFEFF0"} />
           </TypeButton>
         </div>
-        <Button appearance="primary" onClick={handleSubmit}>
-          귤러가요
-        </Button>
+        <Button onClick={handleSubmit}>귤러가요</Button>
       </Middle>
     </Layout>
   );
