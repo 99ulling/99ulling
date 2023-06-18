@@ -3,19 +3,15 @@ frontend:
 storybook:
   - frontend/stories/*
 eslint:
-  - configs/eslint/*
-  - configs/eslint/**/*
-rollup:
-  - configs/rollup/*
-  - configs/rollup/**/*
+  - frontend/eslintrc.*
 tsconfig:
-  - configs/tsconfig/*
-  - configs/tsconfig/**/*
+  - frontend/tsconfig.json
+  - frontend/tsconfig.node.json
 configuration:
-  - frontend/next.config.js
+  - frontend/vite.config.json
   - frontend/package*.json
-  - "frontend/**/.*"
-  - "frontend/tsconfig*.json"
+  - frontend/**/.*
+  - frontend/tsconfig*.json
 documentation:
   - "**/*.md"
 workflows:
