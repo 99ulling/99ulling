@@ -1,0 +1,19 @@
+frontend:
+  - frontend/*
+storybook:
+  - frontend/stories/*
+eslint:
+  - frontend/eslintrc.*
+tsconfig:
+  - frontend/tsconfig.json
+  - frontend/tsconfig.node.json
+configuration:
+  - frontend/vite.config.json
+  - frontend/package*.json
+  - frontend/**/.*
+  - frontend/tsconfig*.json
+documentation:
+  - "**/*.md"
+workflows:
+  - .github/*
+  - .github/**/*
