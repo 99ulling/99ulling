@@ -1,0 +1,23 @@
+frontend:
+  - frontend/*
+storybook:
+  - frontend/stories/*
+eslint:
+  - configs/eslint/*
+  - configs/eslint/**/*
+rollup:
+  - configs/rollup/*
+  - configs/rollup/**/*
+tsconfig:
+  - configs/tsconfig/*
+  - configs/tsconfig/**/*
+configuration:
+  - frontend/next.config.js
+  - frontend/package*.json
+  - "frontend/**/.*"
+  - "frontend/tsconfig*.json"
+documentation:
+  - "**/*.md"
+workflows:
+  - .github/*
+  - .github/**/*
